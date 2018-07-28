@@ -81,28 +81,28 @@ namespace CylnderEntities
 
 
 
-        public int LocationID;
+        public int LocationID { get; set; }
 
 
 
 
 
-        public string VanBatchNumber;
+        public string VanBatchNumber { get; set; }
 
 
 
-        public string TransactionDateTime;
+        public string TransactionDateTime { get; set; }
 
 
 
 
-        public int CompanyID;
+        public int CompanyID { get; set; }
 
 
-        public int BranchID;
+        public int BranchID { get; set; }
 
-        public int UserID;
-        public string GasInUse;
+        public int UserID { get; set; }
+        public string GasInUse { get; set; }
 
     }
 }

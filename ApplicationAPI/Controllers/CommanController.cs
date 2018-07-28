@@ -83,5 +83,49 @@ namespace CylinderAPI.Controllers
             }
         }
 
+
+
+        [HttpPost]
+        public int GetDayStartDayEnd(List<DayStartDayEndTable> dayStartDayEndTable)
+        {
+            try
+            {
+                int result = 0;
+                foreach (DayStartDayEndTable trans in dayStartDayEndTable)
+                {
+                    result = (int)InventoryEntities.usp_DayStartDayEndInsert(trans.DayStartDateTime,trans.DayEndDateTime,trans.ForDate,trans.Sstat, trans.CompanyID, trans.BranchID, trans.UserID,trans.logid,trans.IMEI).FirstOrDefault();
+
+
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
+
+        [HttpPost]
+
+        public int GetCustomerTransactionSign(List<CustomerTransactionSign> customerTransactionSign)
+        {
+            try
+            {
+                int result = 0;
+                foreach (CustomerTransactionSign trans in customerTransactionSign)
+                {
+                    result = (int)InventoryEntities.usp_CustomerTransactionSignInsert(trans.TransactionNumber,trans.CustomerID,trans.CurrentCustomerBranchID, trans.IsSatisfied,trans.CustomerSignature,trans.logid,trans.ForDate,trans.CurrentDateTime, trans.CompanyID, trans.BranchID, trans.UserID, trans.Sstat).FirstOrDefault();
+
+
+                }
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
     }
 }

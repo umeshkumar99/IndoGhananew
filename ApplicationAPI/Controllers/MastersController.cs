@@ -209,5 +209,62 @@ namespace ApplicationAPI.Controllers
             }
         }
 
+
+        public async Task<string> PostFileSignature()
+        {
+            
+
+            usp_tblStatusMasterGetByType_Result SignaturePath = InventoryEntities.usp_tblStatusMasterGetByType(9).FirstOrDefault();
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+
+           // string root = HttpContext.Current.Server.MapPath("~/Content");
+            var provider = new MultipartFormDataStreamProvider(SignaturePath.statusDesc.ToString());
+
+            try
+            {
+                StringBuilder sb = new StringBuilder(); // Holds the response body
+
+                // Read the form data and return an async task.
+                await Request.Content.ReadAsMultipartAsync(provider);
+
+                // This illustrates how to get the form data.
+                string filename = ""; int count = 0;
+                foreach (var key in provider.FormData.AllKeys)
+                {
+                    foreach (var val in provider.FormData.GetValues(key))
+                    {
+                        sb.Append(string.Format("{0}: {1}\n", key, val));
+                        if (count == 0)
+                        {
+                            filename = val;
+                        }
+                    }
+                }
+
+                // This illustrates how to get the file names for uploaded files.
+
+
+                foreach (var file in provider.FileData)
+                {
+                    FileInfo fileInfo = new FileInfo(file.LocalFileName);
+                    FileSystem.Rename(fileInfo.FullName, SignaturePath.statusDesc.ToString() + filename);
+                    //sb.Append(string.Format("Uploaded file: {0} ({1} bytes)\n", fileInfo.Name, fileInfo.Length));
+                }
+
+                String[] lines = { "sucess sb string" };
+                File.WriteAllLines(@"D:\IndoGhana\API\log.txt", lines);
+
+              
+                return sb.ToString();
+            }
+            catch (System.Exception e)
+            {
+               
+                return e.InnerException.ToString();
+            }
+        }
     }
 }

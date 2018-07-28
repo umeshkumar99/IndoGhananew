@@ -47,6 +47,20 @@
         <Function Name="usp_CustomerSiteMasterGetbyIDDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerIDSiteID" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_CustomerTransactionSignInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="CurrentCustomerBranchID" Type="int" Mode="In" />
+          <Parameter Name="IsSatisfied" Type="int" Mode="In" />
+          <Parameter Name="CustomerSignature" Type="varchar" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="ForDate" Type="varchar" Mode="In" />
+          <Parameter Name="CurrentDateTime" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Sstat" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_CustomrSiteListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CylinderMasterGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CylinderMasterGetBarcodeImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -103,6 +117,17 @@
         <Function Name="usp_CylinderMasterMobileGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CylinderMasterMobileGetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CylindeNumber" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_DayStartDayEndInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DayStartDateTime" Type="varchar" Mode="In" />
+          <Parameter Name="DayEndDateTime" Type="varchar" Mode="In" />
+          <Parameter Name="ForDate" Type="varchar" Mode="In" />
+          <Parameter Name="Sstat" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="IMEI" Type="varchar" Mode="In" />
         </Function>
         <Function Name="USP_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="LoginId" Type="varchar" Mode="In" />
@@ -570,6 +595,31 @@
           <FunctionImport Name="usp_UpdateLogoutTime">
             <Parameter Name="LogId" Mode="In" Type="Int64" />
             <Parameter Name="machineIP" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CustomerTransactionSignInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="IsSatisfied" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerSignature" Mode="In" Type="String" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="ForDate" Mode="In" Type="String" />
+            <Parameter Name="CurrentDateTime" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Sstat" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DayStartDayEndInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="DayStartDateTime" Mode="In" Type="String" />
+            <Parameter Name="DayEndDateTime" Mode="In" Type="String" />
+            <Parameter Name="ForDate" Mode="In" Type="String" />
+            <Parameter Name="Sstat" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="IMEI" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -1704,6 +1754,8 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_tblTransactionAllDetailInsert" FunctionName="IndoGhanaModel.Store.usp_tblTransactionAllDetailInsert" />
           <FunctionImportMapping FunctionImportName="usp_UpdateLogoutTime" FunctionName="IndoGhanaModel.Store.usp_UpdateLogoutTime" />
+          <FunctionImportMapping FunctionImportName="usp_CustomerTransactionSignInsert" FunctionName="IndoGhanaModel.Store.usp_CustomerTransactionSignInsert" />
+          <FunctionImportMapping FunctionImportName="usp_DayStartDayEndInsert" FunctionName="IndoGhanaModel.Store.usp_DayStartDayEndInsert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

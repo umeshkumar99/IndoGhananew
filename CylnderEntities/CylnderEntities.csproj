@@ -123,8 +123,10 @@
     <Compile Include="Models\BatchStartEnd.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerSiteMaster.cs" />
+    <Compile Include="Models\CustomerTransactionSign.cs" />
     <Compile Include="Models\CylinderInVan.cs" />
     <Compile Include="Models\Cylinders.cs" />
+    <Compile Include="Models\DayStartDayEndTable.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\TransactionAllDetail.cs" />
