@@ -1,0 +1,226 @@
+﻿@{
+    ViewBag.Title = "Cylinder Fill";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+   
+    <script>
+
+        $(document).ready(function () {
+            //alert('body');
+            $('#barcodevalues').val('');
+            $('#txtbarcode').focus();
+            var count = 1;
+            var ids = [];
+            
+            function DeleteRows() {
+                debugger;
+                var rowCount = Prodtbl.rows.length;
+                for (var i = rowCount - 1; i > 0; i--) {
+                    Prodtbl.deleteRow(i);
+                }
+                for (var j = 0; j < ids.length ; j++)
+                    ids.pop();
+
+                //ids = [];
+                //$.removeData("ids");
+                $('#txtbarcode').focus();
+            }
+            $('#btncleardata').click(function () {
+                DeleteRows();
+            });
+            function GetSelected() {
+                var chected = new Array();
+                debugger;
+                $("[name='chklistitem']").each(function (index, data) {
+                    if (data.checked) {
+                        chected.push( data.value);
+                    }
+                });
+                $('#barcodevalues').val(chected);
+                alert($('#barcodevalues').val());
+            }
+
+            function CheckSelected(barcode) {
+                //var chected = new Array();
+                var flag=false;
+                debugger;
+                $.each(ids, function(key, value){
+                    //    alert(key +":" + value);
+                    if (value == barcode) {
+                        flag = true;
+                        //break
+                    }
+                });
+
+                //$("[name='chklistitem']").each(function (index, data) {
+                //    if (data.value == barcode) {
+                //        flag = true;
+                //        //break
+                //    }
+                //});
+                if (flag) {
+                    alert("Cylinder already exists in the list, Please scan another cylinder");
+                    $('#txtbarcode').focus();
+                    return true;
+                }
+                else
+                    return false;
+            }
+
+
+            $('#btnsubmit').click(function () {
+                var result;
+                //ids.splice()
+
+                GetSelected();
+                //$.each(ids, function(key, value){
+                //    alert(key +":" + value);
+                //});
+            });
+
+            $('#txtbarcode').change(function () {
+                txtbarcodeval = document.getElementById('txtbarcode').value;
+                document.getElementById('txtbarcode').value = "";
+                var result = false;
+                result=CheckSelected(txtbarcodeval);
+            debugger;
+            if (result==false) {
+                $.ajax(
+               {
+
+                   url: '@Url.Action("checkCyliderDetailsbyBarCode")',
+                   data: { barcode: txtbarcodeval },
+                   method: 'Post',
+                   dataType: 'json',
+
+                   success: function (data) {
+
+                       debugger;
+                       var Prodtbl = $('#Prodtbl tbody');
+
+                       if (data != null) {
+                           debugger;
+                           if (data.CylindeNumber != '') {
+                               if (data.PresentState == "Filled" || data.PresentState == "Damaged") {
+                                   alert("The scanned cylinder is either Filled or damaged. Please Contact supervisor to refill the Cylinder No.: " + data.CylindeNumber);
+                                   $('#txtbarcode').focus();
+                               }
+                               else {
+                                   Prodtbl.append('<tr id="tr' + count.toString() + '"><td>' +
+                                       //'<input  checked type="checkbox" class="chk name="chklistitem" /></td><td>' + data.CylindeNumber + '</td><td>' + data.VendorName + '</td><td>' + data.GasInUse + '</td><td>' + data.Size + data.SizeUOM + '</td><td>' + data.PresentState + '</td></tr>');
+                             '<input  checked type="checkbox" class="chk" name="chklistitem" value="' + data.CylinderID + '" /></td><td>' + data.Barcode + '</td><td>' + data.CylindeNumber + '</td><td>' + data.VendorName + '</td><td>' + data.GasInUse + '</td><td>' + data.Size + data.SizeUOM + '</td><td>' + data.ActualSize + data.SizeUOM + '</td><td>' + data.PresentState + '</td></tr>');
+
+                                   count = count + 1;
+                                   ids.push(txtbarcodeval);
+                               }
+                               //$('.ddCont').html($('.ddCont').html()
+                               //    + '<br/><input  checked type="checkbox" />'
+                               //    + '<label for="' + data.VendorName + '" class="txt">' + data.VendorName + '</label>'
+                               //    + '<input type="text" readonly value=' + data.GasInUse + ' class="txt">'
+
+                               //    + '<input type="text" readonly value=' + data.Size + data.SizeUOM + ' class="txt">'
+                               //    + '<input type="text" readonly value=' + data.PresentState + ' class="txt">'
+                               //    );
+
+                               //$('#selectBarcode').append('<option value="' + txtbarcodeval + '" >' + txtbarcodeval + '</option>');
+                           }
+
+                           $('#txtbarcode').focus();
+                       }
+                       else {
+                           alert("Invalid Barcode.");
+                           document.getElementById('txtbarcode').focus();
+                       }
+                   },
+                   error: function (err) {
+                       debugger;
+                       alert(err.responseText);
+                   }
+               });
+
+            }
+
+
+
+            });
+
+            
+
+           
+
+
+           
+        });
+    </script>
+
+    <div class="container">
+        <div class="row" style="margin-top:100px;">
+            <div class="col-md-12 col-md-offset-1 col-lg-12 col-lg-offset-1 col-xs-12">
+                <div class="form-group">
+                    <div class="col-lg-2 col-md-2 col-xs-12">Cylinder Barcode</div>
+                    <div class="col-lg-2 col-md-2 col-xs-12">
+                        <input type="text" id="txtbarcode" name="txtbarcode" class="text-primary" />
+                    </div>
+                    @*<div class="col-lg-4 col-md-2 col-xs-12">
+                        <select id="selectBarcode">
+                            <option></option>
+
+                        </select>
+
+                    </div>*@
+                    <div class="col-lg-4 col-md-4 col-xs-12">
+                        @*<input type="button" value="Clear all data" id="btncleardata" class="btn btn-primary" onclick="DeleteRows();" />*@
+                        <input type="button" value="Clear all data" id="btncleardata" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       @using (Html.BeginForm())
+
+       {
+         <div class="ROW">
+            <div class="form-group">
+                <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                    <input type="submit" id="btnsubmit" name="btnsubmit" value="Submit all data" class="btn btn-primary"  />
+                    <input type="hidden" id="barcodevalues" name="barcodevalues" />
+                </div>
+            </div>
+        </div>
+
+       
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+
+                    <h3>Details of Cylinder scanned</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                                                                <div class="table-responsive mycls">
+                                    <table id="Prodtbl" class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Barcode</th>
+                                                <th>Cylinder No.</th>
+                                                <th>Vendor Name</th>
+                                                <th>Gas-In Use</th>
+                                                <th>Size</th>
+                                                <th>ActualSize</th>
+                                                  <th>Present Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+        }
+    </div>
+

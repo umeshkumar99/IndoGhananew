@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoGhana", "IndoGhana\IndoGhana.csproj", "{2D47E80D-56B1-4295-A669-8C1F9435A7EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CylnderEntities", "CylnderEntities\CylnderEntities.csproj", "{D9568F99-B466-4E30-98ED-7C6DCD093DCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAPI", "ApplicationAPI\ApplicationAPI.csproj", "{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D47E80D-56B1-4295-A669-8C1F9435A7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D47E80D-56B1-4295-A669-8C1F9435A7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D47E80D-56B1-4295-A669-8C1F9435A7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D47E80D-56B1-4295-A669-8C1F9435A7EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9568F99-B466-4E30-98ED-7C6DCD093DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9568F99-B466-4E30-98ED-7C6DCD093DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9568F99-B466-4E30-98ED-7C6DCD093DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9568F99-B466-4E30-98ED-7C6DCD093DCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

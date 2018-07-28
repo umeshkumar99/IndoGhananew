@@ -1,0 +1,403 @@
+﻿@model CylnderEntities.usp_CylinderMasterGetByID_Result
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>usp_CylinderMasterGetByID_Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CylinderID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CylinderID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CylindeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CylindeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Barcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Barcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ManufacturerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManufacturerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitialGasID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitialGasID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitialGas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitialGas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WLCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WLCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WLCapacityUOMID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WLCapacityUOMID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WLCapacityUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WLCapacityUOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingPressure)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingPressure)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingPressureUOMID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingPressureUOMID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WorkingPressureUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WorkingPressureUOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextTestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextTestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValveModelID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValveModelID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValveModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValveModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentStateID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentStateID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PresentState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PresentState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GasInUseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GasInUseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GasInUse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GasInUse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorBranchID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorBranchID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VendorBranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VendorBranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActualSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActualSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SizeUOMID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SizeUOMID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SizeUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SizeUOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentCustomerBranchID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentCustomerBranchID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerSiteName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerSiteName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentDeliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentDeliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentRecieveDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentRecieveDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentLocationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentLocationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branchid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branchid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

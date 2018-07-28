@@ -1,0 +1,126 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+
+
+<script>
+
+        $(document).ready(function () {
+            //alert('body');
+
+            $('#username').focus();
+
+            $('#btnlogin').click(function () {
+                //alert('validate');
+                var usrname = document.getElementById('username');
+                var userpwd = document.getElementById('password');
+                if (usrname.value == "") {
+                    $('#validusername').html('Please enter username');
+                    $('#validusername').css('display', 'block');
+                    usrname.focus();
+                    return false;
+                }
+                else
+                    $('#validusername').css('display', 'none');
+
+
+
+                if (userpwd.value == "") {
+                        $('#validpass').html('Please enter password');
+                        $('#validpass').css('display', 'block');
+                        userpwd.focus();
+                        return false;
+                    }
+                    else
+                        $('#validpass').css('display', 'none');
+               
+            });
+
+
+
+
+
+            $('#username').blur(function () {
+                    if ($(this).val() == "") {
+                        $('#validusername').html('Please enter username');
+                        $('#validusername').css('display', 'block');
+                        $(this).focus();
+                    }
+                    else
+                        $('#validusername').css('display', 'none');
+              //  alert('focus lost');
+                });
+
+                $('#password').blur(function () {
+                    if ($(this).val() == "") {
+                        $('#validpass').html('Please enter password');
+                        $('#validpass').css('display', 'block');
+                        $(this).focus();
+                    }
+                    else
+                        $('#validpass').css('display', 'none');
+                    //debugger;
+
+                });
+
+
+        });
+</script>
+
+
+
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-xs-12">
+        <div class="panel panel-primary" style="margin-top:150px;">
+            <div class="panel-heading">Login Form</div>
+            <div class="panel-body">
+                <div class="col-md-8">
+
+
+                    @using (Html.BeginForm())
+
+                    {
+                        /*   <form class="form-horizontal">*/
+                        @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                            <div class="form-group">
+
+                                <label for="Input User Name" class="label label-primary">User Name</label>
+
+                                <input id="username" name="username" type="text" class="form-control" placeholder="Input User name" />
+                                <span style="display:none;color:red;" id="validusername" class="input-group"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Input Password" class="label label-primary">Password</label>
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Input password" />
+                                <span style="display:none;color:red;" id="validpass" class="input-group"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <input type="submit" value="Login" class="btn btn-lg btn-primary" />
+
+                                @*<button type="button" class="btn btn-lg btn-primary" id="btnlogin" value="">Login</button>*@
+                            </div>
+
+                            @*</form>*@
+                    }
+
+                </div>
+            </div>
+            <div class="panel-footer"></div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/comman.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Inventory.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+
+
+<body>
+    <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-right navbar-fixed-top " role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Welcome to IndoGhana </a>
+                
+            </div>
+
+        
+
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div id="custom-bootstrap-menu" class="navbar navbar-default navbar-fixed-bottom " role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Copyrights Reserved</a>
+                    
+                </div>
+            </div>
+        </div>
+</body>
+
+
+</html>

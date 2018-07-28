@@ -1,0 +1,105 @@
+﻿body {
+	
+	margin-bottom: 50px;
+	background: none;
+	font-family: "Open Sans" , "Helvetica Neue" ,Helvetica,Arial,sans-serif;
+}
+ .table th {
+    
+    background-color:rgba(27,100,168,1);
+    color:white;
+    font-weight:bold;
+    }
+
+
+.nopadding
+{
+    padding:0px!important;
+}
+.navbar-default .navbar-brand
+{
+   
+    /*color: rgb(255, 255, 255);*/
+    color:white;
+    text-transform: uppercase;
+    font-family: 'Open Sans' , serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+.navbar-brand:hover, .navbar-brand:focus
+{
+    color:white;
+}
+.navbar-default,.navbar-brand
+{
+    border-style: none;
+     color:white!important;
+    font-size: 14px;
+    border-radius: 0px;
+    background: rgba(27,100,168,1);
+background: -moz-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(27,100,168,1)), color-stop(100%, rgba(0,0,0,1)));
+background: -webkit-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: -ms-linear-gradient(left, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+background: linear-gradient(to right, rgba(27,100,168,1) 0%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b64a8', endColorstr='#000000', GradientType=1 );
+    -o-transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -ms-transition: all .3s;
+    transition: all .3s; margin: 0px;
+}
+
+
+.navbar-default:hover
+{
+    background: rgba(0,0,0,1);
+background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(27,100,168,1)));
+background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(27,100,168,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#1b64a8', GradientType=1 );
+}
+.navbar-default .navbar-nav > li > a
+{
+    background-color: rgba(248, 248, 248, 0);
+    color: #A3CEE4;
+    border-top-style: solid;
+    border-top-color: transparent;
+    border-width: 2px;
+   
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus
+{
+    color: #fff;
+    background-color: #022F46;
+    border-top-style: solid;
+    border-top-color: #000000;
+    border-width: 2px;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus
+{
+    
+    color: #E4F1F8;    background-color: #035079;
+    border-top-style: solid;
+    border-top-color: #000000;border-width: 2px;
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #ddd;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #888;
+}
+.navbar-default .navbar-toggle:hover .icon-bar,
+.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #888;
+}
+

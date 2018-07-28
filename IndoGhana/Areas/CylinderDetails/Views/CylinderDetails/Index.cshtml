@@ -1,0 +1,247 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<style>
+   
+</style>
+<script>
+    $(document).ready(function () {
+
+        $.ajax(
+             {
+
+                 url: '@Url.Action("GetCylinderList")',
+
+                 method: 'Get',
+                 dataType: 'json',
+
+                 success: function (data) {
+                     debugger;
+                     var datatableinstance = $('#Prodtbl').DataTable({
+
+                         data: data,
+                         'paging': true,
+                         'sort': true,
+                         'searching': true,
+                         'scrolly': 200,
+                         columns:
+                         [
+
+                         //{ 'data': 'CylinderID' },
+                             {
+                                 'data': 'CylindeNumber',
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (CylindeNumber) {
+                                     if (CylindeNumber != '') {
+                                        var urltoredirect = window.location.protocol + "//" + location.host + window.location.pathname + "/Edit?cylindernumber=" + CylindeNumber;
+                                        return '<a href=' + urltoredirect + '>' + CylindeNumber + '</a>'
+                                     }
+                                 }
+                             },
+                              { 'data': 'Barcode' },
+                             { 'data': 'ManufacturerName' },
+                             {
+                                 'data': 'PurchaseDate',
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (PurchaseDate) {
+                                     if (PurchaseDate != '' && PurchaseDate != null) {
+                                         var date = new Date(parseInt(PurchaseDate.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+
+                                     }
+                                     else
+                                         return 'NA'
+                                 }
+                             },
+                             { 'data': 'InitialGas' },
+                             { 'data': 'WLCapacity' },
+                             { 'data': 'WorkingPressure' },
+                             {
+                                 'data': 'TestDate',
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (TestDate) {
+                                     if (TestDate != '' && TestDate!=null) {
+                                         var date =new Date(parseInt(TestDate.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+                                 
+                                     }
+                                     else
+                                         return 'NA'
+                         }
+                             },
+                             {
+                                 'data': 'NextTestDate',
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (NextTestDate) {
+                                     if (NextTestDate != '' && NextTestDate!=null) {
+                                         var date = new Date(parseInt(NextTestDate.substr(6)));
+                                 var month = date.getMonth() + 1;
+                                 return date.getDate() + "/" + month + "/" + date.getFullYear();
+                                 
+                             }
+                             else
+                                 return 'NA'
+                         }
+
+                             },
+                             { 'data': 'ValveModel' },
+                             { 'data': 'VendorName'},
+                             { 'data': 'GasInUse'},
+                             { 'data': 'Size'},
+                             { 'data': 'ActualSize'},
+                             { 'data': 'CustomerName'},
+                             {
+                                 'data': 'CurrentDeliveryDate'
+                                 ,
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (CurrentDeliveryDate) {
+                                     if (CurrentDeliveryDate != '' && CurrentDeliveryDate!=null) {
+                                         var date = new Date(parseInt(CurrentDeliveryDate.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+
+                                     }
+                                     else
+                                         return 'NA'
+                                 }
+
+                             },
+                             {
+                                 'data': 'CurrentRecieveDate'
+                                 ,
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (CurrentRecieveDate) {
+                                     if (CurrentRecieveDate != '' && CurrentRecieveDate!=null) {
+                                         var date = new Date(parseInt(CurrentRecieveDate.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+
+                                     }
+                                     else
+                                         return 'NA'
+                                 }
+
+                             },
+                             { 'data': 'CurrentLocation'},
+                             { 'data': 'PresentState'},
+                             { 'data': 'status' },
+                             {
+                                 'data': 'CreationDate'
+                                 ,
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (CreationDate) {
+                                     if (CreationDate != '' && CreationDate != null) {
+                                         var date = new Date(parseInt(CreationDate.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+
+                                     }
+                                     else
+                                         return 'NA'
+                                 }
+
+                             },
+                             { 'data': 'CreatedBy' },
+                             {
+                                 'data': 'UpdatedBy'
+                             },
+                             {
+                                 'data': 'UpdatedOn'
+                                                                  ,
+                                 'searchable': true,
+                                 'sortable': true,
+                                 'render': function (UpdatedOn) {
+                                     if (UpdatedOn != '' && UpdatedOn != null) {
+                                         var date = new Date(parseInt(UpdatedOn.substr(6)));
+                                         var month = date.getMonth() + 1;
+                                         return date.getDate() + "/" + month + "/" + date.getFullYear();
+
+                                     }
+                                     else
+                                         return 'NA'
+                                 }
+
+
+                             }
+                         ]
+                     });
+
+                 },
+                 error: function (err) {
+                     debugger;
+                     alert(err.responseText);
+                 }
+             }
+
+    )
+
+       
+
+    });
+
+</script>
+<h2>Index</h2>
+@using (Html.BeginForm())
+
+{
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+            <div class="col-md-5 col-lg-5 col-xs-6"><h3>Details of Cylinders</h3></div>
+            <div class="col-md-5 col-lg-5 col-xs-6"><h4> @Html.ActionLink("Add New Cylinder", "CreateCylinderDetails") </h4></div>
+            
+        </div>
+    </div>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                    <div class="table-responsive mycls">
+                        <table id="Prodtbl" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                   @* <th>CylinderID</th>*@
+                                     <th>Cylinder No.</th>
+                                    <th>Barcode</th>
+                                    <th>ManufacturerName</th>
+                                    <th>PurchaseDate</th>
+                                    <th>InitialGas</th>
+                                    <th>WLCapacity</th>
+                                    <th>WorkingPressure</th>
+                                    <th>TestDate</th>
+                                    <th>NextTestDate</th>
+                                    <th>ValveModel</th>
+                                    <th>Owner Name</th>
+                                    <th>Gas-In Use</th>
+                                    <th>Size</th>
+                                    <th>ActualSize</th>
+                                    <th>CustomerName</th>
+                                    <th>CurrentDeliveryDate</th>
+                                    <th>CurrentRecieveDate</th>
+                                    <th>CurrentLocation</th>
+                                    <th>Present State</th>
+                                    <th>Present Status</th>
+                                    <th>CreationDate</th>
+                                    <th>CreatedBy</th>
+                                    <th>UpdatedBy</th>
+                                    <th>UpdatedOn</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+}

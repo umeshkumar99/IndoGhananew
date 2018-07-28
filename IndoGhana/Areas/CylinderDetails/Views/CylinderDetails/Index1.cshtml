@@ -1,0 +1,230 @@
+﻿@model IEnumerable<CylnderEntities.usp_CylinderMasterGet_Result>
+
+
+@{
+    ViewBag.Title = "Cylinder Master";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!DOCTYPE html>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="table-responsive" style="margin-top:50px;">
+        <table class="table table-bordered table-hover" >
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CylinderID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CylindeNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Barcode)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ManufacturerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.InitialGas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WLCapacity)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.WLCapacityUOM)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkingPressure)
+                </th>
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.WorkingPressureUOM)
+                    </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.TestDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NextTestDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.ValveModel)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.PresentState)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.GasInUse)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Size)
+                </th>
+
+                @*<th>
+                        @Html.DisplayNameFor(model => model.SizeUOM)
+                    </th>*@
+                
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentDeliveryDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentRecieveDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CurrentLocation)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.BranchName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CreationDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { cylindernumber = item.CylindeNumber  }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CylinderID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CylindeNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Barcode)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ManufacturerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchaseDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InitialGas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WLCapacity)
+                        @Html.DisplayFor(modelItem => item.WLCapacityUOM)
+                    </td>
+
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.WLCapacityUOM)
+                        </td>*@
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkingPressure)
+                        @Html.DisplayFor(modelItem => item.WorkingPressureUOM)
+                    </td>
+
+                    @*<td>
+
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TestDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NextTestDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ValveModel)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PresentState)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GasInUse)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Size)
+                        @Html.DisplayFor(modelItem => item.SizeUOM)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentDeliveryDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentRecieveDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CurrentLocation)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BranchName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreationDate)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    
+                </tr>
+            }
+
+        </table>
+    </div>

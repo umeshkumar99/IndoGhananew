@@ -1,0 +1,311 @@
+﻿@model CylnderEntities.usp_CylinderMasterGetByID_Result
+
+@{
+    ViewBag.Title = "CreateCylinderDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<script>
+    $(document).ready(function () {
+        //
+
+        $("select").searchable({
+            maxListSize: 200, // if list size are less than maxListSize, show them all
+            maxMultiMatch: 300, // how many matching entries should be displayed
+            exactMatch: false, // Exact matching on search
+            wildcards: true, // Support for wildcard characters (*, ?)
+            ignoreCase: true, // Ignore case sensitivity
+            latency: 200, // how many millis to wait until starting search
+            warnMultiMatch: 'top {0} matches ...',
+            warnNoMatch: 'no matches ...',
+            zIndex: 'auto'
+        });
+
+        $('#VendorID').change(function () {
+            //alert('vendor');
+            debugger;
+            if (document.getElementById('VendorID').value != "") {
+                $('#VendorBranchID').empty();
+                fillDropdown($('#VendorBranchID'), '@Url.Action("getBranch")', document.getElementById('VendorID').value);
+            }
+        });
+        $('#CustomerID').change(function () {
+            //alert('vendor');
+            debugger;
+            if (document.getElementById('CustomerID').value != "") {
+                $('#CurrentCustomerBranchID').empty();
+                fillDropdown($('#CurrentCustomerBranchID'), '@Url.Action("getCustomerBranch")', document.getElementById('CustomerID').value);
+            }
+        });
+
+        $('#CurrentLocationID').change(function () {
+            //alert('vendor');
+            debugger;
+            var CurrentLocation = document.getElementById("CurrentLocationID");
+            var selectedText = CurrentLocation.options[CurrentLocation.selectedIndex].text;
+            if (selectedText == "WareHouse") {
+                $("#CustomerID").prop("disabled", true);
+                $("#CurrentCustomerBranchID").prop("disabled", true);
+               
+            }
+            else {
+                $("#CustomerID").prop("disabled", false);
+                $("#CurrentCustomerBranchID").prop("disabled", false);
+            }
+        });
+        
+
+        $('#TestDate').change(function () {
+            debugger;
+            //alert($(this).val());
+            //NextTestDate
+            var testdt = new Date($(this).val());
+            var year = testdt.getFullYear()+5;
+            var month = testdt.getMonth()+1;
+            var day = testdt.getDate();
+            if (month.toString().length == 1)
+                month = "0" + month;
+            if (day.toString().length == 1)
+                day = "0" + day;
+            var newdt = new Date(year + 5, month, day)
+            $('#NextTestDate').val(year.toString()+"-"+month.toString()+"-"+day.toString());
+        });
+    });
+</script>
+<div class="container" style="margin-top:50px;">
+    <div class="row">
+        <div class="col-md-4 col-lg-4  col-xs-12">
+            <h4> @Html.ActionLink("Back to Cylinder List", "Index") </h4>
+        </div>
+    </div>
+
+
+    <h4>Cylinder Details</h4>
+    <hr />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.ValidationMessage("Error", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CylindeNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4 col-lg-4  col-xs-12">
+                    @Html.EditorFor(model => model.CylindeNumber, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Cylinder Number" } })
+                    @Html.ValidationMessageFor(model => model.CylindeNumber, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ManufacturerName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4 col-lg-4  col-xs-12">
+
+                    @Html.DropDownListFor(model => model.ManufacturerID, ViewBag.ManufacturerID as List<SelectListItem>, "Select Manufacturer", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.ManufacturerID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PurchaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4 col-lg-4  col-xs-12">
+                    @Html.EditorFor(model => model.PurchaseDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PurchaseDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.InitialGas, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4 col-lg-4  col-xs-12">
+
+                    @Html.DropDownListFor(model => model.InitialGasID, ViewBag.InitialGasID as List<SelectListItem>, "Select Initial Gas", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.InitialGasID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.WLCapacity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-8 col-lg-8  col-xs-12" style="padding:0px;">
+                    <div class="col-md-4 col-lg-4  col-xs-6">
+                        @Html.EditorFor(model => model.WLCapacity, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter WLCapacity" } })
+                    @Html.ValidationMessageFor(model => model.WLCapacity, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 col-lg-4  col-xs-6">
+                    @Html.DropDownListFor(model => model.WLCapacityUOMID, ViewBag.WLCapacityUOMID as List<SelectListItem>, "Select UOM", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.WLCapacityUOMID, "", new { @class = "text-danger" })
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WorkingPressure, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+            <div class="col-md-8 col-lg-8  col-xs-12">
+                <div class="col-md-4 col-lg-4  col-xs-6" style="padding:0px;">
+                    @Html.EditorFor(model => model.WorkingPressure, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Working Pressure" } })
+                    @Html.ValidationMessageFor(model => model.WorkingPressure, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 col-lg-4  col-xs-6">
+
+                    @Html.DropDownListFor(model => model.WorkingPressureUOMID, ViewBag.WorkingPressureUOMID as List<SelectListItem>, "Select UOM", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.WorkingPressureUOMID, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TestDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+                @Html.EditorFor(model => model.TestDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TestDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NextTestDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+                @Html.EditorFor(model => model.NextTestDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NextTestDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ValveModel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+
+                @Html.DropDownListFor(model => model.ValveModelID, ViewBag.ValveModelID as List<SelectListItem>, "Select Valve model", new { htmlAttributes = new { @class = "dropdown" } })
+
+                @Html.ValidationMessageFor(model => model.ValveModelID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PresentState, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+
+                @Html.DropDownListFor(model => model.PresentStateID, ViewBag.PresentStateID as List<SelectListItem>, "Select Present State", new { htmlAttributes = new { @class = "dropdown" } })
+                @Html.ValidationMessageFor(model => model.PresentStateID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.GasInUse, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+                @Html.DropDownListFor(model => model.GasInUseID, ViewBag.GasInUseID as List<SelectListItem>, "Select Gas In Use", new { htmlAttributes = new { @class = "dropdown" } })
+                @*@Html.EditorFor(model => model.GasInUse, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.GasInUseID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VendorName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8 col-lg-8  col-xs-12">
+                <div class="col-md-4 col-lg-4  col-xs-6" style="padding:0px;">
+                    @Html.DropDownListFor(model => model.VendorID, ViewBag.VendorID as List<SelectListItem>, "Select Owner Name", htmlAttributes: new { @class = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.VendorID, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 col-lg-4  col-xs-6">
+                    @Html.DropDownList("VendorBranchID", new SelectList(string.Empty, "value", "text"), "Select Branch Name", htmlAttributes: new { @class = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.VendorBranchID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+
+            <div class="col-md-8 col-lg-8  col-xs-12">
+                <div class="col-md-4 col-lg-4  col-xs-6" style="padding:0px;">
+                    @Html.EditorFor(model => model.Size, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Size" } })
+                    @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 col-lg-4  col-xs-6">
+                    @Html.DropDownListFor(model => model.SizeUOMID, ViewBag.SizeUOMID as List<SelectListItem>, "Select UOM", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.SizeUOMID, "", new { @class = "text-danger" })
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CurrentLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4 col-lg-4  col-xs-12">
+
+                    @Html.DropDownListFor(model => model.CurrentLocationID, ViewBag.CurrentLocationID as List<SelectListItem>, "Select Location", new { htmlAttributes = new { @class = "dropdown" } })
+                    @Html.ValidationMessageFor(model => model.CurrentLocationID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-8 col-lg-8  col-xs-12">
+                <div class="col-md-4 col-lg-4  col-xs-6" style="padding:0px;">
+                    @Html.DropDownListFor(model => model.CustomerID, ViewBag.CustomerID as List<SelectListItem>, "Select Custo Name", htmlAttributes: new { @class = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-4 col-lg-4  col-xs-6">
+                    @Html.DropDownList("CurrentCustomerBranchID", new SelectList(string.Empty, "value", "text"), "Select Branch Name", htmlAttributes: new { @class = "dropdown" })
+                    @Html.ValidationMessageFor(model => model.CurrentCustomerBranchID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4 col-lg-4  col-xs-12">
+                @Html.EditorFor(model => model.status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" id="btnsave" name="btnsave" onclick="return confirm('Are you sure to save changes');" />
+            </div>
+        </div>
+    </div>
+    }
+</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
