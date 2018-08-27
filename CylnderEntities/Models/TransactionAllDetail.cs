@@ -31,7 +31,7 @@ namespace CylnderEntities
         public string SourceCylinderNumber{ get; set; }
 
 
-        public int SourceCylinderSize{ get; set; }
+        public double SourceCylinderSize{ get; set; }
 
 
         public int TargetCylinderID{ get; set; }
@@ -48,7 +48,7 @@ namespace CylnderEntities
         public string TargetCylinderNumber{ get; set; }
 
 
-        public int TargetCylinderSize{ get; set; }
+        public double TargetCylinderSize{ get; set; }
 
 
         public int Sstat{ get; set; }

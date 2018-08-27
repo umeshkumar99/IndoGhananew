@@ -39,7 +39,7 @@
                     }
                 });
                 $('#barcodevalues').val(chected);
-                alert($('#barcodevalues').val());
+               // alert($('#barcodevalues').val());
             }
 
             function CheckSelected(barcode) {
@@ -184,7 +184,7 @@
          <div class="ROW">
             <div class="form-group">
                 <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
-                    <input type="submit" id="btnsubmit" name="btnsubmit" value="Submit all data" class="btn btn-primary"  />
+                    <input type="submit" id="btnsubmit" name="btnsubmit" value="Submit all data" class="btn btn-primary" onclick="return confirm('Are you sure to save changes');"  />
                     <input type="hidden" id="barcodevalues" name="barcodevalues" />
                 </div>
             </div>

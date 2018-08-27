@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing.Imaging;
 using ZXing.OneD;
 using ZXing;
+using Microsoft.Reporting.WebForms;
 
 namespace IndoGhana.Areas.CylinderDetails.Controllers
 {
@@ -28,14 +29,15 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             }
             return View();
         }
-        [HttpGet]
 
+        [HttpGet]
+        [OutputCache(Duration =1000)]
         public ActionResult GetCylinderList()
         {
             if (Session["logindetails"] == null)
             {
                 Session.Abandon();
-                return RedirectToAction("Index", "Login", new { area = "Login" });
+                return RedirectToAction("Index", "UserLogin", new { area = "Login" });
             }
             List<usp_CylinderMasterGet_Result> cylinderlist = new List<usp_CylinderMasterGet_Result>();
             try
@@ -57,7 +59,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             if (Session["logindetails"] == null)
             {
                 Session.Abandon();
-                return RedirectToAction("Index", "Login", new { area = "Login" });
+                return RedirectToAction("Index", "UserLogin", new { area = "Login" });
             }
             usp_CylinderMasterGetByID_Result cylinderDetails = new usp_CylinderMasterGetByID_Result();
             try
@@ -163,7 +165,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             ViewBag.PresentStateID = new SelectList(InventoryEntities.usp_tblStatusMasterGetByType(1), "StatusID", "statusDesc");
             ViewBag.GasInUseID = new SelectList(InventoryEntities.usp_tblStatusMasterGetByType(4), "StatusID", "statusDesc");
             ViewBag.SizeUOMID = new SelectList(InventoryEntities.usp_tblStatusMasterGetByType(7), "StatusID", "statusDesc");
-            ViewBag.CurrentLocationID = new SelectList(InventoryEntities.usp_tblStatusMasterGetByType(3), "StatusID", "statusDesc");
+            ViewBag.CurrentLocationID = new SelectList(InventoryEntities.usp_tblStatusMasterGetByType(13), "StatusID", "statusDesc");
             ViewBag.VendorID = new SelectList(InventoryEntities.usp_VendorListGet(), "VendorID", "VendorName");
             ViewBag.CustomerID = new SelectList(InventoryEntities.usp_CustomerListGet(), "CustomerID", "CustomerName");
 
@@ -231,5 +233,90 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             }
 
         }
+
+        public ActionResult ReportCylinderDashboard()
+        {
+            try
+            {
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                USP_GetUserDetails_Result logindetails;
+                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+
+                //for cylinder count location wise
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+                List<usp_CylinderCount_Result> CylinderListCount = new List<usp_CylinderCount_Result>();
+             
+                CylinderListCount = InventoryEntities.usp_CylinderCount(logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderCount.rdlc";
+                reportview.ShowToolBar = false;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderListCount));
+
+                List<usp_CylinderCountPState_Result> CylinderCountPState = new List<usp_CylinderCountPState_Result>();
+
+                CylinderCountPState = InventoryEntities.usp_CylinderCountPState(logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                //reportviewPstate.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderCountPState.rdlc";
+
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet3", CylinderCountPState));
+
+                List<usp_CylinderCountGasInUse_Result> CylinderCountGasInUse = new List<usp_CylinderCountGasInUse_Result>();
+
+                CylinderCountGasInUse = InventoryEntities.usp_CylinderCountGasInUse(logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                //reportviewPstate.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderCountPState.rdlc";
+
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", CylinderCountGasInUse));
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                //cylinder count Pstatewise
+                //ReportViewer reportviewPstate = new ReportViewer();
+                //reportview.ProcessingMode = ProcessingMode.Local;
+                //reportview.SizeToReportContent = true;
+
+              
+                //ViewBag.reportviewPstate = reportviewPstate;
+
+                //end
+
+
+                ReportViewer reportview1 = new ReportViewer();
+                reportview1.ProcessingMode = ProcessingMode.Local;
+                reportview1.SizeToReportContent = true;
+
+                List<usp_CylinderMasterGet_Result> CylinderList = new List<usp_CylinderMasterGet_Result>();
+
+
+
+                CylinderList = InventoryEntities.usp_CylinderMasterGet().ToList();
+                reportview1.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderDetailLocation.rdlc";
+                //locationname
+                List<ReportParameter> parameters = new List<ReportParameter>();
+                ReportParameter param = new ReportParameter();
+                param.Name = "locationname";
+                //parameters.Add(param);
+                reportview1.LocalReport.SetParameters(param);
+                reportview1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+        public void Drillthrough(object sender)
+        {
+
+        }
+
     }
 }

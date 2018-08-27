@@ -55,8 +55,8 @@ namespace CylnderEntities
         public string VendorName { get; set; }
         public string VendorBranchName { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please enter the size")]
-        public Nullable<int> Size { get; set; }
-        public Nullable<int> ActualSize { get; set; }
+        public Nullable<double> Size { get; set; }
+        public Nullable<double> ActualSize { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please select the UOM")]
         public Nullable<int> SizeUOMID { get; set; }
         public string SizeUOM { get; set; }

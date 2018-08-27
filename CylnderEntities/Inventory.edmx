@@ -60,8 +60,21 @@
           <Parameter Name="BranchID" Type="int" Mode="In" />
           <Parameter Name="UserID" Type="int" Mode="In" />
           <Parameter Name="Sstat" Type="varchar" Mode="In" />
+          <Parameter Name="Remarks" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_CustomrSiteListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_CylinderCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="branchid" Type="int" Mode="In" />
+          <Parameter Name="companyid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CylinderCountGasInUse" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="branchid" Type="int" Mode="In" />
+          <Parameter Name="companyid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CylinderCountPState" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="branchid" Type="int" Mode="In" />
+          <Parameter Name="companyid" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_CylinderMasterGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CylinderMasterGetBarcodeImage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CylindeNumber" Type="varchar" Mode="In" />
@@ -113,6 +126,7 @@
           <Parameter Name="CreatedBy" Type="int" Mode="In" />
           <Parameter Name="UpdateBy" Type="int" Mode="In" />
           <Parameter Name="status" Type="bit" Mode="In" />
+          <Parameter Name="IsPrintDone" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_CylinderMasterMobileGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CylinderMasterMobileGetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -169,8 +183,8 @@
         </Function>
         <Function Name="usp_tblCylinderInVanInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vehicleID" Type="int" Mode="In" />
-          <Parameter Name="initialSize" Type="int" Mode="In" />
-          <Parameter Name="remainingsizeforRefill" Type="int" Mode="In" />
+          <Parameter Name="initialSize" Type="float" Mode="In" />
+          <Parameter Name="remainingsizeforRefill" Type="float" Mode="In" />
           <Parameter Name="vanBatchNumber" Type="varchar" Mode="In" />
           <Parameter Name="VendorName" Type="varchar" Mode="In" />
           <Parameter Name="cylinderLoadingDateTime" Type="varchar" Mode="In" />
@@ -200,12 +214,12 @@
           <Parameter Name="flgSourceBarCodeExists" Type="tinyint" Mode="In" />
           <Parameter Name="SourceBarCodeNumber" Type="varchar" Mode="In" />
           <Parameter Name="SourceCylinderNumber" Type="varchar" Mode="In" />
-          <Parameter Name="SourceCylinderSize" Type="int" Mode="In" />
+          <Parameter Name="SourceCylinderSize" Type="float" Mode="In" />
           <Parameter Name="TargetCylinderID" Type="int" Mode="In" />
           <Parameter Name="flgTargetBarCodeExists" Type="tinyint" Mode="In" />
           <Parameter Name="TargetBarCodeNumber" Type="varchar" Mode="In" />
           <Parameter Name="TargetCylinderNumber" Type="varchar" Mode="In" />
-          <Parameter Name="TargetCylinderSize" Type="int" Mode="In" />
+          <Parameter Name="TargetCylinderSize" Type="float" Mode="In" />
           <Parameter Name="Sstat" Type="tinyint" Mode="In" />
           <Parameter Name="CustomerID" Type="int" Mode="In" />
           <Parameter Name="CurrentCustomerBranchID" Type="int" Mode="In" />
@@ -244,6 +258,10 @@
           <Parameter Name="Branch_Id" Type="int" Mode="In" />
           <Parameter Name="VersionID" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_tblUserMasterListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_UpdateLogoutTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="LogId" Type="bigint" Mode="In" />
           <Parameter Name="machineIP" Type="varchar" Mode="In" />
@@ -267,6 +285,24 @@
           <Parameter Name="CompanyID" Type="int" Mode="In" />
           <Parameter Name="BranchID" Type="int" Mode="In" />
           <Parameter Name="VehicleID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_VehicleMasterListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_VehicleUserMappingDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="companyid" Type="int" Mode="In" />
+          <Parameter Name="branchid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_VehicleUserMappingGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_VehicleUserMappingInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Branchid" Type="int" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_VendorBranchListDetailsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_VendorBranchListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -337,22 +373,6 @@
           <FunctionImport Name="usp_CustomerSiteMasterGetbyID" ReturnType="Collection(IndoGhanaModel.usp_CustomerSiteMasterGetbyID_Result)">
           <Parameter Name="CustomerID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="usp_CylinderMasterInsertUpdateMobile" ReturnType="Collection(String)">
-            <Parameter Name="CylindeNumber" Mode="In" Type="String" />
-            <Parameter Name="Barcode" Mode="In" Type="String" />
-            <Parameter Name="PresentState" Mode="In" Type="Int32" />
-            <Parameter Name="GasInUse" Mode="In" Type="Int32" />
-            <Parameter Name="Owner" Mode="In" Type="Int32" />
-            <Parameter Name="Size" Mode="In" Type="Double" />
-            <Parameter Name="SizeUOMID" Mode="In" Type="Int32" />
-            <Parameter Name="CurrentLocation" Mode="In" Type="Int32" />
-            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
-            <Parameter Name="Branchid" Mode="In" Type="Int32" />
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
-            <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
-            <Parameter Name="status" Mode="In" Type="Boolean" />
-          </FunctionImport>
           <FunctionImport Name="usp_ManufacturerMasterGet" ReturnType="Collection(IndoGhanaModel.usp_ManufacturerMasterGet_Result)" />
           <FunctionImport Name="usp_ManufacturerMasterGetByID" ReturnType="Collection(IndoGhanaModel.usp_ManufacturerMasterGetByID_Result)">
           <Parameter Name="ManufacturerID" Mode="In" Type="Int32" />
@@ -399,73 +419,14 @@
           <FunctionImport Name="usp_VendorListGet" ReturnType="Collection(IndoGhanaModel.usp_VendorListGet_Result)" />
           <FunctionImport Name="usp_CustomrSiteListGet" ReturnType="Collection(IndoGhanaModel.usp_CustomrSiteListGet_Result)" />
           <FunctionImport Name="usp_VendorBranchListDetailsGet" ReturnType="Collection(IndoGhanaModel.usp_VendorBranchListDetailsGet_Result)" />
-          <FunctionImport Name="usp_CylinderMasterMobileGet" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterMobileGet_Result)" />
-          <FunctionImport Name="usp_CylinderMasterMobileGetByID" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterMobileGetByID_Result)">
-          <Parameter Name="CylindeNumber" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_CylinderMasterGet" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGet_Result)" />
-          <FunctionImport Name="usp_CylinderMasterGetbyBarCode" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGetbyBarCode_Result)">
-          <Parameter Name="Barcode" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="usp_CylinderMasterGetBarcodeImage" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGetBarcodeImage_Result)">
           <Parameter Name="CylindeNumber" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_CylinderMasterGetByID" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGetByID_Result)">
-          <Parameter Name="CylindeNumber" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="usp_CylinderMasterInsertUpdate" ReturnType="Collection(String)">
-            <Parameter Name="CylindeNumber" Mode="In" Type="String" />
-            <Parameter Name="Barcode" Mode="In" Type="String" />
-            <Parameter Name="Manufacturer" Mode="In" Type="Int32" />
-            <Parameter Name="PurchaseDate" Mode="In" Type="String" />
-            <Parameter Name="InitialGas" Mode="In" Type="Int32" />
-            <Parameter Name="WLCapacity" Mode="In" Type="Int32" />
-            <Parameter Name="WLCapacityUOMID" Mode="In" Type="Int32" />
-            <Parameter Name="WorkingPressure" Mode="In" Type="Int32" />
-            <Parameter Name="WorkingPressureUOMID" Mode="In" Type="Int32" />
-            <Parameter Name="TestDate" Mode="In" Type="String" />
-            <Parameter Name="NextTestDate" Mode="In" Type="String" />
-            <Parameter Name="ValveModel" Mode="In" Type="Int32" />
-            <Parameter Name="PresentState" Mode="In" Type="Int32" />
-            <Parameter Name="GasInUse" Mode="In" Type="Int32" />
-            <Parameter Name="Owner" Mode="In" Type="Int32" />
-            <Parameter Name="Size" Mode="In" Type="Double" />
-            <Parameter Name="SizeUOMID" Mode="In" Type="Int32" />
-            <Parameter Name="CurrentLocation" Mode="In" Type="Int32" />
-            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
-            <Parameter Name="Branchid" Mode="In" Type="Int32" />
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
-            <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
-            <Parameter Name="status" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_tblCylinderFillInsert" ReturnType="Collection(String)">
             <Parameter Name="cylindeIDs" Mode="In" Type="String" />
             <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
             <Parameter Name="BranchID" Mode="In" Type="Int32" />
             <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="usp_tblCylinderInVanInsert" ReturnType="Collection(Int32)">
-            <Parameter Name="vehicleID" Mode="In" Type="Int32" />
-            <Parameter Name="initialSize" Mode="In" Type="Int32" />
-            <Parameter Name="remainingsizeforRefill" Mode="In" Type="Int32" />
-            <Parameter Name="vanBatchNumber" Mode="In" Type="String" />
-            <Parameter Name="VendorName" Mode="In" Type="String" />
-            <Parameter Name="cylinderLoadingDateTime" Mode="In" Type="String" />
-            <Parameter Name="cylinderID" Mode="In" Type="Int32" />
-            <Parameter Name="cylinderNumber" Mode="In" Type="String" />
-            <Parameter Name="cylinderVendorID" Mode="In" Type="Int32" />
-            <Parameter Name="cylinderBranchID" Mode="In" Type="Int32" />
-            <Parameter Name="sstat" Mode="In" Type="Int32" />
-            <Parameter Name="transactionPoint" Mode="In" Type="Int32" />
-            <Parameter Name="LocationID" Mode="In" Type="Int32" />
-            <Parameter Name="TransType" Mode="In" Type="Int32" />
-            <Parameter Name="CylinderStatus" Mode="In" Type="Int32" />
-            <Parameter Name="OwnerId" Mode="In" Type="Int32" />
-            <Parameter Name="vendorBranchID" Mode="In" Type="Int32" />
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="BranchID" Mode="In" Type="Int32" />
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_tblBatchStartEndInsert" ReturnType="Collection(Int32)">
             <Parameter Name="VanBatchNumber" Mode="In" Type="String" />
@@ -536,9 +497,6 @@
             <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
             <Parameter Name="status" Mode="In" Type="Boolean" />
           </FunctionImport>
-          <FunctionImport Name="usp_CustomerSiteMasterGetbyIDDetails" ReturnType="Collection(IndoGhanaModel.usp_CustomerSiteMasterGetbyIDDetails_Result)">
-          <Parameter Name="CustomerIDSiteID" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="usp_VendorMasterBranchInsertUpdate" ReturnType="Collection(String)">
             <Parameter Name="VendorID" Mode="In" Type="Int32" />
             <Parameter Name="VendorBranchID" Mode="In" Type="Int32" />
@@ -563,35 +521,6 @@
             <Parameter Name="Password" Mode="In" Type="String" />
             <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_tblTransactionAllDetailInsert" ReturnType="Collection(Int32)">
-            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
-            <Parameter Name="TransactionMode" Mode="In" Type="Int32" />
-            <Parameter Name="SourceCylinderID" Mode="In" Type="Int32" />
-            <Parameter Name="flgSourceBarCodeExists" Mode="In" Type="Byte" />
-            <Parameter Name="SourceBarCodeNumber" Mode="In" Type="String" />
-            <Parameter Name="SourceCylinderNumber" Mode="In" Type="String" />
-            <Parameter Name="SourceCylinderSize" Mode="In" Type="Int32" />
-            <Parameter Name="TargetCylinderID" Mode="In" Type="Int32" />
-            <Parameter Name="flgTargetBarCodeExists" Mode="In" Type="Byte" />
-            <Parameter Name="TargetBarCodeNumber" Mode="In" Type="String" />
-            <Parameter Name="TargetCylinderNumber" Mode="In" Type="String" />
-            <Parameter Name="TargetCylinderSize" Mode="In" Type="Int32" />
-            <Parameter Name="Sstat" Mode="In" Type="Byte" />
-            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
-            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
-            <Parameter Name="CustomerName" Mode="In" Type="String" />
-            <Parameter Name="VendorName" Mode="In" Type="String" />
-            <Parameter Name="SizeUOM" Mode="In" Type="String" />
-            <Parameter Name="PresentState" Mode="In" Type="String" />
-            <Parameter Name="PresentStateID" Mode="In" Type="Int32" />
-            <Parameter Name="LocationID" Mode="In" Type="Int32" />
-            <Parameter Name="VanBatchNumber" Mode="In" Type="String" />
-            <Parameter Name="TransactionDateTime" Mode="In" Type="String" />
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="BranchID" Mode="In" Type="Int32" />
-            <Parameter Name="UserID" Mode="In" Type="Int32" />
-            <Parameter Name="GasInUse" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="usp_UpdateLogoutTime">
             <Parameter Name="LogId" Mode="In" Type="Int64" />
             <Parameter Name="machineIP" Mode="In" Type="String" />
@@ -609,6 +538,7 @@
             <Parameter Name="BranchID" Mode="In" Type="Int32" />
             <Parameter Name="UserID" Mode="In" Type="Int32" />
             <Parameter Name="Sstat" Mode="In" Type="String" />
+            <Parameter Name="Remarks" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_DayStartDayEndInsert" ReturnType="Collection(Int32)">
             <Parameter Name="DayStartDateTime" Mode="In" Type="String" />
@@ -620,6 +550,152 @@
             <Parameter Name="UserID" Mode="In" Type="Int32" />
             <Parameter Name="logid" Mode="In" Type="Int32" />
             <Parameter Name="IMEI" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_tblCylinderInVanInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="vehicleID" Mode="In" Type="Int32" />
+            <Parameter Name="initialSize" Mode="In" Type="Double" />
+            <Parameter Name="remainingsizeforRefill" Mode="In" Type="Double" />
+            <Parameter Name="vanBatchNumber" Mode="In" Type="String" />
+            <Parameter Name="VendorName" Mode="In" Type="String" />
+            <Parameter Name="cylinderLoadingDateTime" Mode="In" Type="String" />
+            <Parameter Name="cylinderID" Mode="In" Type="Int32" />
+            <Parameter Name="cylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="cylinderVendorID" Mode="In" Type="Int32" />
+            <Parameter Name="cylinderBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="sstat" Mode="In" Type="Int32" />
+            <Parameter Name="transactionPoint" Mode="In" Type="Int32" />
+            <Parameter Name="LocationID" Mode="In" Type="Int32" />
+            <Parameter Name="TransType" Mode="In" Type="Int32" />
+            <Parameter Name="CylinderStatus" Mode="In" Type="Int32" />
+            <Parameter Name="OwnerId" Mode="In" Type="Int32" />
+            <Parameter Name="vendorBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderMasterGet" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGet_Result)" />
+          <FunctionImport Name="usp_CylinderMasterGetbyBarCode" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGetbyBarCode_Result)">
+          <Parameter Name="Barcode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderMasterGetByID" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterGetByID_Result)">
+          <Parameter Name="CylindeNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_tblTransactionAllDetailInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+            <Parameter Name="TransactionMode" Mode="In" Type="Int32" />
+            <Parameter Name="SourceCylinderID" Mode="In" Type="Int32" />
+            <Parameter Name="flgSourceBarCodeExists" Mode="In" Type="Byte" />
+            <Parameter Name="SourceBarCodeNumber" Mode="In" Type="String" />
+            <Parameter Name="SourceCylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="SourceCylinderSize" Mode="In" Type="Double" />
+            <Parameter Name="TargetCylinderID" Mode="In" Type="Int32" />
+            <Parameter Name="flgTargetBarCodeExists" Mode="In" Type="Byte" />
+            <Parameter Name="TargetBarCodeNumber" Mode="In" Type="String" />
+            <Parameter Name="TargetCylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="TargetCylinderSize" Mode="In" Type="Double" />
+            <Parameter Name="Sstat" Mode="In" Type="Byte" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="VendorName" Mode="In" Type="String" />
+            <Parameter Name="SizeUOM" Mode="In" Type="String" />
+            <Parameter Name="PresentState" Mode="In" Type="String" />
+            <Parameter Name="PresentStateID" Mode="In" Type="Int32" />
+            <Parameter Name="LocationID" Mode="In" Type="Int32" />
+            <Parameter Name="VanBatchNumber" Mode="In" Type="String" />
+            <Parameter Name="TransactionDateTime" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="GasInUse" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderMasterInsertUpdate" ReturnType="Collection(String)">
+            <Parameter Name="CylindeNumber" Mode="In" Type="String" />
+            <Parameter Name="Barcode" Mode="In" Type="String" />
+            <Parameter Name="Manufacturer" Mode="In" Type="Int32" />
+            <Parameter Name="PurchaseDate" Mode="In" Type="String" />
+            <Parameter Name="InitialGas" Mode="In" Type="Int32" />
+            <Parameter Name="WLCapacity" Mode="In" Type="Int32" />
+            <Parameter Name="WLCapacityUOMID" Mode="In" Type="Int32" />
+            <Parameter Name="WorkingPressure" Mode="In" Type="Int32" />
+            <Parameter Name="WorkingPressureUOMID" Mode="In" Type="Int32" />
+            <Parameter Name="TestDate" Mode="In" Type="String" />
+            <Parameter Name="NextTestDate" Mode="In" Type="String" />
+            <Parameter Name="ValveModel" Mode="In" Type="Int32" />
+            <Parameter Name="PresentState" Mode="In" Type="Int32" />
+            <Parameter Name="GasInUse" Mode="In" Type="Int32" />
+            <Parameter Name="Owner" Mode="In" Type="Int32" />
+            <Parameter Name="Size" Mode="In" Type="Double" />
+            <Parameter Name="SizeUOMID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentLocation" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="Branchid" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderMasterInsertUpdateMobile" ReturnType="Collection(String)">
+            <Parameter Name="CylindeNumber" Mode="In" Type="String" />
+            <Parameter Name="Barcode" Mode="In" Type="String" />
+            <Parameter Name="PresentState" Mode="In" Type="Int32" />
+            <Parameter Name="GasInUse" Mode="In" Type="Int32" />
+            <Parameter Name="Owner" Mode="In" Type="Int32" />
+            <Parameter Name="Size" Mode="In" Type="Double" />
+            <Parameter Name="SizeUOMID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentLocation" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="Branchid" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
+            <Parameter Name="status" Mode="In" Type="Boolean" />
+            <Parameter Name="IsPrintDone" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderMasterMobileGet" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterMobileGet_Result)" />
+          <FunctionImport Name="usp_CylinderMasterMobileGetByID" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterMobileGetByID_Result)">
+          <Parameter Name="CylindeNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CustomerSiteMasterGetbyIDDetails" ReturnType="Collection(IndoGhanaModel.usp_CustomerSiteMasterGetbyIDDetails_Result)">
+          <Parameter Name="CustomerIDSiteID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_tblUserMasterListGet" ReturnType="Collection(IndoGhanaModel.usp_tblUserMasterListGet_Result)">
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleMasterListGet" ReturnType="Collection(IndoGhanaModel.usp_VehicleMasterListGet_Result)">
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleUserMappingDetails" ReturnType="Collection(IndoGhanaModel.usp_VehicleUserMappingDetails_Result)">
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleUserMappingGet" ReturnType="Collection(IndoGhanaModel.usp_VehicleUserMappingGet_Result)">
+          <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleUserMappingInsert" ReturnType="Collection(String)">
+            <Parameter Name="VehicleID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Branchid" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderCount" ReturnType="Collection(IndoGhanaModel.usp_CylinderCount_Result)">
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderCountm" ReturnType="Collection(IndoGhanaModel.usp_CylinderCountm_Result)">
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderCountGasInUse" ReturnType="Collection(IndoGhanaModel.usp_CylinderCountGasInUse_Result)">
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderCountPState" ReturnType="Collection(IndoGhanaModel.usp_CylinderCountPState_Result)">
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -723,212 +799,9 @@
           <Property Type="Int32" Name="VendorBranchID" Nullable="false" />
           <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
         </ComplexType>
-        <ComplexType Name="usp_CylinderMasterMobileGet_Result">
-          <Property Type="Int32" Name="CylinderID" Nullable="false" />
-          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
-          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
-          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
-          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="VendorID" Nullable="true" />
-          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
-          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Size" Nullable="true" />
-          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
-          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
-          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-          <Property Type="Int32" Name="Branchid" Nullable="true" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_CylinderMasterMobileGetByID_Result">
-          <Property Type="Int32" Name="CylinderID" Nullable="false" />
-          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
-          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
-          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
-          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="VendorID" Nullable="true" />
-          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
-          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Size" Nullable="true" />
-          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
-          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
-          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-          <Property Type="Int32" Name="Branchid" Nullable="true" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_CylinderMasterGet_Result">
-          <Property Type="Int32" Name="CylinderID" Nullable="false" />
-          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
-          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
-          <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
-          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
-          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
-          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
-          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
-          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
-          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="TestDate" Nullable="true" />
-          <Property Type="DateTime" Name="NextTestDate" Nullable="true" />
-          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
-          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
-          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
-          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="VendorID" Nullable="true" />
-          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
-          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Size" Nullable="true" />
-          <Property Type="Int32" Name="ActualSize" Nullable="true" />
-          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
-          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
-          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="DateTime" Name="CurrentDeliveryDate" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="CurrentRecieveDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
-          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Branchid" Nullable="true" />
-          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_CylinderMasterGetbyBarCode_Result">
-          <Property Type="Int32" Name="CylinderID" Nullable="false" />
-          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
-          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
-          <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
-          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
-          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
-          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
-          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
-          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
-          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="50" />
-          <Property Type="DateTime" Name="TestDate" Nullable="true" />
-          <Property Type="DateTime" Name="NextTestDate" Nullable="true" />
-          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
-          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
-          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
-          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="VendorID" Nullable="true" />
-          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
-          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Size" Nullable="true" />
-          <Property Type="Int32" Name="ActualSize" Nullable="true" />
-          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
-          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="DateTime" Name="CurrentDeliveryDate" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="CurrentRecieveDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
-          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="Branchid" Nullable="true" />
-          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="usp_CylinderMasterGetBarcodeImage_Result">
           <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="BarcodePath" Nullable="true" MaxLength="500" />
-        </ComplexType>
-        <ComplexType Name="usp_CylinderMasterGetByID_Result">
-          <Property Type="Int32" Name="CylinderID" Nullable="false" />
-          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
-          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="PurchaseDate" Nullable="true" MaxLength="94" />
-          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
-          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
-          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
-          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
-          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
-          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="TestDate" Nullable="true" MaxLength="94" />
-          <Property Type="String" Name="NextTestDate" Nullable="true" MaxLength="94" />
-          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
-          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
-          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
-          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="VendorID" Nullable="true" />
-          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
-          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Size" Nullable="true" />
-          <Property Type="Int32" Name="ActualSize" Nullable="true" />
-          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
-          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
-          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="CurrentDeliveryDate" Nullable="true" MaxLength="94" />
-          <Property Type="String" Name="CurrentRecieveDate" Nullable="true" MaxLength="94" />
-          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
-          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
-          <Property Type="Int32" Name="Branchid" Nullable="true" />
-          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-          <Property Type="String" Name="Path" Nullable="true" MaxLength="500" />
         </ComplexType>
         <ComplexType Name="usp_tblUserMasterGet_Result">
           <Property Type="Int32" Name="User_Id" Nullable="false" />
@@ -1046,23 +919,6 @@
           <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
           <Property Type="Boolean" Name="status" Nullable="true" />
         </ComplexType>
-        <ComplexType Name="usp_CustomerSiteMasterGetbyIDDetails_Result">
-          <Property Type="Int32" Name="CustomerIDSiteID" Nullable="false" />
-          <Property Type="Int32" Name="CustomerID" Nullable="true" />
-          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="SiteName" Nullable="true" MaxLength="200" />
-          <Property Type="String" Name="SiteAddress" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="ContactPersonName" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="UpdateByID" Nullable="true" />
-          <Property Type="String" Name="UpdateBy" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="usp_VendorBranchMasterGetbyID_Result">
           <Property Type="Int32" Name="VendorID" Nullable="false" />
           <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
@@ -1118,6 +974,265 @@
           <Property Type="String" Name="ForDate" Nullable="true" MaxLength="8000" />
           <Property Type="Int64" Name="logid" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="usp_CylinderMasterGet_Result">
+          <Property Type="Int32" Name="CylinderID" Nullable="false" />
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
+          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
+          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
+          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
+          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
+          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
+          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="TestDate" Nullable="true" />
+          <Property Type="DateTime" Name="NextTestDate" Nullable="true" />
+          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
+          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Size" Nullable="true" />
+          <Property Type="Double" Name="ActualSize" Nullable="true" />
+          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
+          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
+          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="CurrentDeliveryDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CurrentRecieveDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Branchid" Nullable="true" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderMasterGetbyBarCode_Result">
+          <Property Type="Int32" Name="CylinderID" Nullable="false" />
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
+          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
+          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
+          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
+          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
+          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
+          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="TestDate" Nullable="true" />
+          <Property Type="DateTime" Name="NextTestDate" Nullable="true" />
+          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
+          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Size" Nullable="false" />
+          <Property Type="Double" Name="ActualSize" Nullable="false" />
+          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
+          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="402" />
+          <Property Type="DateTime" Name="CurrentDeliveryDate" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="CurrentRecieveDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Branchid" Nullable="true" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderMasterGetByID_Result">
+          <Property Type="Int32" Name="CylinderID" Nullable="false" />
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="ManufacturerID" Nullable="true" />
+          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PurchaseDate" Nullable="true" MaxLength="94" />
+          <Property Type="Int32" Name="InitialGasID" Nullable="true" />
+          <Property Type="String" Name="InitialGas" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WLCapacity" Nullable="true" />
+          <Property Type="Int32" Name="WLCapacityUOMID" Nullable="true" />
+          <Property Type="String" Name="WLCapacityUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="WorkingPressure" Nullable="true" />
+          <Property Type="Int32" Name="WorkingPressureUOMID" Nullable="true" />
+          <Property Type="String" Name="WorkingPressureUOM" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TestDate" Nullable="true" MaxLength="94" />
+          <Property Type="String" Name="NextTestDate" Nullable="true" MaxLength="94" />
+          <Property Type="Int32" Name="ValveModelID" Nullable="true" />
+          <Property Type="String" Name="ValveModel" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Size" Nullable="true" />
+          <Property Type="Double" Name="ActualSize" Nullable="true" />
+          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
+          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
+          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="402" />
+          <Property Type="String" Name="CurrentDeliveryDate" Nullable="true" MaxLength="94" />
+          <Property Type="String" Name="CurrentRecieveDate" Nullable="true" MaxLength="94" />
+          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="Branchid" Nullable="true" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="String" Name="Path" Nullable="true" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderMasterMobileGet_Result">
+          <Property Type="Int32" Name="CylinderID" Nullable="false" />
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
+          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Size" Nullable="false" />
+          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
+          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
+          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="Branchid" Nullable="true" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="BarcodeImage" Nullable="true" MaxLength="554" />
+          <Property Type="Int32" Name="IsPrintDone" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderMasterMobileGetByID_Result">
+          <Property Type="Int32" Name="CylinderID" Nullable="false" />
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Barcode" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="PresentStateID" Nullable="true" />
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="GasInUseID" Nullable="true" />
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CurrentLocationID" Nullable="true" />
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="VendorID" Nullable="true" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="VendorBranchID" Nullable="true" />
+          <Property Type="String" Name="VendorBranchName" Nullable="true" MaxLength="100" />
+          <Property Type="Double" Name="Size" Nullable="true" />
+          <Property Type="Int32" Name="SizeUOMID" Nullable="true" />
+          <Property Type="String" Name="SizeUOM" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="Int32" Name="CurrentCustomerBranchID" Nullable="true" />
+          <Property Type="String" Name="CustomerSiteName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+          <Property Type="Int32" Name="Branchid" Nullable="true" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="BarcodeImage" Nullable="true" MaxLength="554" />
+          <Property Type="Int32" Name="IsPrintDone" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CustomerSiteMasterGetbyIDDetails_Result">
+          <Property Type="Int32" Name="CustomerIDSiteID" Nullable="false" />
+          <Property Type="Int32" Name="CustomerID" Nullable="true" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SiteName" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="SiteAddress" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="ContactPersonName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ContactNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="UpdateByID" Nullable="true" />
+          <Property Type="String" Name="UpdateBy" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_tblUserMasterListGet_Result">
+          <Property Type="Int32" Name="User_Id" Nullable="false" />
+          <Property Type="String" Name="User_Name" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_VehicleMasterListGet_Result">
+          <Property Type="Int32" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_VehicleUserMappingDetails_Result">
+          <Property Type="Int32" Name="VehicleAssignID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="AssignDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="VehicleStatus" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="usp_VehicleUserMappingGet_Result">
+          <Property Type="Int32" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderCount_Result">
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="NoOfCylinders" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderCountm_Result">
+          <Property Type="String" Name="CurrentLocation" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="NoOfCylinders" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderCountGasInUse_Result">
+          <Property Type="String" Name="GasInUse" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="NoOfCylinders" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderCountPState_Result">
+          <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="NoOfCylinders" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1154,7 +1269,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterInsertUpdateMobile" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterInsertUpdateMobile" />
           <FunctionImportMapping FunctionImportName="usp_ManufacturerMasterGet" FunctionName="IndoGhanaModel.Store.usp_ManufacturerMasterGet">
             <ResultMapping>
               <ComplexTypeMapping TypeName="IndoGhanaModel.usp_ManufacturerMasterGet_Result">
@@ -1277,174 +1391,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterMobileGet" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterMobileGet">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterMobileGet_Result">
-                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
-                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
-                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
-                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
-                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
-                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
-                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
-                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
-                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
-                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterMobileGetByID" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterMobileGetByID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterMobileGetByID_Result">
-                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
-                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
-                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
-                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
-                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
-                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
-                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
-                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
-                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
-                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGet" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGet">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGet_Result">
-                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
-                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
-                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
-                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
-                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
-                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
-                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
-                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
-                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
-                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
-                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
-                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
-                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
-                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
-                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
-                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
-                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
-                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
-                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
-                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
-                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
-                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
-                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
-                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
-                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
-                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGetbyBarCode" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGetbyBarCode">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGetbyBarCode_Result">
-                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
-                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
-                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
-                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
-                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
-                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
-                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
-                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
-                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
-                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
-                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
-                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
-                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
-                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
-                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
-                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
-                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
-                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
-                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
-                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
-                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
-                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
-                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
-                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
-                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_CylinderMasterGetBarcodeImage" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGetBarcodeImage">
             <ResultMapping>
               <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGetBarcodeImage_Result">
@@ -1453,64 +1399,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGetByID" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGetByID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGetByID_Result">
-                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
-                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
-                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
-                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
-                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
-                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
-                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
-                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
-                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
-                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
-                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
-                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
-                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
-                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
-                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
-                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
-                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
-                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
-                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
-                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
-                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
-                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
-                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
-                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
-                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
-                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
-                <ScalarProperty Name="Size" ColumnName="Size" />
-                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
-                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
-                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
-                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
-                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
-                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
-                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
-                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_CylinderMasterInsertUpdate" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterInsertUpdate" />
           <FunctionImportMapping FunctionImportName="usp_tblCylinderFillInsert" FunctionName="IndoGhanaModel.Store.usp_tblCylinderFillInsert" />
-          <FunctionImportMapping FunctionImportName="usp_tblCylinderInVanInsert" FunctionName="IndoGhanaModel.Store.usp_tblCylinderInVanInsert" />
           <FunctionImportMapping FunctionImportName="usp_tblBatchStartEndInsert" FunctionName="IndoGhanaModel.Store.usp_tblBatchStartEndInsert" />
           <FunctionImportMapping FunctionImportName="usp_tblUserMasterGet" FunctionName="IndoGhanaModel.Store.usp_tblUserMasterGet">
             <ResultMapping>
@@ -1663,27 +1552,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_CustomerMasterSiteInsertUpdate" FunctionName="IndoGhanaModel.Store.usp_CustomerMasterSiteInsertUpdate" />
-          <FunctionImportMapping FunctionImportName="usp_CustomerSiteMasterGetbyIDDetails" FunctionName="IndoGhanaModel.Store.usp_CustomerSiteMasterGetbyIDDetails">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CustomerSiteMasterGetbyIDDetails_Result">
-                <ScalarProperty Name="CustomerIDSiteID" ColumnName="CustomerIDSiteID" />
-                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
-                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
-                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
-                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
-                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
-                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateByID" ColumnName="UpdateByID" />
-                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_VendorMasterBranchInsertUpdate" FunctionName="IndoGhanaModel.Store.usp_VendorMasterBranchInsertUpdate" />
           <FunctionImportMapping FunctionImportName="usp_VendorBranchMasterGetbyID" FunctionName="IndoGhanaModel.Store.usp_VendorBranchMasterGetbyID">
             <ResultMapping>
@@ -1752,10 +1620,321 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_tblTransactionAllDetailInsert" FunctionName="IndoGhanaModel.Store.usp_tblTransactionAllDetailInsert" />
           <FunctionImportMapping FunctionImportName="usp_UpdateLogoutTime" FunctionName="IndoGhanaModel.Store.usp_UpdateLogoutTime" />
           <FunctionImportMapping FunctionImportName="usp_CustomerTransactionSignInsert" FunctionName="IndoGhanaModel.Store.usp_CustomerTransactionSignInsert" />
           <FunctionImportMapping FunctionImportName="usp_DayStartDayEndInsert" FunctionName="IndoGhanaModel.Store.usp_DayStartDayEndInsert" />
+          <FunctionImportMapping FunctionImportName="usp_tblCylinderInVanInsert" FunctionName="IndoGhanaModel.Store.usp_tblCylinderInVanInsert" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGet" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGet_Result">
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
+                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
+                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
+                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
+                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
+                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
+                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
+                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
+                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
+                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
+                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGetbyBarCode" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGetbyBarCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGetbyBarCode_Result">
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
+                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
+                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
+                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
+                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
+                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
+                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
+                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
+                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
+                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
+                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterGetByID" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterGetByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterGetByID_Result">
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
+                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
+                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
+                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
+                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
+                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
+                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
+                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
+                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
+                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
+                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_tblTransactionAllDetailInsert" FunctionName="IndoGhanaModel.Store.usp_tblTransactionAllDetailInsert" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterInsertUpdate" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterInsertUpdate" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterInsertUpdateMobile" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterInsertUpdateMobile" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterMobileGet" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterMobileGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterMobileGet_Result">
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="BarcodeImage" ColumnName="BarcodeImage" />
+                <ScalarProperty Name="IsPrintDone" ColumnName="IsPrintDone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CylinderMasterMobileGetByID" FunctionName="IndoGhanaModel.Store.usp_CylinderMasterMobileGetByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderMasterMobileGetByID_Result">
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="BarcodeImage" ColumnName="BarcodeImage" />
+                <ScalarProperty Name="IsPrintDone" ColumnName="IsPrintDone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CustomerSiteMasterGetbyIDDetails" FunctionName="IndoGhanaModel.Store.usp_CustomerSiteMasterGetbyIDDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CustomerSiteMasterGetbyIDDetails_Result">
+                <ScalarProperty Name="CustomerIDSiteID" ColumnName="CustomerIDSiteID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateByID" ColumnName="UpdateByID" />
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_tblUserMasterListGet" FunctionName="IndoGhanaModel.Store.usp_tblUserMasterListGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_tblUserMasterListGet_Result">
+                <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleMasterListGet" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterListGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleMasterListGet_Result">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingDetails" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleUserMappingDetails_Result">
+                <ScalarProperty Name="VehicleAssignID" ColumnName="VehicleAssignID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="VehicleStatus" ColumnName="VehicleStatus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingGet" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleUserMappingGet_Result">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingInsert" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingInsert" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderCount" FunctionName="IndoGhanaModel.Store.usp_CylinderCount">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderCount_Result">
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="NoOfCylinders" ColumnName="NoOfCylinders" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CylinderCountGasInUse" FunctionName="IndoGhanaModel.Store.usp_CylinderCountGasInUse">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderCountGasInUse_Result">
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="NoOfCylinders" ColumnName="NoOfCylinders" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CylinderCountPState" FunctionName="IndoGhanaModel.Store.usp_CylinderCountPState">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderCountPState_Result">
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="NoOfCylinders" ColumnName="NoOfCylinders" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

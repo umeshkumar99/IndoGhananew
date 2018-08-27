@@ -69,9 +69,9 @@ public partial class usp_CylinderMasterGetByID_Result
 
     public string VendorBranchName { get; set; }
 
-    public Nullable<int> Size { get; set; }
+    public Nullable<double> Size { get; set; }
 
-    public Nullable<int> ActualSize { get; set; }
+    public Nullable<double> ActualSize { get; set; }
 
     public Nullable<int> SizeUOMID { get; set; }
 

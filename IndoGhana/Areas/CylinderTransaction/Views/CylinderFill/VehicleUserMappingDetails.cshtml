@@ -1,0 +1,178 @@
+﻿@model CylnderEntities.VehicleUserMapping
+@{
+    ViewBag.Title = "VehicleUserMappingDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<script src="~/Scripts/jquery.dataTables.min.js"></script>
+<link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+<style>
+
+</style>
+<script>
+    $(document).ready(function () {
+        debugger;
+        LoadUserMappingData();
+        function LoadUserMappingData()
+
+        {
+
+            var di = document.getElementById('loading-image');
+
+            if (di.style.display != 'block') {
+                di.style.display = 'block';
+            }
+            $.ajax(
+                 {
+
+                     url: '@Url.Action("VehicleUserMappingDetailsGet")',
+
+                     method: 'Get',
+                     dataType: 'json',
+
+                     success: function (data) {
+                         debugger;
+                         var datatableinstance = $('#Prodtbl').DataTable({
+
+                             data: data,
+                             'paging': true,
+                             'sort': true,
+                             'searching': true,
+                             'scrolly': 200,
+                             columns:
+                             [
+
+                             //{ 'data': 'CylinderID' },
+                                 {
+                                     'data': 'VehicleAssignID',
+                                     'searchable': true,
+                                     'sortable': true,
+                                     'render': function (VehicleAssignID) {
+                                         if (VehicleAssignID != '') {
+                                             var urltoredirect = window.location.protocol + "//" + location.host + window.location.pathname + "/Edit?VehicleAssignID=" + VehicleAssignID;
+                                             return '<a href=' + urltoredirect + '>' + VehicleAssignID + '</a>'
+                                         }
+                                     }
+                                 },
+                                  { 'data': 'VehicleNumber' },
+                                 { 'data': 'UserName' },
+                                 {
+                                     'data': 'AssignDate',
+                                     'searchable': true,
+                                     'sortable': true,
+                                     'render': function (AssignDate) {
+                                         if (AssignDate != '' && AssignDate != null) {
+                                             var date = new Date(parseInt(AssignDate.substr(6)));
+                                             var month = date.getMonth() + 1;
+                                             return date.getDate() + "/" + month + "/" + date.getFullYear()+" " +date.getHours() + ":" + date.getMinutes()+":"+date.getSeconds();
+
+                                         }
+                                         else
+                                             return 'NA'
+                                     }
+                                 },
+                                 { 'data': 'VehicleStatus' }
+
+
+                             ]
+                         });
+                         di.style.display = 'none';
+
+                     },
+                     error: function (err) {
+                         debugger;
+                         alert(err.responseText);
+                     }
+                 }
+
+        )
+
+        }
+    });
+
+</script>
+
+
+
+<div class="container">
+
+    @using (Html.BeginForm())
+
+    {
+
+        <div class="row" style="margin-top:50px;">
+            <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 col-xs-12">
+                <h4>VehicleUser Mapping Details</h4>
+                </div>
+            </div>
+
+        
+
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 col-xs-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationMessage("Error", new { @class = "text-danger" })
+                    </div>
+                </div>
+            <div class="row">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 col-lg-4  col-xs-12">
+                        @Html.DropDownListFor(model => model.UserD, ViewBag.UserD as List<SelectListItem>, "Select UserName", new { htmlAttributes = new { @class = "dropdown" } })
+                        @Html.ValidationMessageFor(model => model.UserD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.VehicleName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4 col-lg-4  col-xs-12">
+                        @Html.DropDownListFor(model => model.VehicleID, ViewBag.VehicleID as List<SelectListItem>, "Select VehilceNumber", new { htmlAttributes = new { @class = "dropdown" } })
+                        @Html.ValidationMessageFor(model => model.VehicleID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-primary" id="btnsave" name="btnsave" onclick="return confirm('Are you sure to save changes');" />
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 col-xs-12">
+                   <h4>Details of Vehicle Assigned</h4>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 col-xs-12">
+                    <div id="loading-image" style="display:block;">
+                        <img class="img-responsive" src="~/Images/processing.gif" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-2 col-lg-10 col-lg-offset-2 col-xs-12">
+                    <div class="table-responsive mycls">
+                        <table id="Prodtbl" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>VehicleAssignID</th>
+                                    <th>VehicleNumber</th>
+                                    <th>UserName</th>
+                                    <th>AssignDate</th>
+                                    <th>CurrentStatus</th>
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            </div>
+            }
+        </div>

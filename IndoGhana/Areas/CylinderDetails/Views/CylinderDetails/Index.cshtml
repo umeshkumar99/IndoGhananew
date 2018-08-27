@@ -10,7 +10,12 @@
 </style>
 <script>
     $(document).ready(function () {
+        debugger;
+        var di = document.getElementById('loading-image');
 
+        if (di.style.display != 'block') {
+            di.style.display = 'block';
+        }
         $.ajax(
              {
 
@@ -178,6 +183,7 @@
                              }
                          ]
                      });
+                     di.style.display = 'none';
 
                  },
                  error: function (err) {
@@ -193,7 +199,7 @@
     });
 
 </script>
-<h2>Index</h2>
+
 @using (Html.BeginForm())
 
 {
@@ -205,12 +211,18 @@
             
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+            <div id="loading-image" style="display:block;">
+                <img class="img-responsive" src="~/Images/processing.gif" />
+            </div>
+            </div>
+        </div>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                     <div class="table-responsive mycls">
                         <table id="Prodtbl" class="table table-bordered table-hover">
-                            <thead>
+                            <thead style="margin-left:100px;">
                                 <tr>
                                    @* <th>CylinderID</th>*@
                                      <th>Cylinder No.</th>

@@ -74,7 +74,7 @@
                          @if (Model.Path != null && Model.Path != "")
                          {
                             <lable class="control-label col-md-2">Barcode</lable>
-                                 <img src="@Url.Content(Model.Path)" style="width:192px;height:192px;" />
+                                 <img src="@Url.Content(Model.Path)" style="width:192px;height:100px;" />
                             @*<img src="~/Images/print.png" id="prnbarcode" />*@
                             
                             @Html.ActionLink("Print Barcode", "printbarcode", new { cylindernumber = Model.CylindeNumber }, htmlAttributes: new { @class = "btn btn-primary" })
@@ -332,8 +332,10 @@
             }
         </div>
     </div>
-</div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="row">
+        <div class="col-md-4 col-lg-4  col-xs-12">
+            <h4> @Html.ActionLink("Back to Cylinder List", "Index") </h4>
+        </div>
+    </div>
 </div>

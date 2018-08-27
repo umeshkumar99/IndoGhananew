@@ -43,7 +43,7 @@ public partial class usp_CylinderMasterMobileGetByID_Result
 
     public string VendorBranchName { get; set; }
 
-    public Nullable<int> Size { get; set; }
+    public Nullable<double> Size { get; set; }
 
     public Nullable<int> SizeUOMID { get; set; }
 
@@ -66,6 +66,10 @@ public partial class usp_CylinderMasterMobileGetByID_Result
     public Nullable<int> CreatedByID { get; set; }
 
     public Nullable<int> UpdatedByID { get; set; }
+
+    public string BarcodeImage { get; set; }
+
+    public Nullable<int> IsPrintDone { get; set; }
 
 }
 

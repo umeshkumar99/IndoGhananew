@@ -131,6 +131,7 @@
     <Compile Include="Models\Owner.cs" />
     <Compile Include="Models\TransactionAllDetail.cs" />
     <Compile Include="Models\UserDetails.cs" />
+    <Compile Include="Models\VehicleUserMapping.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="usp_CustomerListGet_Result.cs">
@@ -152,6 +153,18 @@
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_CustomrSiteListGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_CylinderCountGasInUse_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_CylinderCountm_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_CylinderCountPState_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_CylinderCount_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_CylinderMasterGetBarcodeImage_Result.cs">
@@ -196,10 +209,22 @@
     <Compile Include="usp_tblUserMasterGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_tblUserMasterListGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_VehicleMasterGetByID_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_VehicleMasterGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_VehicleMasterListGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_VehicleUserMappingDetails_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_VehicleUserMappingGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_VendorBranchListDetailsGet_Result.cs">

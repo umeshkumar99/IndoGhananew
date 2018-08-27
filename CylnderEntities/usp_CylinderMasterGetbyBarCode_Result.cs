@@ -67,9 +67,9 @@ public partial class usp_CylinderMasterGetbyBarCode_Result
 
     public string VendorName { get; set; }
 
-    public Nullable<int> Size { get; set; }
+    public double Size { get; set; }
 
-    public Nullable<int> ActualSize { get; set; }
+    public double ActualSize { get; set; }
 
     public Nullable<int> SizeUOMID { get; set; }
 

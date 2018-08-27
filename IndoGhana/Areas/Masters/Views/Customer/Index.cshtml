@@ -27,7 +27,12 @@
         function loadcustomersitedata(celldata)
         {
             debugger;
-          //  alert(celldata);
+            //  alert(celldata);
+            var di = document.getElementById('loading-image');
+
+            if (di.style.display != 'block') {
+                di.style.display = 'block';
+            }
             var tbl = $('#tblsitelist').DataTable();
             if (tbl != null)
                 tbl.destroy();
@@ -117,7 +122,7 @@
                       ]
                   });
 
-            
+                  di.style.display = 'none';
 
               },
               error: function (err) {
@@ -276,7 +281,13 @@
   )
         }
 
+        var di = document.getElementById('loading-image');
+
+        if (di.style.display != 'block') {
+            di.style.display = 'block';
+        }
         loaddatacustomer();
+        di.style.display = 'none';
     });
 
 </script>
@@ -285,6 +296,13 @@
 
 {
     <div class="container" style="margin-top:50px;">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                <div id="loading-image" style="display:block;">
+                    <img class="img-responsive" src="~/Images/processing.gif" />
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-10 col-lg-10  col-xs-12">
                 <div class="col-md-5 col-lg-5 col-xs-6"><h4>Customer List</h4></div>

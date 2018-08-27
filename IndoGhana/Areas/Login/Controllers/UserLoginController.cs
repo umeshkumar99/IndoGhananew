@@ -36,7 +36,7 @@ namespace IndoGhana.Areas.Login.Controllers
                     return View();
                 }
                 Session["logindetails"] = logindetails;
-                return RedirectToAction("Index", "CylinderDetails", new { area = "CylinderDetails" });
+                return RedirectToAction("ReportCylinderDashboard", "CylinderDetails", new { area = "CylinderDetails" });
             }
             catch (Exception ex)
             {

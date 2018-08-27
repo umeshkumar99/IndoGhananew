@@ -28,12 +28,13 @@ namespace IndoGhana
         protected void Session_End()
         {
             USP_GetUserDetails_Result logindetails;
-            //if (Session["logindetails"] != null)
-            //{
+            if (Session["logindetails"] != null)
+            {
             logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
-            // }
+            
             IPAddress = GetIPAddress();
                 InventoryEntities.usp_UpdateLogoutTime(logindetails.logid, IPAddress);
+            }
         }
 
 

@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using CylnderEntities;
+using CylinderAPI.Log;
 
 namespace ApplicationAPI.Controllers
 {
@@ -13,12 +14,23 @@ namespace ApplicationAPI.Controllers
 
 
         IndoGhanaEntities InventoryEntities = new IndoGhanaEntities();
+        CreateLogFiles Err = new CreateLogFiles();
         // GET api/<controller>
         public usp_CylinderMasterGetbyBarCode_Result GetCyliderDetailsByBarCode(string barcode)
         {
-
-            usp_CylinderMasterGetbyBarCode_Result cylinderdetails = InventoryEntities.usp_CylinderMasterGetbyBarCode(barcode).FirstOrDefault();
-            return cylinderdetails;
+            usp_CylinderMasterGetbyBarCode_Result cylinderdetails = new usp_CylinderMasterGetbyBarCode_Result();
+            try
+            {
+                Err.ErrorLog("GetCyliderDetailsByBarCode called");
+                cylinderdetails = InventoryEntities.usp_CylinderMasterGetbyBarCode(barcode).FirstOrDefault();
+                Err.ErrorLog("GetCyliderDetailsByBarCode called end");
+                return cylinderdetails;
+            }
+            catch (Exception ex)
+            {
+                Err.ErrorLog("GetCyliderDetailsByBarCode Error:" + ex.Message);
+                return cylinderdetails;
+            }
 
         }
         public IEnumerable<string> Get()

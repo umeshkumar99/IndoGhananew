@@ -10,9 +10,9 @@ namespace CylnderEntities
 
      public Nullable<int> vehicleID { get; set;}
     
-    public Nullable<int> initialSize { get; set; }
+    public Nullable<double> initialSize { get; set; }
 
-    public Nullable<int> remainingsizeforRefill { get; set; }
+    public Nullable<double> remainingsizeforRefill { get; set; }
 
         public string vanBatchNumber { get; set; }
 

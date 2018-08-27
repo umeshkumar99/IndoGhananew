@@ -32,6 +32,7 @@ namespace CylnderEntities
         public string ContactNumber { get; set; }
         [DataType(DataType.EmailAddress)]
         [MaxLength(100, ErrorMessage = "Site EmailAddress cannot be greater than 100 characters")]
+        [Required]
         public string Email { get; set; }
         public Nullable<System.DateTime> CreationDate { get; set; }
         public Nullable<int> CreatedByID { get; set; }

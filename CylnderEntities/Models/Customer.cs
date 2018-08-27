@@ -22,6 +22,7 @@ namespace CylnderEntities
         public string ContactPersonName { get; set; }
         public string ContactNumber { get; set; }
         [DataType(DataType.EmailAddress)]
+        [Required]
         public string Email { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please select the wether Customer is Owner also")]
         public Nullable<bool> IsOwner { get; set; }

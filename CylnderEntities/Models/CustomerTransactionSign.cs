@@ -44,5 +44,7 @@ namespace CylnderEntities
    
     public string Sstat { get; set; }
 
+    public string Remarks { get; set; }
+
     }
 }

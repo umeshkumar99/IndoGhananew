@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CylnderEntities", "CylnderE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAPI", "ApplicationAPI\ApplicationAPI.csproj", "{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailApplicationSend", "EmailApplicationSend\EmailApplicationSend.csproj", "{ED0E7C80-785B-41C4-B0F2-C43B6867E389}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F0BFC56-2DF7-4C07-AA64-76D5B610C1FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED0E7C80-785B-41C4-B0F2-C43B6867E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED0E7C80-785B-41C4-B0F2-C43B6867E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED0E7C80-785B-41C4-B0F2-C43B6867E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED0E7C80-785B-41C4-B0F2-C43B6867E389}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
