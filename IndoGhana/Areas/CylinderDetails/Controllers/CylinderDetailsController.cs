@@ -31,7 +31,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
         }
 
         [HttpGet]
-        [OutputCache(Duration =1000)]
+     //   [OutputCache(Duration =1000)]
         public ActionResult GetCylinderList()
         {
             if (Session["logindetails"] == null)
@@ -312,6 +312,50 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                 return View();
             }
         }
+
+
+
+        public ActionResult ReportCylinderDetails()
+        {
+            try
+            {
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+
+                //for cylinder count location wise
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+
+
+                List<usp_CylinderMasterGet_Result> CylinderList= new List<usp_CylinderMasterGet_Result>();
+
+                CylinderList = InventoryEntities.usp_CylinderMasterGet().ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderDetails.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+                
+                ViewBag.CylinderDetails = reportview;
+
+                
+                
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
 
         public void Drillthrough(object sender)
         {

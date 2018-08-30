@@ -4,7 +4,63 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="IndoGhanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IndoGhanaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vwCylinderMaster">
+          <Key>
+            <PropertyRef Name="CylinderID" />
+          </Key>
+          <Property Name="CylinderID" Type="int" Nullable="false" />
+          <Property Name="CylindeNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Barcode" Type="varchar" MaxLength="50" />
+          <Property Name="ManufacturerID" Type="int" />
+          <Property Name="ManufacturerName" Type="varchar" MaxLength="200" />
+          <Property Name="PurchaseDate" Type="date" />
+          <Property Name="InitialGasID" Type="int" />
+          <Property Name="InitialGas" Type="varchar" MaxLength="500" />
+          <Property Name="WLCapacity" Type="int" />
+          <Property Name="WLCapacityUOMID" Type="int" />
+          <Property Name="WLCapacityUOM" Type="varchar" MaxLength="500" />
+          <Property Name="WorkingPressure" Type="int" />
+          <Property Name="WorkingPressureUOMID" Type="int" />
+          <Property Name="WorkingPressureUOM" Type="varchar" MaxLength="500" />
+          <Property Name="TestDate" Type="date" />
+          <Property Name="NextTestDate" Type="date" />
+          <Property Name="ValveModelID" Type="int" />
+          <Property Name="ValveModel" Type="varchar" MaxLength="500" />
+          <Property Name="PresentStateID" Type="int" />
+          <Property Name="PresentState" Type="varchar" MaxLength="500" />
+          <Property Name="GasInUseID" Type="int" />
+          <Property Name="GasInUse" Type="varchar" MaxLength="500" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="VendorName" Type="varchar" MaxLength="100" />
+          <Property Name="VendorBranchID" Type="int" />
+          <Property Name="VendorBranchName" Type="varchar" MaxLength="100" />
+          <Property Name="Size" Type="float" />
+          <Property Name="ActualSize" Type="float" />
+          <Property Name="SizeUOMID" Type="int" />
+          <Property Name="SizeUOM" Type="varchar" MaxLength="500" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="CurrentCustomerBranchID" Type="int" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="200" />
+          <Property Name="CustomerSiteName" Type="varchar" MaxLength="200" />
+          <Property Name="CurrentDeliveryDate" Type="datetime" />
+          <Property Name="CurrentRecieveDate" Type="datetime" />
+          <Property Name="CurrentLocationID" Type="int" />
+          <Property Name="CurrentLocation" Type="varchar" MaxLength="500" />
+          <Property Name="Branchid" Type="int" />
+          <Property Name="BranchName" Type="varchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="CreationDate" Type="datetime" />
+          <Property Name="CreatedByID" Type="int" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedByID" Type="int" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="100" />
+          <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="status" Type="bit" />
+          <Property Name="IsPrintDone" Type="bit" />
+        </EntityType>
         <Function Name="usp_CustomerListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CustomerMasterGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CustomerMasterGetbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -346,7 +402,61 @@
           <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
           <Parameter Name="status" Type="bit" Mode="In" />
         </Function>
-        <EntityContainer Name="IndoGhanaModelStoreContainer" />
+        <EntityContainer Name="IndoGhanaModelStoreContainer">
+          <EntitySet Name="vwCylinderMaster" EntityType="Self.vwCylinderMaster" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vwCylinderMaster].[CylinderID] AS [CylinderID], 
+    [vwCylinderMaster].[CylindeNumber] AS [CylindeNumber], 
+    [vwCylinderMaster].[Barcode] AS [Barcode], 
+    [vwCylinderMaster].[ManufacturerID] AS [ManufacturerID], 
+    [vwCylinderMaster].[ManufacturerName] AS [ManufacturerName], 
+    [vwCylinderMaster].[PurchaseDate] AS [PurchaseDate], 
+    [vwCylinderMaster].[InitialGasID] AS [InitialGasID], 
+    [vwCylinderMaster].[InitialGas] AS [InitialGas], 
+    [vwCylinderMaster].[WLCapacity] AS [WLCapacity], 
+    [vwCylinderMaster].[WLCapacityUOMID] AS [WLCapacityUOMID], 
+    [vwCylinderMaster].[WLCapacityUOM] AS [WLCapacityUOM], 
+    [vwCylinderMaster].[WorkingPressure] AS [WorkingPressure], 
+    [vwCylinderMaster].[WorkingPressureUOMID] AS [WorkingPressureUOMID], 
+    [vwCylinderMaster].[WorkingPressureUOM] AS [WorkingPressureUOM], 
+    [vwCylinderMaster].[TestDate] AS [TestDate], 
+    [vwCylinderMaster].[NextTestDate] AS [NextTestDate], 
+    [vwCylinderMaster].[ValveModelID] AS [ValveModelID], 
+    [vwCylinderMaster].[ValveModel] AS [ValveModel], 
+    [vwCylinderMaster].[PresentStateID] AS [PresentStateID], 
+    [vwCylinderMaster].[PresentState] AS [PresentState], 
+    [vwCylinderMaster].[GasInUseID] AS [GasInUseID], 
+    [vwCylinderMaster].[GasInUse] AS [GasInUse], 
+    [vwCylinderMaster].[VendorID] AS [VendorID], 
+    [vwCylinderMaster].[VendorName] AS [VendorName], 
+    [vwCylinderMaster].[VendorBranchID] AS [VendorBranchID], 
+    [vwCylinderMaster].[VendorBranchName] AS [VendorBranchName], 
+    [vwCylinderMaster].[Size] AS [Size], 
+    [vwCylinderMaster].[ActualSize] AS [ActualSize], 
+    [vwCylinderMaster].[SizeUOMID] AS [SizeUOMID], 
+    [vwCylinderMaster].[SizeUOM] AS [SizeUOM], 
+    [vwCylinderMaster].[CustomerID] AS [CustomerID], 
+    [vwCylinderMaster].[CurrentCustomerBranchID] AS [CurrentCustomerBranchID], 
+    [vwCylinderMaster].[CustomerName] AS [CustomerName], 
+    [vwCylinderMaster].[CustomerSiteName] AS [CustomerSiteName], 
+    [vwCylinderMaster].[CurrentDeliveryDate] AS [CurrentDeliveryDate], 
+    [vwCylinderMaster].[CurrentRecieveDate] AS [CurrentRecieveDate], 
+    [vwCylinderMaster].[CurrentLocationID] AS [CurrentLocationID], 
+    [vwCylinderMaster].[CurrentLocation] AS [CurrentLocation], 
+    [vwCylinderMaster].[Branchid] AS [Branchid], 
+    [vwCylinderMaster].[BranchName] AS [BranchName], 
+    [vwCylinderMaster].[CompanyID] AS [CompanyID], 
+    [vwCylinderMaster].[CreationDate] AS [CreationDate], 
+    [vwCylinderMaster].[CreatedByID] AS [CreatedByID], 
+    [vwCylinderMaster].[CreatedBy] AS [CreatedBy], 
+    [vwCylinderMaster].[UpdatedByID] AS [UpdatedByID], 
+    [vwCylinderMaster].[UpdatedBy] AS [UpdatedBy], 
+    [vwCylinderMaster].[UpdatedOn] AS [UpdatedOn], 
+    [vwCylinderMaster].[status] AS [status], 
+    [vwCylinderMaster].[IsPrintDone] AS [IsPrintDone]
+    FROM [dbo].[vwCylinderMaster] AS [vwCylinderMaster]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -697,6 +807,7 @@
             <Parameter Name="branchid" Mode="In" Type="Int32" />
             <Parameter Name="companyid" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="vwCylinderMasters" EntityType="IndoGhanaModel.vwCylinderMaster" />
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
           <Property Type="Int32" Name="StatusID" Nullable="false" />
@@ -1233,6 +1344,60 @@
           <Property Type="String" Name="PresentState" Nullable="true" MaxLength="500" />
           <Property Type="Int32" Name="NoOfCylinders" Nullable="true" />
         </ComplexType>
+        <EntityType Name="vwCylinderMaster">
+          <Key>
+            <PropertyRef Name="CylinderID" />
+          </Key>
+          <Property Name="CylinderID" Type="Int32" Nullable="false" />
+          <Property Name="CylindeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ManufacturerID" Type="Int32" />
+          <Property Name="ManufacturerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="0" />
+          <Property Name="InitialGasID" Type="Int32" />
+          <Property Name="InitialGas" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="WLCapacity" Type="Int32" />
+          <Property Name="WLCapacityUOMID" Type="Int32" />
+          <Property Name="WLCapacityUOM" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="WorkingPressure" Type="Int32" />
+          <Property Name="WorkingPressureUOMID" Type="Int32" />
+          <Property Name="WorkingPressureUOM" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TestDate" Type="DateTime" Precision="0" />
+          <Property Name="NextTestDate" Type="DateTime" Precision="0" />
+          <Property Name="ValveModelID" Type="Int32" />
+          <Property Name="ValveModel" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="PresentStateID" Type="Int32" />
+          <Property Name="PresentState" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="GasInUseID" Type="Int32" />
+          <Property Name="GasInUse" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="VendorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VendorBranchID" Type="Int32" />
+          <Property Name="VendorBranchName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Size" Type="Double" />
+          <Property Name="ActualSize" Type="Double" />
+          <Property Name="SizeUOMID" Type="Int32" />
+          <Property Name="SizeUOM" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="CurrentCustomerBranchID" Type="Int32" />
+          <Property Name="CustomerName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerSiteName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CurrentDeliveryDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrentRecieveDate" Type="DateTime" Precision="3" />
+          <Property Name="CurrentLocationID" Type="Int32" />
+          <Property Name="CurrentLocation" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Branchid" Type="Int32" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedByID" Type="Int32" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedByID" Type="Int32" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="IsPrintDone" Type="Boolean" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1935,6 +2100,61 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="vwCylinderMasters">
+            <EntityTypeMapping TypeName="IndoGhanaModel.vwCylinderMaster">
+              <MappingFragment StoreEntitySet="vwCylinderMaster">
+                <ScalarProperty Name="IsPrintDone" ColumnName="IsPrintDone" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="Branchid" ColumnName="Branchid" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="CurrentLocationID" ColumnName="CurrentLocationID" />
+                <ScalarProperty Name="CurrentRecieveDate" ColumnName="CurrentRecieveDate" />
+                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CurrentCustomerBranchID" ColumnName="CurrentCustomerBranchID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="SizeUOM" ColumnName="SizeUOM" />
+                <ScalarProperty Name="SizeUOMID" ColumnName="SizeUOMID" />
+                <ScalarProperty Name="ActualSize" ColumnName="ActualSize" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="VendorBranchName" ColumnName="VendorBranchName" />
+                <ScalarProperty Name="VendorBranchID" ColumnName="VendorBranchID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="GasInUse" ColumnName="GasInUse" />
+                <ScalarProperty Name="GasInUseID" ColumnName="GasInUseID" />
+                <ScalarProperty Name="PresentState" ColumnName="PresentState" />
+                <ScalarProperty Name="PresentStateID" ColumnName="PresentStateID" />
+                <ScalarProperty Name="ValveModel" ColumnName="ValveModel" />
+                <ScalarProperty Name="ValveModelID" ColumnName="ValveModelID" />
+                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="WorkingPressureUOM" ColumnName="WorkingPressureUOM" />
+                <ScalarProperty Name="WorkingPressureUOMID" ColumnName="WorkingPressureUOMID" />
+                <ScalarProperty Name="WorkingPressure" ColumnName="WorkingPressure" />
+                <ScalarProperty Name="WLCapacityUOM" ColumnName="WLCapacityUOM" />
+                <ScalarProperty Name="WLCapacityUOMID" ColumnName="WLCapacityUOMID" />
+                <ScalarProperty Name="WLCapacity" ColumnName="WLCapacity" />
+                <ScalarProperty Name="InitialGas" ColumnName="InitialGas" />
+                <ScalarProperty Name="InitialGasID" ColumnName="InitialGasID" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="CylinderID" ColumnName="CylinderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

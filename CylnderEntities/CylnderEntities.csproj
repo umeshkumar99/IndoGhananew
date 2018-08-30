@@ -248,6 +248,9 @@
     <Compile Include="usp_VendorMasterGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="vwCylinderMaster.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

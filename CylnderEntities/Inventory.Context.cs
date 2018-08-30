@@ -35,6 +35,8 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
+    public virtual DbSet<vwCylinderMaster> vwCylinderMasters { get; set; }
+
 
     public virtual ObjectResult<usp_tblStatusMasterGetByType_Result> usp_tblStatusMasterGetByType(Nullable<int> statusTypeID)
     {
