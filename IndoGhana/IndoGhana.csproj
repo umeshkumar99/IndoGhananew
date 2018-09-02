@@ -291,6 +291,7 @@
       <DependentUpon>IndoGhanaDataSet.xsd</DependentUpon>
     </Content>
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderDetails.cshtml" />
+    <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderRecieveDeliver.cshtml" />
     <None Include="IndoGhanaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IndoGhanaDataSet.Designer.cs</LastGenOutput>
@@ -400,6 +401,7 @@
     <EmbeddedResource Include="Reports\CylinderDetailLocation.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetailReport.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetails.rdlc" />
+    <EmbeddedResource Include="Reports\TransactionDetails.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

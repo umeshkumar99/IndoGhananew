@@ -318,6 +318,15 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="CompanyID" Type="int" Mode="In" />
           <Parameter Name="BranchID" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_TransactionDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startdate" Type="date" Mode="In" />
+          <Parameter Name="enddate" Type="date" Mode="In" />
+          <Parameter Name="branchid" Type="int" Mode="In" />
+          <Parameter Name="companyid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_TransactionGenerateReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionNumber" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_UpdateLogoutTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="LogId" Type="bigint" Mode="In" />
           <Parameter Name="machineIP" Type="varchar" Mode="In" />
@@ -808,6 +817,15 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="companyid" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="vwCylinderMasters" EntityType="IndoGhanaModel.vwCylinderMaster" />
+          <FunctionImport Name="usp_TransactionGenerateReport">
+          <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_TransactionDetails" ReturnType="Collection(IndoGhanaModel.usp_TransactionDetails_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="enddate" Mode="In" Type="DateTime" />
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
           <Property Type="Int32" Name="StatusID" Nullable="false" />
@@ -1398,6 +1416,24 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Name="status" Type="Boolean" />
           <Property Name="IsPrintDone" Type="Boolean" />
         </EntityType>
+        <ComplexType Name="usp_TransactionDetails_Result">
+          <Property Type="String" Name="PDATransactionNo" Nullable="true" MaxLength="50" />
+          <Property Type="Int64" Name="TransactionID" Nullable="false" />
+          <Property Type="String" Name="TransactionLocation" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="404" />
+          <Property Type="String" Name="sourceBarcode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="sourceCylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="targetBarcode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="targetCylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Size" Nullable="true" />
+          <Property Type="String" Name="CylinderStatus" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TransactionType" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="sourceGasType" Nullable="true" MaxLength="500" />
+          <Property Type="DateTime" Name="PDACreationTime" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CustomerRemarks" Nullable="true" MaxLength="500" />
+          <Property Type="Boolean" Name="IsSatisfied" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2155,6 +2191,29 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_TransactionGenerateReport" FunctionName="IndoGhanaModel.Store.usp_TransactionGenerateReport" />
+          <FunctionImportMapping FunctionImportName="usp_TransactionDetails" FunctionName="IndoGhanaModel.Store.usp_TransactionDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_TransactionDetails_Result">
+                <ScalarProperty Name="PDATransactionNo" ColumnName="PDATransactionNo" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="TransactionLocation" ColumnName="TransactionLocation" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="sourceBarcode" ColumnName="sourceBarcode" />
+                <ScalarProperty Name="sourceCylindeNumber" ColumnName="sourceCylindeNumber" />
+                <ScalarProperty Name="targetBarcode" ColumnName="targetBarcode" />
+                <ScalarProperty Name="targetCylindeNumber" ColumnName="targetCylindeNumber" />
+                <ScalarProperty Name="Size" ColumnName="Size" />
+                <ScalarProperty Name="CylinderStatus" ColumnName="CylinderStatus" />
+                <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="sourceGasType" ColumnName="sourceGasType" />
+                <ScalarProperty Name="PDACreationTime" ColumnName="PDACreationTime" />
+                <ScalarProperty Name="CustomerRemarks" ColumnName="CustomerRemarks" />
+                <ScalarProperty Name="IsSatisfied" ColumnName="IsSatisfied" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

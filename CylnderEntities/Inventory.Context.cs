@@ -1657,6 +1657,45 @@ public partial class IndoGhanaEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderCountPState_Result>("usp_CylinderCountPState", branchidParameter, companyidParameter);
     }
 
+
+    public virtual int usp_TransactionGenerateReport(string transactionNumber)
+    {
+
+        var transactionNumberParameter = transactionNumber != null ?
+            new ObjectParameter("TransactionNumber", transactionNumber) :
+            new ObjectParameter("TransactionNumber", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_TransactionGenerateReport", transactionNumberParameter);
+    }
+
+
+    public virtual ObjectResult<usp_TransactionDetails_Result> usp_TransactionDetails(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> branchid, Nullable<int> companyid)
+    {
+
+        var startdateParameter = startdate.HasValue ?
+            new ObjectParameter("startdate", startdate) :
+            new ObjectParameter("startdate", typeof(System.DateTime));
+
+
+        var enddateParameter = enddate.HasValue ?
+            new ObjectParameter("enddate", enddate) :
+            new ObjectParameter("enddate", typeof(System.DateTime));
+
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_TransactionDetails_Result>("usp_TransactionDetails", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
+    }
+
 }
 
 }

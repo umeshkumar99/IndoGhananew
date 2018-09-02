@@ -125,6 +125,7 @@
     <Compile Include="Models\CustomerSiteMaster.cs" />
     <Compile Include="Models\CustomerTransactionSign.cs" />
     <Compile Include="Models\CylinderInVan.cs" />
+    <Compile Include="Models\CylinderRecieveDeliver.cs" />
     <Compile Include="Models\Cylinders.cs" />
     <Compile Include="Models\DayStartDayEndTable.cs" />
     <Compile Include="Models\Login.cs" />
@@ -210,6 +211,9 @@
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_tblUserMasterListGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_TransactionDetails_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_VehicleMasterGetByID_Result.cs">
