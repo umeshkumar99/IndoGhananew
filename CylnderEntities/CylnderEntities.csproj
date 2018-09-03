@@ -213,6 +213,9 @@
     <Compile Include="usp_tblUserMasterListGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_TransactionDetailsRefill_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_TransactionDetails_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>

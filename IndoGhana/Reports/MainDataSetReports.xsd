@@ -341,10 +341,103 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="usp_TransactionDetailsRefill" msprop:Generator_TableClassName="usp_TransactionDetailsRefillDataTable" msprop:Generator_TableVarName="tableusp_TransactionDetailsRefill" msprop:Generator_TablePropName="usp_TransactionDetailsRefill" msprop:Generator_RowDeletingName="usp_TransactionDetailsRefillRowDeleting" msprop:Generator_RowChangingName="usp_TransactionDetailsRefillRowChanging" msprop:Generator_RowEvHandlerName="usp_TransactionDetailsRefillRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_TransactionDetailsRefillRowDeleted" msprop:Generator_UserTableName="usp_TransactionDetailsRefill" msprop:Generator_RowChangedName="usp_TransactionDetailsRefillRowChanged" msprop:Generator_RowEvArgName="usp_TransactionDetailsRefillRowChangeEvent" msprop:Generator_RowClassName="usp_TransactionDetailsRefillRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PDATransactionNo" msprop:Generator_ColumnVarNameInTable="columnPDATransactionNo" msprop:Generator_ColumnPropNameInRow="PDATransactionNo" msprop:Generator_ColumnPropNameInTable="PDATransactionNoColumn" msprop:Generator_UserColumnName="PDATransactionNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionID" msprop:Generator_ColumnVarNameInTable="columnTransactionID" msprop:Generator_ColumnPropNameInRow="TransactionID" msprop:Generator_ColumnPropNameInTable="TransactionIDColumn" msprop:Generator_UserColumnName="TransactionID" type="xs:long" />
+              <xs:element name="TransactionLocation" msprop:Generator_ColumnVarNameInTable="columnTransactionLocation" msprop:Generator_ColumnPropNameInRow="TransactionLocation" msprop:Generator_ColumnPropNameInTable="TransactionLocationColumn" msprop:Generator_UserColumnName="TransactionLocation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="404" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sourceBarcode" msprop:Generator_ColumnVarNameInTable="columnsourceBarcode" msprop:Generator_ColumnPropNameInRow="sourceBarcode" msprop:Generator_ColumnPropNameInTable="sourceBarcodeColumn" msprop:Generator_UserColumnName="sourceBarcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sourceCylindeNumber" msprop:Generator_ColumnVarNameInTable="columnsourceCylindeNumber" msprop:Generator_ColumnPropNameInRow="sourceCylindeNumber" msprop:Generator_ColumnPropNameInTable="sourceCylindeNumberColumn" msprop:Generator_UserColumnName="sourceCylindeNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="targetBarcode" msprop:Generator_ColumnVarNameInTable="columntargetBarcode" msprop:Generator_ColumnPropNameInRow="targetBarcode" msprop:Generator_ColumnPropNameInTable="targetBarcodeColumn" msprop:Generator_UserColumnName="targetBarcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="targetCylindeNumber" msprop:Generator_ColumnVarNameInTable="columntargetCylindeNumber" msprop:Generator_ColumnPropNameInRow="targetCylindeNumber" msprop:Generator_ColumnPropNameInTable="targetCylindeNumberColumn" msprop:Generator_UserColumnName="targetCylindeNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:double" minOccurs="0" />
+              <xs:element name="CylinderStatus" msprop:Generator_ColumnVarNameInTable="columnCylinderStatus" msprop:Generator_ColumnPropNameInRow="CylinderStatus" msprop:Generator_ColumnPropNameInTable="CylinderStatusColumn" msprop:Generator_UserColumnName="CylinderStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionType" msprop:Generator_ColumnVarNameInTable="columnTransactionType" msprop:Generator_ColumnPropNameInRow="TransactionType" msprop:Generator_ColumnPropNameInTable="TransactionTypeColumn" msprop:Generator_UserColumnName="TransactionType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreationDate" msprop:Generator_ColumnVarNameInTable="columnCreationDate" msprop:Generator_ColumnPropNameInRow="CreationDate" msprop:Generator_ColumnPropNameInTable="CreationDateColumn" msprop:Generator_UserColumnName="CreationDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="sourceGasType" msprop:Generator_ColumnVarNameInTable="columnsourceGasType" msprop:Generator_ColumnPropNameInRow="sourceGasType" msprop:Generator_ColumnPropNameInTable="sourceGasTypeColumn" msprop:Generator_UserColumnName="sourceGasType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PDACreationTime" msprop:Generator_ColumnVarNameInTable="columnPDACreationTime" msprop:Generator_ColumnPropNameInRow="PDACreationTime" msprop:Generator_ColumnPropNameInTable="PDACreationTimeColumn" msprop:Generator_UserColumnName="PDACreationTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TargetSize" msprop:Generator_ColumnVarNameInTable="columnTargetSize" msprop:Generator_ColumnPropNameInRow="TargetSize" msprop:Generator_ColumnPropNameInTable="TargetSizeColumn" msprop:Generator_UserColumnName="TargetSize" type="xs:double" minOccurs="0" />
+              <xs:element name="CustomerRemarks" msprop:Generator_ColumnVarNameInTable="columnCustomerRemarks" msprop:Generator_ColumnPropNameInRow="CustomerRemarks" msprop:Generator_ColumnPropNameInTable="CustomerRemarksColumn" msprop:Generator_UserColumnName="CustomerRemarks" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsSatisfied" msprop:Generator_ColumnVarNameInTable="columnIsSatisfied" msprop:Generator_ColumnPropNameInRow="IsSatisfied" msprop:Generator_ColumnPropNameInTable="IsSatisfiedColumn" msprop:Generator_UserColumnName="IsSatisfied" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:usp_TransactionDetails" />
+      <xs:field xpath="mstns:TransactionID" />
+    </xs:unique>
+    <xs:unique name="usp_TransactionDetailsRefill_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:usp_TransactionDetailsRefill" />
       <xs:field xpath="mstns:TransactionID" />
     </xs:unique>
   </xs:element>

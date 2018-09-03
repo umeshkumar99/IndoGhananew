@@ -354,12 +354,14 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                 return View();
             }
         }
+
         [HttpGet]
         public ActionResult ReportCylinderRecieveDeliver()
         {
 
             return View();
         }
+
         [HttpPost]
         public ActionResult ReportCylinderRecieveDeliver(FormCollection frm)
         {
@@ -385,6 +387,57 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
 
                 CylinderList = InventoryEntities.usp_TransactionDetails(cylinderRecieveDeliver.StartDate, cylinderRecieveDeliver.EndDate, logindetails.Branch_Id, logindetails.Company_Id).ToList();
                 reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\TransactionDetails.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
+
+        [HttpGet]
+        public ActionResult ReportCylinderRefill()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ReportCylinderRefill(FormCollection frm)
+        {
+            try
+            {
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+                CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
+                TryUpdateModel(cylinderRecieveDeliver);
+                //for cylinder count location wise
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+
+
+                List<usp_TransactionDetailsRefill_Result> CylinderList = new List<usp_TransactionDetailsRefill_Result>();
+
+                CylinderList = InventoryEntities.usp_TransactionDetailsRefill(cylinderRecieveDeliver.StartDate, cylinderRecieveDeliver.EndDate, logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\TransactionDetailsRefill.rdlc";
                 reportview.ShowToolBar = true;
                 reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
 

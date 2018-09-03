@@ -36,6 +36,8 @@ namespace IndoGhana.Reports {
         
         private usp_TransactionDetailsDataTable tableusp_TransactionDetails;
         
+        private usp_TransactionDetailsRefillDataTable tableusp_TransactionDetailsRefill;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -81,6 +83,9 @@ namespace IndoGhana.Reports {
                 }
                 if ((ds.Tables["usp_TransactionDetails"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsDataTable(ds.Tables["usp_TransactionDetails"]));
+                }
+                if ((ds.Tables["usp_TransactionDetailsRefill"] != null)) {
+                    base.Tables.Add(new usp_TransactionDetailsRefillDataTable(ds.Tables["usp_TransactionDetailsRefill"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -157,6 +162,16 @@ namespace IndoGhana.Reports {
         public usp_TransactionDetailsDataTable usp_TransactionDetails {
             get {
                 return this.tableusp_TransactionDetails;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public usp_TransactionDetailsRefillDataTable usp_TransactionDetailsRefill {
+            get {
+                return this.tableusp_TransactionDetailsRefill;
             }
         }
         
@@ -245,6 +260,9 @@ namespace IndoGhana.Reports {
                 if ((ds.Tables["usp_TransactionDetails"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsDataTable(ds.Tables["usp_TransactionDetails"]));
                 }
+                if ((ds.Tables["usp_TransactionDetailsRefill"] != null)) {
+                    base.Tables.Add(new usp_TransactionDetailsRefillDataTable(ds.Tables["usp_TransactionDetailsRefill"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -314,6 +332,12 @@ namespace IndoGhana.Reports {
                     this.tableusp_TransactionDetails.InitVars();
                 }
             }
+            this.tableusp_TransactionDetailsRefill = ((usp_TransactionDetailsRefillDataTable)(base.Tables["usp_TransactionDetailsRefill"]));
+            if ((initTable == true)) {
+                if ((this.tableusp_TransactionDetailsRefill != null)) {
+                    this.tableusp_TransactionDetailsRefill.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +360,8 @@ namespace IndoGhana.Reports {
             base.Tables.Add(this.tableusp_CylinderAgeAnalysisReport);
             this.tableusp_TransactionDetails = new usp_TransactionDetailsDataTable();
             base.Tables.Add(this.tableusp_TransactionDetails);
+            this.tableusp_TransactionDetailsRefill = new usp_TransactionDetailsRefillDataTable();
+            base.Tables.Add(this.tableusp_TransactionDetailsRefill);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -371,6 +397,12 @@ namespace IndoGhana.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeusp_TransactionDetails() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeusp_TransactionDetailsRefill() {
             return false;
         }
         
@@ -446,6 +478,9 @@ namespace IndoGhana.Reports {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void usp_TransactionDetailsRowChangeEventHandler(object sender, usp_TransactionDetailsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void usp_TransactionDetailsRefillRowChangeEventHandler(object sender, usp_TransactionDetailsRefillRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3018,6 +3053,517 @@ namespace IndoGhana.Reports {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class usp_TransactionDetailsRefillDataTable : global::System.Data.TypedTableBase<usp_TransactionDetailsRefillRow> {
+            
+            private global::System.Data.DataColumn columnPDATransactionNo;
+            
+            private global::System.Data.DataColumn columnTransactionID;
+            
+            private global::System.Data.DataColumn columnTransactionLocation;
+            
+            private global::System.Data.DataColumn columnCustomerName;
+            
+            private global::System.Data.DataColumn columnsourceBarcode;
+            
+            private global::System.Data.DataColumn columnsourceCylindeNumber;
+            
+            private global::System.Data.DataColumn columntargetBarcode;
+            
+            private global::System.Data.DataColumn columntargetCylindeNumber;
+            
+            private global::System.Data.DataColumn columnSize;
+            
+            private global::System.Data.DataColumn columnCylinderStatus;
+            
+            private global::System.Data.DataColumn columnTransactionType;
+            
+            private global::System.Data.DataColumn columnCreationDate;
+            
+            private global::System.Data.DataColumn columnsourceGasType;
+            
+            private global::System.Data.DataColumn columnPDACreationTime;
+            
+            private global::System.Data.DataColumn columnTargetSize;
+            
+            private global::System.Data.DataColumn columnCustomerRemarks;
+            
+            private global::System.Data.DataColumn columnIsSatisfied;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillDataTable() {
+                this.TableName = "usp_TransactionDetailsRefill";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_TransactionDetailsRefillDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected usp_TransactionDetailsRefillDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PDATransactionNoColumn {
+                get {
+                    return this.columnPDATransactionNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransactionIDColumn {
+                get {
+                    return this.columnTransactionID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransactionLocationColumn {
+                get {
+                    return this.columnTransactionLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerNameColumn {
+                get {
+                    return this.columnCustomerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn sourceBarcodeColumn {
+                get {
+                    return this.columnsourceBarcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn sourceCylindeNumberColumn {
+                get {
+                    return this.columnsourceCylindeNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn targetBarcodeColumn {
+                get {
+                    return this.columntargetBarcode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn targetCylindeNumberColumn {
+                get {
+                    return this.columntargetCylindeNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SizeColumn {
+                get {
+                    return this.columnSize;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CylinderStatusColumn {
+                get {
+                    return this.columnCylinderStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransactionTypeColumn {
+                get {
+                    return this.columnTransactionType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreationDateColumn {
+                get {
+                    return this.columnCreationDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn sourceGasTypeColumn {
+                get {
+                    return this.columnsourceGasType;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PDACreationTimeColumn {
+                get {
+                    return this.columnPDACreationTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TargetSizeColumn {
+                get {
+                    return this.columnTargetSize;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerRemarksColumn {
+                get {
+                    return this.columnCustomerRemarks;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsSatisfiedColumn {
+                get {
+                    return this.columnIsSatisfied;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRow this[int index] {
+                get {
+                    return ((usp_TransactionDetailsRefillRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_TransactionDetailsRefillRowChangeEventHandler usp_TransactionDetailsRefillRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_TransactionDetailsRefillRowChangeEventHandler usp_TransactionDetailsRefillRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_TransactionDetailsRefillRowChangeEventHandler usp_TransactionDetailsRefillRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_TransactionDetailsRefillRowChangeEventHandler usp_TransactionDetailsRefillRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addusp_TransactionDetailsRefillRow(usp_TransactionDetailsRefillRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRow Addusp_TransactionDetailsRefillRow(
+                        string PDATransactionNo, 
+                        long TransactionID, 
+                        string TransactionLocation, 
+                        string CustomerName, 
+                        string sourceBarcode, 
+                        string sourceCylindeNumber, 
+                        string targetBarcode, 
+                        string targetCylindeNumber, 
+                        double Size, 
+                        string CylinderStatus, 
+                        string TransactionType, 
+                        System.DateTime CreationDate, 
+                        string sourceGasType, 
+                        System.DateTime PDACreationTime, 
+                        double TargetSize, 
+                        string CustomerRemarks, 
+                        bool IsSatisfied) {
+                usp_TransactionDetailsRefillRow rowusp_TransactionDetailsRefillRow = ((usp_TransactionDetailsRefillRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        PDATransactionNo,
+                        TransactionID,
+                        TransactionLocation,
+                        CustomerName,
+                        sourceBarcode,
+                        sourceCylindeNumber,
+                        targetBarcode,
+                        targetCylindeNumber,
+                        Size,
+                        CylinderStatus,
+                        TransactionType,
+                        CreationDate,
+                        sourceGasType,
+                        PDACreationTime,
+                        TargetSize,
+                        CustomerRemarks,
+                        IsSatisfied};
+                rowusp_TransactionDetailsRefillRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowusp_TransactionDetailsRefillRow);
+                return rowusp_TransactionDetailsRefillRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRow FindByTransactionID(long TransactionID) {
+                return ((usp_TransactionDetailsRefillRow)(this.Rows.Find(new object[] {
+                            TransactionID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                usp_TransactionDetailsRefillDataTable cln = ((usp_TransactionDetailsRefillDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new usp_TransactionDetailsRefillDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnPDATransactionNo = base.Columns["PDATransactionNo"];
+                this.columnTransactionID = base.Columns["TransactionID"];
+                this.columnTransactionLocation = base.Columns["TransactionLocation"];
+                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnsourceBarcode = base.Columns["sourceBarcode"];
+                this.columnsourceCylindeNumber = base.Columns["sourceCylindeNumber"];
+                this.columntargetBarcode = base.Columns["targetBarcode"];
+                this.columntargetCylindeNumber = base.Columns["targetCylindeNumber"];
+                this.columnSize = base.Columns["Size"];
+                this.columnCylinderStatus = base.Columns["CylinderStatus"];
+                this.columnTransactionType = base.Columns["TransactionType"];
+                this.columnCreationDate = base.Columns["CreationDate"];
+                this.columnsourceGasType = base.Columns["sourceGasType"];
+                this.columnPDACreationTime = base.Columns["PDACreationTime"];
+                this.columnTargetSize = base.Columns["TargetSize"];
+                this.columnCustomerRemarks = base.Columns["CustomerRemarks"];
+                this.columnIsSatisfied = base.Columns["IsSatisfied"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnPDATransactionNo = new global::System.Data.DataColumn("PDATransactionNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPDATransactionNo);
+                this.columnTransactionID = new global::System.Data.DataColumn("TransactionID", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionID);
+                this.columnTransactionLocation = new global::System.Data.DataColumn("TransactionLocation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionLocation);
+                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerName);
+                this.columnsourceBarcode = new global::System.Data.DataColumn("sourceBarcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsourceBarcode);
+                this.columnsourceCylindeNumber = new global::System.Data.DataColumn("sourceCylindeNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsourceCylindeNumber);
+                this.columntargetBarcode = new global::System.Data.DataColumn("targetBarcode", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntargetBarcode);
+                this.columntargetCylindeNumber = new global::System.Data.DataColumn("targetCylindeNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntargetCylindeNumber);
+                this.columnSize = new global::System.Data.DataColumn("Size", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSize);
+                this.columnCylinderStatus = new global::System.Data.DataColumn("CylinderStatus", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCylinderStatus);
+                this.columnTransactionType = new global::System.Data.DataColumn("TransactionType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionType);
+                this.columnCreationDate = new global::System.Data.DataColumn("CreationDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreationDate);
+                this.columnsourceGasType = new global::System.Data.DataColumn("sourceGasType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsourceGasType);
+                this.columnPDACreationTime = new global::System.Data.DataColumn("PDACreationTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPDACreationTime);
+                this.columnTargetSize = new global::System.Data.DataColumn("TargetSize", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTargetSize);
+                this.columnCustomerRemarks = new global::System.Data.DataColumn("CustomerRemarks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerRemarks);
+                this.columnIsSatisfied = new global::System.Data.DataColumn("IsSatisfied", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsSatisfied);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnTransactionID}, true));
+                this.columnPDATransactionNo.MaxLength = 50;
+                this.columnTransactionID.AllowDBNull = false;
+                this.columnTransactionID.Unique = true;
+                this.columnTransactionLocation.MaxLength = 500;
+                this.columnCustomerName.ReadOnly = true;
+                this.columnCustomerName.MaxLength = 404;
+                this.columnsourceBarcode.MaxLength = 50;
+                this.columnsourceCylindeNumber.MaxLength = 50;
+                this.columntargetBarcode.MaxLength = 50;
+                this.columntargetCylindeNumber.MaxLength = 50;
+                this.columnCylinderStatus.MaxLength = 500;
+                this.columnTransactionType.MaxLength = 500;
+                this.columnsourceGasType.MaxLength = 500;
+                this.columnCustomerRemarks.MaxLength = 500;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRow Newusp_TransactionDetailsRefillRow() {
+                return ((usp_TransactionDetailsRefillRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new usp_TransactionDetailsRefillRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(usp_TransactionDetailsRefillRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.usp_TransactionDetailsRefillRowChanged != null)) {
+                    this.usp_TransactionDetailsRefillRowChanged(this, new usp_TransactionDetailsRefillRowChangeEvent(((usp_TransactionDetailsRefillRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.usp_TransactionDetailsRefillRowChanging != null)) {
+                    this.usp_TransactionDetailsRefillRowChanging(this, new usp_TransactionDetailsRefillRowChangeEvent(((usp_TransactionDetailsRefillRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.usp_TransactionDetailsRefillRowDeleted != null)) {
+                    this.usp_TransactionDetailsRefillRowDeleted(this, new usp_TransactionDetailsRefillRowChangeEvent(((usp_TransactionDetailsRefillRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.usp_TransactionDetailsRefillRowDeleting != null)) {
+                    this.usp_TransactionDetailsRefillRowDeleting(this, new usp_TransactionDetailsRefillRowChangeEvent(((usp_TransactionDetailsRefillRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeusp_TransactionDetailsRefillRow(usp_TransactionDetailsRefillRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MainDataSetReports ds = new MainDataSetReports();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "usp_TransactionDetailsRefillDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class usp_CylinderCountRow : global::System.Data.DataRow {
@@ -5208,6 +5754,495 @@ namespace IndoGhana.Reports {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class usp_TransactionDetailsRefillRow : global::System.Data.DataRow {
+            
+            private usp_TransactionDetailsRefillDataTable tableusp_TransactionDetailsRefill;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_TransactionDetailsRefillRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableusp_TransactionDetailsRefill = ((usp_TransactionDetailsRefillDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PDATransactionNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.PDATransactionNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PDATransactionNo\' in table \'usp_TransactionDetailsRefill\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.PDATransactionNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public long TransactionID {
+                get {
+                    return ((long)(this[this.tableusp_TransactionDetailsRefill.TransactionIDColumn]));
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.TransactionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TransactionLocation {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.TransactionLocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionLocation\' in table \'usp_TransactionDetailsRefill" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.TransactionLocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CustomerName {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.CustomerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'usp_TransactionDetailsRefill\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.CustomerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string sourceBarcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.sourceBarcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'sourceBarcode\' in table \'usp_TransactionDetailsRefill\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.sourceBarcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string sourceCylindeNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.sourceCylindeNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'sourceCylindeNumber\' in table \'usp_TransactionDetailsRefill" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.sourceCylindeNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string targetBarcode {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.targetBarcodeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'targetBarcode\' in table \'usp_TransactionDetailsRefill\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.targetBarcodeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string targetCylindeNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.targetCylindeNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'targetCylindeNumber\' in table \'usp_TransactionDetailsRefill" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.targetCylindeNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double Size {
+                get {
+                    try {
+                        return ((double)(this[this.tableusp_TransactionDetailsRefill.SizeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Size\' in table \'usp_TransactionDetailsRefill\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.SizeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CylinderStatus {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.CylinderStatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CylinderStatus\' in table \'usp_TransactionDetailsRefill\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.CylinderStatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TransactionType {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.TransactionTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionType\' in table \'usp_TransactionDetailsRefill\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.TransactionTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CreationDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableusp_TransactionDetailsRefill.CreationDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreationDate\' in table \'usp_TransactionDetailsRefill\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.CreationDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string sourceGasType {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.sourceGasTypeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'sourceGasType\' in table \'usp_TransactionDetailsRefill\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.sourceGasTypeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime PDACreationTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableusp_TransactionDetailsRefill.PDACreationTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PDACreationTime\' in table \'usp_TransactionDetailsRefill\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.PDACreationTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public double TargetSize {
+                get {
+                    try {
+                        return ((double)(this[this.tableusp_TransactionDetailsRefill.TargetSizeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TargetSize\' in table \'usp_TransactionDetailsRefill\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.TargetSizeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CustomerRemarks {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_TransactionDetailsRefill.CustomerRemarksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerRemarks\' in table \'usp_TransactionDetailsRefill\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.CustomerRemarksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSatisfied {
+                get {
+                    try {
+                        return ((bool)(this[this.tableusp_TransactionDetailsRefill.IsSatisfiedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsSatisfied\' in table \'usp_TransactionDetailsRefill\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_TransactionDetailsRefill.IsSatisfiedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPDATransactionNoNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.PDATransactionNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPDATransactionNoNull() {
+                this[this.tableusp_TransactionDetailsRefill.PDATransactionNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTransactionLocationNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.TransactionLocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransactionLocationNull() {
+                this[this.tableusp_TransactionDetailsRefill.TransactionLocationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomerNameNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.CustomerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomerNameNull() {
+                this[this.tableusp_TransactionDetailsRefill.CustomerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssourceBarcodeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.sourceBarcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsourceBarcodeNull() {
+                this[this.tableusp_TransactionDetailsRefill.sourceBarcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssourceCylindeNumberNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.sourceCylindeNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsourceCylindeNumberNull() {
+                this[this.tableusp_TransactionDetailsRefill.sourceCylindeNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstargetBarcodeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.targetBarcodeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettargetBarcodeNull() {
+                this[this.tableusp_TransactionDetailsRefill.targetBarcodeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstargetCylindeNumberNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.targetCylindeNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettargetCylindeNumberNull() {
+                this[this.tableusp_TransactionDetailsRefill.targetCylindeNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSizeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.SizeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSizeNull() {
+                this[this.tableusp_TransactionDetailsRefill.SizeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCylinderStatusNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.CylinderStatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCylinderStatusNull() {
+                this[this.tableusp_TransactionDetailsRefill.CylinderStatusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTransactionTypeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.TransactionTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransactionTypeNull() {
+                this[this.tableusp_TransactionDetailsRefill.TransactionTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreationDateNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.CreationDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreationDateNull() {
+                this[this.tableusp_TransactionDetailsRefill.CreationDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssourceGasTypeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.sourceGasTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsourceGasTypeNull() {
+                this[this.tableusp_TransactionDetailsRefill.sourceGasTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPDACreationTimeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.PDACreationTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPDACreationTimeNull() {
+                this[this.tableusp_TransactionDetailsRefill.PDACreationTimeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTargetSizeNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.TargetSizeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTargetSizeNull() {
+                this[this.tableusp_TransactionDetailsRefill.TargetSizeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomerRemarksNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.CustomerRemarksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomerRemarksNull() {
+                this[this.tableusp_TransactionDetailsRefill.CustomerRemarksColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsSatisfiedNull() {
+                return this.IsNull(this.tableusp_TransactionDetailsRefill.IsSatisfiedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsSatisfiedNull() {
+                this[this.tableusp_TransactionDetailsRefill.IsSatisfiedColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5397,6 +6432,40 @@ namespace IndoGhana.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public usp_TransactionDetailsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class usp_TransactionDetailsRefillRowChangeEvent : global::System.EventArgs {
+            
+            private usp_TransactionDetailsRefillRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRowChangeEvent(usp_TransactionDetailsRefillRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_TransactionDetailsRefillRow Row {
                 get {
                     return this.eventRow;
                 }

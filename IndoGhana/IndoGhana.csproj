@@ -292,6 +292,7 @@
     </Content>
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderDetails.cshtml" />
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderRecieveDeliver.cshtml" />
+    <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderRefill.cshtml" />
     <None Include="IndoGhanaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IndoGhanaDataSet.Designer.cs</LastGenOutput>
@@ -402,6 +403,7 @@
     <EmbeddedResource Include="Reports\CylinderDetailReport.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetails.rdlc" />
     <EmbeddedResource Include="Reports\TransactionDetails.rdlc" />
+    <EmbeddedResource Include="Reports\TransactionDetailsRefill.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
