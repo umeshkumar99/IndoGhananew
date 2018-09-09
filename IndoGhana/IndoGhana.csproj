@@ -297,6 +297,7 @@
     <Content Include="Areas\Masters\Views\Vehicle\Index.cshtml" />
     <Content Include="Areas\Masters\Views\Vehicle\CreateVehicle.cshtml" />
     <Content Include="Areas\Masters\Views\Vehicle\EditVehicle.cshtml" />
+    <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderAgeAnalysis.cshtml" />
     <None Include="IndoGhanaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IndoGhanaDataSet.Designer.cs</LastGenOutput>
@@ -401,7 +402,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\CylinderAgeAnalysis.rdlc" />
+    <EmbeddedResource Include="Reports\CylinderAgeAnalysisReport.rdlc" />
     <EmbeddedResource Include="Reports\CylinderCount.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetailLocation.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetailReport.rdlc" />

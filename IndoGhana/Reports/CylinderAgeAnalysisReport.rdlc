@@ -6,13 +6,13 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.80208in</Width>
+              <Width>1.83333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.08333in</Width>
+              <Width>2.22917in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.61458in</Width>
+              <Width>1.875in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -64,7 +64,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Customer Site Name</Value>
+                              <Value>Delivery Date</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -100,7 +100,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Current Delivery Date</Value>
+                              <Value>Recieve Date Time</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -167,39 +167,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CustomerSiteName">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!CustomerSiteName.Value</Value>
-                              <Style>
-                                <FontFamily>Tahoma</FontFamily>
-                                <Color>#4d4d4d</Color>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>CustomerSiteName</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>#e5e5e5</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="CurrentDeliveryDate">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -218,6 +185,40 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CurrentDeliveryDate</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>#e5e5e5</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <rd:Selected>true</rd:Selected>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="RecieveDateTime">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!RecieveDateTime.Value</Value>
+                              <Style>
+                                <FontFamily>Tahoma</FontFamily>
+                                <Color>#4d4d4d</Color>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>RecieveDateTime</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>#e5e5e5</Color>
@@ -557,10 +558,6 @@
               <TablixMembers>
                 <TablixMember>
                   <Group Name="Details" />
-                  <Visibility>
-                    <Hidden>true</Hidden>
-                    <ToggleItem>CylindeNumber</ToggleItem>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember>
                   <KeepWithGroup>Before</KeepWithGroup>
@@ -610,7 +607,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>1in</Height>
-        <Width>6.5in</Width>
+        <Width>6.9375in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -621,154 +618,8 @@
     <Height>2in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.9375in</Width>
   <Page>
-    <PageHeader>
-      <Height>1in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="Textbox21">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Cylinder Age Analysis Report</Value>
-                  <Style>
-                    <FontSize>20pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox21</rd:DefaultName>
-          <Top>0.18625in</Top>
-          <Height>0.5in</Height>
-          <Width>6.5in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
-    <PageFooter>
-      <Height>1in</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <ReportItems>
-        <Textbox Name="OverallTotalPages">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!OverallTotalPages</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>OverallTotalPages</rd:DefaultName>
-          <Top>0.48833in</Top>
-          <Left>2.9675in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="PageNumber">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Globals!PageNumber</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.48833in</Top>
-          <Left>4.24875in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox20">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>of</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>0.48833in</Top>
-          <Left>4.00917in</Left>
-          <Height>0.25in</Height>
-          <Width>0.23958in</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-      </ReportItems>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageFooter>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>
@@ -782,7 +633,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>4f3bc730-d8cc-423c-bc0b-12f7b250c72a</rd:DataSourceID>
+      <rd:DataSourceID>1e1b41e1-8235-4cb3-8c0f-8f22430fa5bc</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -812,6 +663,10 @@
           <DataField>CurrentLocation</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="RecieveDateTime">
+          <DataField>RecieveDateTime</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>MainDataSetReports</rd:DataSetName>
@@ -823,26 +678,6 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <ReportParameters>
-    <ReportParameter Name="startdate">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=CDate("01-Jan-2018")</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="enddate">
-      <DataType>DateTime</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>=Now()</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>b47a6cd1-c588-4cd5-84d6-874bafdbeb71</rd:ReportID>
+  <rd:ReportID>0be49166-3400-4845-9058-7252e9e38725</rd:ReportID>
 </Report>

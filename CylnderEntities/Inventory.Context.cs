@@ -1737,33 +1737,6 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual ObjectResult<usp_CylinderAgeAnalysisReport_Result> usp_CylinderAgeAnalysisReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> branchid, Nullable<int> companyid)
-    {
-
-        var startdateParameter = startdate.HasValue ?
-            new ObjectParameter("startdate", startdate) :
-            new ObjectParameter("startdate", typeof(System.DateTime));
-
-
-        var enddateParameter = enddate.HasValue ?
-            new ObjectParameter("enddate", enddate) :
-            new ObjectParameter("enddate", typeof(System.DateTime));
-
-
-        var branchidParameter = branchid.HasValue ?
-            new ObjectParameter("branchid", branchid) :
-            new ObjectParameter("branchid", typeof(int));
-
-
-        var companyidParameter = companyid.HasValue ?
-            new ObjectParameter("companyid", companyid) :
-            new ObjectParameter("companyid", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderAgeAnalysisReport_Result>("usp_CylinderAgeAnalysisReport", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
-    }
-
-
     public virtual ObjectResult<usp_VehicleMasterGet_Result> usp_VehicleMasterGet(Nullable<int> companyID, Nullable<int> branchID)
     {
 
@@ -1800,6 +1773,33 @@ public partial class IndoGhanaEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleMasterGetByID_Result>("usp_VehicleMasterGetByID", companyIDParameter, branchIDParameter, vehicleIDParameter);
+    }
+
+
+    public virtual ObjectResult<usp_CylinderAgeAnalysisReport_Result> usp_CylinderAgeAnalysisReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> branchid, Nullable<int> companyid)
+    {
+
+        var startdateParameter = startdate.HasValue ?
+            new ObjectParameter("startdate", startdate) :
+            new ObjectParameter("startdate", typeof(System.DateTime));
+
+
+        var enddateParameter = enddate.HasValue ?
+            new ObjectParameter("enddate", enddate) :
+            new ObjectParameter("enddate", typeof(System.DateTime));
+
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderAgeAnalysisReport_Result>("usp_CylinderAgeAnalysisReport", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
     }
 
 }

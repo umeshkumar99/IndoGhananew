@@ -455,6 +455,60 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             }
         }
 
+
+
+        [HttpGet]
+        public ActionResult ReportCylinderAgeAnalysis()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ReportCylinderAgeAnalysis(FormCollection frm)
+        {
+            try
+            {
+                
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+                CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
+                TryUpdateModel(cylinderRecieveDeliver);
+                //for cylinder count location wise
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+
+
+                List<usp_CylinderAgeAnalysisReport_Result> CylinderList = new List<usp_CylinderAgeAnalysisReport_Result>();
+
+                CylinderList = InventoryEntities.usp_CylinderAgeAnalysisReport(cylinderRecieveDeliver.StartDate, cylinderRecieveDeliver.EndDate, logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderAgeAnalysisReport.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
+
         public void Drillthrough(object sender)
         {
 

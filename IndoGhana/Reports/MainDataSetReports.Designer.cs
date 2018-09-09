@@ -32,11 +32,11 @@ namespace IndoGhana.Reports {
         
         private usp_CylinderCountPStateDataTable tableusp_CylinderCountPState;
         
-        private usp_CylinderAgeAnalysisReportDataTable tableusp_CylinderAgeAnalysisReport;
-        
         private usp_TransactionDetailsDataTable tableusp_TransactionDetails;
         
         private usp_TransactionDetailsRefillDataTable tableusp_TransactionDetailsRefill;
+        
+        private usp_CylinderAgeAnalysisReportDataTable tableusp_CylinderAgeAnalysisReport;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -78,14 +78,14 @@ namespace IndoGhana.Reports {
                 if ((ds.Tables["usp_CylinderCountPState"] != null)) {
                     base.Tables.Add(new usp_CylinderCountPStateDataTable(ds.Tables["usp_CylinderCountPState"]));
                 }
-                if ((ds.Tables["usp_CylinderAgeAnalysisReport"] != null)) {
-                    base.Tables.Add(new usp_CylinderAgeAnalysisReportDataTable(ds.Tables["usp_CylinderAgeAnalysisReport"]));
-                }
                 if ((ds.Tables["usp_TransactionDetails"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsDataTable(ds.Tables["usp_TransactionDetails"]));
                 }
                 if ((ds.Tables["usp_TransactionDetailsRefill"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsRefillDataTable(ds.Tables["usp_TransactionDetailsRefill"]));
+                }
+                if ((ds.Tables["usp_CylinderAgeAnalysisReport"] != null)) {
+                    base.Tables.Add(new usp_CylinderAgeAnalysisReportDataTable(ds.Tables["usp_CylinderAgeAnalysisReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -149,16 +149,6 @@ namespace IndoGhana.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public usp_CylinderAgeAnalysisReportDataTable usp_CylinderAgeAnalysisReport {
-            get {
-                return this.tableusp_CylinderAgeAnalysisReport;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public usp_TransactionDetailsDataTable usp_TransactionDetails {
             get {
                 return this.tableusp_TransactionDetails;
@@ -172,6 +162,16 @@ namespace IndoGhana.Reports {
         public usp_TransactionDetailsRefillDataTable usp_TransactionDetailsRefill {
             get {
                 return this.tableusp_TransactionDetailsRefill;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public usp_CylinderAgeAnalysisReportDataTable usp_CylinderAgeAnalysisReport {
+            get {
+                return this.tableusp_CylinderAgeAnalysisReport;
             }
         }
         
@@ -254,14 +254,14 @@ namespace IndoGhana.Reports {
                 if ((ds.Tables["usp_CylinderCountPState"] != null)) {
                     base.Tables.Add(new usp_CylinderCountPStateDataTable(ds.Tables["usp_CylinderCountPState"]));
                 }
-                if ((ds.Tables["usp_CylinderAgeAnalysisReport"] != null)) {
-                    base.Tables.Add(new usp_CylinderAgeAnalysisReportDataTable(ds.Tables["usp_CylinderAgeAnalysisReport"]));
-                }
                 if ((ds.Tables["usp_TransactionDetails"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsDataTable(ds.Tables["usp_TransactionDetails"]));
                 }
                 if ((ds.Tables["usp_TransactionDetailsRefill"] != null)) {
                     base.Tables.Add(new usp_TransactionDetailsRefillDataTable(ds.Tables["usp_TransactionDetailsRefill"]));
+                }
+                if ((ds.Tables["usp_CylinderAgeAnalysisReport"] != null)) {
+                    base.Tables.Add(new usp_CylinderAgeAnalysisReportDataTable(ds.Tables["usp_CylinderAgeAnalysisReport"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -320,12 +320,6 @@ namespace IndoGhana.Reports {
                     this.tableusp_CylinderCountPState.InitVars();
                 }
             }
-            this.tableusp_CylinderAgeAnalysisReport = ((usp_CylinderAgeAnalysisReportDataTable)(base.Tables["usp_CylinderAgeAnalysisReport"]));
-            if ((initTable == true)) {
-                if ((this.tableusp_CylinderAgeAnalysisReport != null)) {
-                    this.tableusp_CylinderAgeAnalysisReport.InitVars();
-                }
-            }
             this.tableusp_TransactionDetails = ((usp_TransactionDetailsDataTable)(base.Tables["usp_TransactionDetails"]));
             if ((initTable == true)) {
                 if ((this.tableusp_TransactionDetails != null)) {
@@ -336,6 +330,12 @@ namespace IndoGhana.Reports {
             if ((initTable == true)) {
                 if ((this.tableusp_TransactionDetailsRefill != null)) {
                     this.tableusp_TransactionDetailsRefill.InitVars();
+                }
+            }
+            this.tableusp_CylinderAgeAnalysisReport = ((usp_CylinderAgeAnalysisReportDataTable)(base.Tables["usp_CylinderAgeAnalysisReport"]));
+            if ((initTable == true)) {
+                if ((this.tableusp_CylinderAgeAnalysisReport != null)) {
+                    this.tableusp_CylinderAgeAnalysisReport.InitVars();
                 }
             }
         }
@@ -356,12 +356,12 @@ namespace IndoGhana.Reports {
             base.Tables.Add(this.tableusp_CylinderCountGasInUse);
             this.tableusp_CylinderCountPState = new usp_CylinderCountPStateDataTable();
             base.Tables.Add(this.tableusp_CylinderCountPState);
-            this.tableusp_CylinderAgeAnalysisReport = new usp_CylinderAgeAnalysisReportDataTable();
-            base.Tables.Add(this.tableusp_CylinderAgeAnalysisReport);
             this.tableusp_TransactionDetails = new usp_TransactionDetailsDataTable();
             base.Tables.Add(this.tableusp_TransactionDetails);
             this.tableusp_TransactionDetailsRefill = new usp_TransactionDetailsRefillDataTable();
             base.Tables.Add(this.tableusp_TransactionDetailsRefill);
+            this.tableusp_CylinderAgeAnalysisReport = new usp_CylinderAgeAnalysisReportDataTable();
+            base.Tables.Add(this.tableusp_CylinderAgeAnalysisReport);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -390,12 +390,6 @@ namespace IndoGhana.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeusp_CylinderAgeAnalysisReport() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeusp_TransactionDetails() {
             return false;
         }
@@ -403,6 +397,12 @@ namespace IndoGhana.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeusp_TransactionDetailsRefill() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeusp_CylinderAgeAnalysisReport() {
             return false;
         }
         
@@ -474,13 +474,13 @@ namespace IndoGhana.Reports {
         public delegate void usp_CylinderCountPStateRowChangeEventHandler(object sender, usp_CylinderCountPStateRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void usp_CylinderAgeAnalysisReportRowChangeEventHandler(object sender, usp_CylinderAgeAnalysisReportRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void usp_TransactionDetailsRowChangeEventHandler(object sender, usp_TransactionDetailsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void usp_TransactionDetailsRefillRowChangeEventHandler(object sender, usp_TransactionDetailsRefillRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void usp_CylinderAgeAnalysisReportRowChangeEventHandler(object sender, usp_CylinderAgeAnalysisReportRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2249,318 +2249,6 @@ namespace IndoGhana.Reports {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class usp_CylinderAgeAnalysisReportDataTable : global::System.Data.TypedTableBase<usp_CylinderAgeAnalysisReportRow> {
-            
-            private global::System.Data.DataColumn columnCylindeNumber;
-            
-            private global::System.Data.DataColumn columnCustomerName;
-            
-            private global::System.Data.DataColumn columnCustomerSiteName;
-            
-            private global::System.Data.DataColumn columnCurrentDeliveryDate;
-            
-            private global::System.Data.DataColumn columnCurrentLocation;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportDataTable() {
-                this.TableName = "usp_CylinderAgeAnalysisReport";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal usp_CylinderAgeAnalysisReportDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected usp_CylinderAgeAnalysisReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CylindeNumberColumn {
-                get {
-                    return this.columnCylindeNumber;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CustomerNameColumn {
-                get {
-                    return this.columnCustomerName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CustomerSiteNameColumn {
-                get {
-                    return this.columnCustomerSiteName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CurrentDeliveryDateColumn {
-                get {
-                    return this.columnCurrentDeliveryDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CurrentLocationColumn {
-                get {
-                    return this.columnCurrentLocation;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportRow this[int index] {
-                get {
-                    return ((usp_CylinderAgeAnalysisReportRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Addusp_CylinderAgeAnalysisReportRow(usp_CylinderAgeAnalysisReportRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportRow Addusp_CylinderAgeAnalysisReportRow(string CylindeNumber, string CustomerName, string CustomerSiteName, System.DateTime CurrentDeliveryDate, string CurrentLocation) {
-                usp_CylinderAgeAnalysisReportRow rowusp_CylinderAgeAnalysisReportRow = ((usp_CylinderAgeAnalysisReportRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        CylindeNumber,
-                        CustomerName,
-                        CustomerSiteName,
-                        CurrentDeliveryDate,
-                        CurrentLocation};
-                rowusp_CylinderAgeAnalysisReportRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowusp_CylinderAgeAnalysisReportRow);
-                return rowusp_CylinderAgeAnalysisReportRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                usp_CylinderAgeAnalysisReportDataTable cln = ((usp_CylinderAgeAnalysisReportDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new usp_CylinderAgeAnalysisReportDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnCylindeNumber = base.Columns["CylindeNumber"];
-                this.columnCustomerName = base.Columns["CustomerName"];
-                this.columnCustomerSiteName = base.Columns["CustomerSiteName"];
-                this.columnCurrentDeliveryDate = base.Columns["CurrentDeliveryDate"];
-                this.columnCurrentLocation = base.Columns["CurrentLocation"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnCylindeNumber = new global::System.Data.DataColumn("CylindeNumber", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCylindeNumber);
-                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerName);
-                this.columnCustomerSiteName = new global::System.Data.DataColumn("CustomerSiteName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerSiteName);
-                this.columnCurrentDeliveryDate = new global::System.Data.DataColumn("CurrentDeliveryDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrentDeliveryDate);
-                this.columnCurrentLocation = new global::System.Data.DataColumn("CurrentLocation", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrentLocation);
-                this.columnCylindeNumber.ReadOnly = true;
-                this.columnCylindeNumber.MaxLength = 50;
-                this.columnCustomerName.ReadOnly = true;
-                this.columnCustomerName.MaxLength = 200;
-                this.columnCustomerSiteName.ReadOnly = true;
-                this.columnCustomerSiteName.MaxLength = 200;
-                this.columnCurrentDeliveryDate.ReadOnly = true;
-                this.columnCurrentLocation.ReadOnly = true;
-                this.columnCurrentLocation.MaxLength = 500;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportRow Newusp_CylinderAgeAnalysisReportRow() {
-                return ((usp_CylinderAgeAnalysisReportRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new usp_CylinderAgeAnalysisReportRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(usp_CylinderAgeAnalysisReportRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.usp_CylinderAgeAnalysisReportRowChanged != null)) {
-                    this.usp_CylinderAgeAnalysisReportRowChanged(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.usp_CylinderAgeAnalysisReportRowChanging != null)) {
-                    this.usp_CylinderAgeAnalysisReportRowChanging(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.usp_CylinderAgeAnalysisReportRowDeleted != null)) {
-                    this.usp_CylinderAgeAnalysisReportRowDeleted(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.usp_CylinderAgeAnalysisReportRowDeleting != null)) {
-                    this.usp_CylinderAgeAnalysisReportRowDeleting(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Removeusp_CylinderAgeAnalysisReportRow(usp_CylinderAgeAnalysisReportRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                MainDataSetReports ds = new MainDataSetReports();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "usp_CylinderAgeAnalysisReportDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class usp_TransactionDetailsDataTable : global::System.Data.TypedTableBase<usp_TransactionDetailsRow> {
             
             private global::System.Data.DataColumn columnPDATransactionNo;
@@ -3523,6 +3211,331 @@ namespace IndoGhana.Reports {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "usp_TransactionDetailsRefillDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class usp_CylinderAgeAnalysisReportDataTable : global::System.Data.TypedTableBase<usp_CylinderAgeAnalysisReportRow> {
+            
+            private global::System.Data.DataColumn columnCylindeNumber;
+            
+            private global::System.Data.DataColumn columnCustomerName;
+            
+            private global::System.Data.DataColumn columnCustomerSiteName;
+            
+            private global::System.Data.DataColumn columnCurrentDeliveryDate;
+            
+            private global::System.Data.DataColumn columnCurrentLocation;
+            
+            private global::System.Data.DataColumn columnRecieveDateTime;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportDataTable() {
+                this.TableName = "usp_CylinderAgeAnalysisReport";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_CylinderAgeAnalysisReportDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected usp_CylinderAgeAnalysisReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CylindeNumberColumn {
+                get {
+                    return this.columnCylindeNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerNameColumn {
+                get {
+                    return this.columnCustomerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerSiteNameColumn {
+                get {
+                    return this.columnCustomerSiteName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CurrentDeliveryDateColumn {
+                get {
+                    return this.columnCurrentDeliveryDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CurrentLocationColumn {
+                get {
+                    return this.columnCurrentLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RecieveDateTimeColumn {
+                get {
+                    return this.columnRecieveDateTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportRow this[int index] {
+                get {
+                    return ((usp_CylinderAgeAnalysisReportRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_CylinderAgeAnalysisReportRowChangeEventHandler usp_CylinderAgeAnalysisReportRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addusp_CylinderAgeAnalysisReportRow(usp_CylinderAgeAnalysisReportRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportRow Addusp_CylinderAgeAnalysisReportRow(string CylindeNumber, string CustomerName, string CustomerSiteName, System.DateTime CurrentDeliveryDate, string CurrentLocation, System.DateTime RecieveDateTime) {
+                usp_CylinderAgeAnalysisReportRow rowusp_CylinderAgeAnalysisReportRow = ((usp_CylinderAgeAnalysisReportRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        CylindeNumber,
+                        CustomerName,
+                        CustomerSiteName,
+                        CurrentDeliveryDate,
+                        CurrentLocation,
+                        RecieveDateTime};
+                rowusp_CylinderAgeAnalysisReportRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowusp_CylinderAgeAnalysisReportRow);
+                return rowusp_CylinderAgeAnalysisReportRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                usp_CylinderAgeAnalysisReportDataTable cln = ((usp_CylinderAgeAnalysisReportDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new usp_CylinderAgeAnalysisReportDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnCylindeNumber = base.Columns["CylindeNumber"];
+                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnCustomerSiteName = base.Columns["CustomerSiteName"];
+                this.columnCurrentDeliveryDate = base.Columns["CurrentDeliveryDate"];
+                this.columnCurrentLocation = base.Columns["CurrentLocation"];
+                this.columnRecieveDateTime = base.Columns["RecieveDateTime"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnCylindeNumber = new global::System.Data.DataColumn("CylindeNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCylindeNumber);
+                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerName);
+                this.columnCustomerSiteName = new global::System.Data.DataColumn("CustomerSiteName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerSiteName);
+                this.columnCurrentDeliveryDate = new global::System.Data.DataColumn("CurrentDeliveryDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCurrentDeliveryDate);
+                this.columnCurrentLocation = new global::System.Data.DataColumn("CurrentLocation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCurrentLocation);
+                this.columnRecieveDateTime = new global::System.Data.DataColumn("RecieveDateTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRecieveDateTime);
+                this.columnCylindeNumber.MaxLength = 50;
+                this.columnCustomerName.ReadOnly = true;
+                this.columnCustomerName.MaxLength = 404;
+                this.columnCustomerSiteName.ReadOnly = true;
+                this.columnCustomerSiteName.MaxLength = 1;
+                this.columnCurrentLocation.ReadOnly = true;
+                this.columnCurrentLocation.MaxLength = 1;
+                this.columnRecieveDateTime.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportRow Newusp_CylinderAgeAnalysisReportRow() {
+                return ((usp_CylinderAgeAnalysisReportRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new usp_CylinderAgeAnalysisReportRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(usp_CylinderAgeAnalysisReportRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.usp_CylinderAgeAnalysisReportRowChanged != null)) {
+                    this.usp_CylinderAgeAnalysisReportRowChanged(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.usp_CylinderAgeAnalysisReportRowChanging != null)) {
+                    this.usp_CylinderAgeAnalysisReportRowChanging(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.usp_CylinderAgeAnalysisReportRowDeleted != null)) {
+                    this.usp_CylinderAgeAnalysisReportRowDeleted(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.usp_CylinderAgeAnalysisReportRowDeleting != null)) {
+                    this.usp_CylinderAgeAnalysisReportRowDeleting(this, new usp_CylinderAgeAnalysisReportRowChangeEvent(((usp_CylinderAgeAnalysisReportRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeusp_CylinderAgeAnalysisReportRow(usp_CylinderAgeAnalysisReportRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MainDataSetReports ds = new MainDataSetReports();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "usp_CylinderAgeAnalysisReportDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -5139,166 +5152,6 @@ namespace IndoGhana.Reports {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class usp_CylinderAgeAnalysisReportRow : global::System.Data.DataRow {
-            
-            private usp_CylinderAgeAnalysisReportDataTable tableusp_CylinderAgeAnalysisReport;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal usp_CylinderAgeAnalysisReportRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableusp_CylinderAgeAnalysisReport = ((usp_CylinderAgeAnalysisReportDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CylindeNumber {
-                get {
-                    try {
-                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CylindeNumber\' in table \'usp_CylinderAgeAnalysisReport\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CustomerName {
-                get {
-                    try {
-                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'usp_CylinderAgeAnalysisReport\' is D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CustomerSiteName {
-                get {
-                    try {
-                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerSiteName\' in table \'usp_CylinderAgeAnalysisReport\' " +
-                                "is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CurrentDeliveryDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentDeliveryDate\' in table \'usp_CylinderAgeAnalysisRepor" +
-                                "t\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CurrentLocation {
-                get {
-                    try {
-                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentLocation\' in table \'usp_CylinderAgeAnalysisReport\' i" +
-                                "s DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCylindeNumberNull() {
-                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCylindeNumberNull() {
-                this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCustomerNameNull() {
-                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCustomerNameNull() {
-                this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCustomerSiteNameNull() {
-                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCustomerSiteNameNull() {
-                this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCurrentDeliveryDateNull() {
-                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCurrentDeliveryDateNull() {
-                this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCurrentLocationNull() {
-                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCurrentLocationNull() {
-                this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class usp_TransactionDetailsRow : global::System.Data.DataRow {
             
             private usp_TransactionDetailsDataTable tableusp_TransactionDetails;
@@ -6243,6 +6096,195 @@ namespace IndoGhana.Reports {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class usp_CylinderAgeAnalysisReportRow : global::System.Data.DataRow {
+            
+            private usp_CylinderAgeAnalysisReportDataTable tableusp_CylinderAgeAnalysisReport;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_CylinderAgeAnalysisReportRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableusp_CylinderAgeAnalysisReport = ((usp_CylinderAgeAnalysisReportDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CylindeNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CylindeNumber\' in table \'usp_CylinderAgeAnalysisReport\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CustomerName {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'usp_CylinderAgeAnalysisReport\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CustomerSiteName {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerSiteName\' in table \'usp_CylinderAgeAnalysisReport\' " +
+                                "is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CurrentDeliveryDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentDeliveryDate\' in table \'usp_CylinderAgeAnalysisRepor" +
+                                "t\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CurrentLocation {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentLocation\' in table \'usp_CylinderAgeAnalysisReport\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime RecieveDateTime {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableusp_CylinderAgeAnalysisReport.RecieveDateTimeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RecieveDateTime\' in table \'usp_CylinderAgeAnalysisReport\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_CylinderAgeAnalysisReport.RecieveDateTimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCylindeNumberNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCylindeNumberNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.CylindeNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomerNameNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomerNameNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.CustomerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomerSiteNameNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomerSiteNameNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.CustomerSiteNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCurrentDeliveryDateNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCurrentDeliveryDateNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.CurrentDeliveryDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCurrentLocationNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCurrentLocationNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.CurrentLocationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRecieveDateTimeNull() {
+                return this.IsNull(this.tableusp_CylinderAgeAnalysisReport.RecieveDateTimeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRecieveDateTimeNull() {
+                this[this.tableusp_CylinderAgeAnalysisReport.RecieveDateTimeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -6382,40 +6424,6 @@ namespace IndoGhana.Reports {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class usp_CylinderAgeAnalysisReportRowChangeEvent : global::System.EventArgs {
-            
-            private usp_CylinderAgeAnalysisReportRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportRowChangeEvent(usp_CylinderAgeAnalysisReportRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public usp_CylinderAgeAnalysisReportRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class usp_TransactionDetailsRowChangeEvent : global::System.EventArgs {
             
             private usp_TransactionDetailsRow eventRow;
@@ -6466,6 +6474,40 @@ namespace IndoGhana.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public usp_TransactionDetailsRefillRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class usp_CylinderAgeAnalysisReportRowChangeEvent : global::System.EventArgs {
+            
+            private usp_CylinderAgeAnalysisReportRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportRowChangeEvent(usp_CylinderAgeAnalysisReportRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_CylinderAgeAnalysisReportRow Row {
                 get {
                     return this.eventRow;
                 }
