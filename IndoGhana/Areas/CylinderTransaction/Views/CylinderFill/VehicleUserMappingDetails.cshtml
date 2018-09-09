@@ -70,6 +70,21 @@
                                              return 'NA'
                                      }
                                  },
+                                 {
+                                     'data': 'TripEndDateTime',
+                                     'searchable': true,
+                                     'sortable': true,
+                                     'render': function (TripEndDateTime) {
+                                         if (TripEndDateTime != '' && TripEndDateTime != null) {
+                                             var date = new Date(parseInt(TripEndDateTime.substr(6)));
+                                             var month = date.getMonth() + 1;
+                                             return date.getDate() + "/" + month + "/" + date.getFullYear()+" " +date.getHours() + ":" + date.getMinutes()+":"+date.getSeconds();
+
+                                         }
+                                         else
+                                             return 'NA'
+                                     }
+                                 },
                                  { 'data': 'VehicleStatus' }
 
 
@@ -133,7 +148,7 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Create" class="btn btn-primary" id="btnsave" name="btnsave" onclick="return confirm('Are you sure to save changes');" />
+                        <input type="submit" value="Assign Vehicle" class="btn btn-primary" id="btnsave" name="btnsave" onclick="return confirm('Are you sure to save changes');" />
                     </div>
                 </div>
             </div>
@@ -163,9 +178,10 @@
                                     <th>VehicleAssignID</th>
                                     <th>VehicleNumber</th>
                                     <th>UserName</th>
-                                    <th>AssignDate</th>
+                                    <th>TripStartDateTime</th>
+                                    <th>TripEndDateTime</th>
                                     <th>CurrentStatus</th>
-
+                                    
                                 </tr>
                             </thead>
                             <tbody></tbody>

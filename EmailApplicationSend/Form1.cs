@@ -101,7 +101,7 @@ namespace EmailApplicationSend
 
                             label1.Text = "Processing Email Id:" + dr["EmailTo"].ToString();
                             mail.From = new MailAddress(emailaccount.emailid);
-
+                            MessageID = Convert.ToInt32(dr["MessageID"].ToString());
 
                             if (dr["EmailTo"].ToString() != null && dr["EmailTo"].ToString().Trim() != "")
                             {
@@ -140,7 +140,7 @@ namespace EmailApplicationSend
 
                             mail.Subject = dr["Subject"].ToString();
                             mail.Body = dr["MessageBody"].ToString();
-                            MessageID = Convert.ToInt32(dr["MessageID"].ToString());
+                            
                             // Attachment attachment = new Attachment(filename);
                             // mail.Attachments.Add(attachment);
                             mail.IsBodyHtml = true;
@@ -252,7 +252,7 @@ namespace EmailApplicationSend
             {
                 label1.Text = "Starting process";
                 btnStart.Enabled = false;
-                getemailaccountdata();
+           //     getemailaccountdata();
                 getEmailMessageData();
             }
         }

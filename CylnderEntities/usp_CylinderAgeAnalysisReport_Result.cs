@@ -14,20 +14,20 @@ namespace CylnderEntities
 
 using System;
     
-public partial class usp_VehicleUserMappingDetails_Result
+public partial class usp_CylinderAgeAnalysisReport_Result
 {
 
-    public int VehicleAssignID { get; set; }
+    public string CylindeNumber { get; set; }
 
-    public string VehicleNumber { get; set; }
+    public string CustomerName { get; set; }
 
-    public string UserName { get; set; }
+    public string CustomerSiteName { get; set; }
 
-    public Nullable<System.DateTime> AssignDate { get; set; }
+    public Nullable<System.DateTime> CurrentDeliveryDate { get; set; }
 
-    public string VehicleStatus { get; set; }
+    public string CurrentLocation { get; set; }
 
-    public Nullable<System.DateTime> TripEndDateTime { get; set; }
+    public Nullable<System.DateTime> RecieveDateTime { get; set; }
 
 }
 

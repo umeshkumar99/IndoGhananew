@@ -21,17 +21,13 @@ public partial class usp_VehicleMasterGet_Result
 
     public string VehicleNumber { get; set; }
 
-    public Nullable<int> CompanyID { get; set; }
-
-    public Nullable<int> BranchID { get; set; }
-
     public Nullable<System.DateTime> CreationDate { get; set; }
 
     public Nullable<int> CreatedByID { get; set; }
 
     public string CreatedBy { get; set; }
 
-    public Nullable<int> UpdatedByID { get; set; }
+    public Nullable<int> UpdateByID { get; set; }
 
     public string UpdatedBy { get; set; }
 

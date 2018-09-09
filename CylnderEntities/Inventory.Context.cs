@@ -262,45 +262,6 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual ObjectResult<usp_VehicleMasterGet_Result> usp_VehicleMasterGet(Nullable<int> companyID, Nullable<int> branchID)
-    {
-
-        var companyIDParameter = companyID.HasValue ?
-            new ObjectParameter("CompanyID", companyID) :
-            new ObjectParameter("CompanyID", typeof(int));
-
-
-        var branchIDParameter = branchID.HasValue ?
-            new ObjectParameter("BranchID", branchID) :
-            new ObjectParameter("BranchID", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleMasterGet_Result>("usp_VehicleMasterGet", companyIDParameter, branchIDParameter);
-    }
-
-
-    public virtual ObjectResult<usp_VehicleMasterGetByID_Result> usp_VehicleMasterGetByID(Nullable<int> companyID, Nullable<int> branchID, Nullable<int> vehicleID)
-    {
-
-        var companyIDParameter = companyID.HasValue ?
-            new ObjectParameter("CompanyID", companyID) :
-            new ObjectParameter("CompanyID", typeof(int));
-
-
-        var branchIDParameter = branchID.HasValue ?
-            new ObjectParameter("BranchID", branchID) :
-            new ObjectParameter("BranchID", typeof(int));
-
-
-        var vehicleIDParameter = vehicleID.HasValue ?
-            new ObjectParameter("VehicleID", vehicleID) :
-            new ObjectParameter("VehicleID", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleMasterGetByID_Result>("usp_VehicleMasterGetByID", companyIDParameter, branchIDParameter, vehicleIDParameter);
-    }
-
-
     public virtual ObjectResult<usp_CustomerListGet_Result> usp_CustomerListGet()
     {
 
@@ -1529,23 +1490,6 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual ObjectResult<usp_VehicleUserMappingDetails_Result> usp_VehicleUserMappingDetails(Nullable<int> companyid, Nullable<int> branchid)
-    {
-
-        var companyidParameter = companyid.HasValue ?
-            new ObjectParameter("companyid", companyid) :
-            new ObjectParameter("companyid", typeof(int));
-
-
-        var branchidParameter = branchid.HasValue ?
-            new ObjectParameter("branchid", branchid) :
-            new ObjectParameter("branchid", typeof(int));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleUserMappingDetails_Result>("usp_VehicleUserMappingDetails", companyidParameter, branchidParameter);
-    }
-
-
     public virtual ObjectResult<usp_VehicleUserMappingGet_Result> usp_VehicleUserMappingGet(Nullable<int> userID)
     {
 
@@ -1721,6 +1665,141 @@ public partial class IndoGhanaEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_TransactionDetailsRefill_Result>("usp_TransactionDetailsRefill", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
+    }
+
+
+    public virtual ObjectResult<usp_VehicleUserMappingDetails_Result> usp_VehicleUserMappingDetails(Nullable<int> companyid, Nullable<int> branchid)
+    {
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleUserMappingDetails_Result>("usp_VehicleUserMappingDetails", companyidParameter, branchidParameter);
+    }
+
+
+    public virtual ObjectResult<string> usp_VehicleMasterInsertUpate(Nullable<int> vehicleID, string vehicleNumber, Nullable<int> companyID, Nullable<int> branchID, Nullable<System.DateTime> creationDate, Nullable<int> createdBy, Nullable<int> updateBy, Nullable<System.DateTime> updatedOn, Nullable<bool> status)
+    {
+
+        var vehicleIDParameter = vehicleID.HasValue ?
+            new ObjectParameter("VehicleID", vehicleID) :
+            new ObjectParameter("VehicleID", typeof(int));
+
+
+        var vehicleNumberParameter = vehicleNumber != null ?
+            new ObjectParameter("VehicleNumber", vehicleNumber) :
+            new ObjectParameter("VehicleNumber", typeof(string));
+
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var creationDateParameter = creationDate.HasValue ?
+            new ObjectParameter("CreationDate", creationDate) :
+            new ObjectParameter("CreationDate", typeof(System.DateTime));
+
+
+        var createdByParameter = createdBy.HasValue ?
+            new ObjectParameter("CreatedBy", createdBy) :
+            new ObjectParameter("CreatedBy", typeof(int));
+
+
+        var updateByParameter = updateBy.HasValue ?
+            new ObjectParameter("UpdateBy", updateBy) :
+            new ObjectParameter("UpdateBy", typeof(int));
+
+
+        var updatedOnParameter = updatedOn.HasValue ?
+            new ObjectParameter("UpdatedOn", updatedOn) :
+            new ObjectParameter("UpdatedOn", typeof(System.DateTime));
+
+
+        var statusParameter = status.HasValue ?
+            new ObjectParameter("status", status) :
+            new ObjectParameter("status", typeof(bool));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_VehicleMasterInsertUpate", vehicleIDParameter, vehicleNumberParameter, companyIDParameter, branchIDParameter, creationDateParameter, createdByParameter, updateByParameter, updatedOnParameter, statusParameter);
+    }
+
+
+    public virtual ObjectResult<usp_CylinderAgeAnalysisReport_Result> usp_CylinderAgeAnalysisReport(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> branchid, Nullable<int> companyid)
+    {
+
+        var startdateParameter = startdate.HasValue ?
+            new ObjectParameter("startdate", startdate) :
+            new ObjectParameter("startdate", typeof(System.DateTime));
+
+
+        var enddateParameter = enddate.HasValue ?
+            new ObjectParameter("enddate", enddate) :
+            new ObjectParameter("enddate", typeof(System.DateTime));
+
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderAgeAnalysisReport_Result>("usp_CylinderAgeAnalysisReport", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
+    }
+
+
+    public virtual ObjectResult<usp_VehicleMasterGet_Result> usp_VehicleMasterGet(Nullable<int> companyID, Nullable<int> branchID)
+    {
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleMasterGet_Result>("usp_VehicleMasterGet", companyIDParameter, branchIDParameter);
+    }
+
+
+    public virtual ObjectResult<usp_VehicleMasterGetByID_Result> usp_VehicleMasterGetByID(Nullable<int> companyID, Nullable<int> branchID, Nullable<int> vehicleID)
+    {
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var vehicleIDParameter = vehicleID.HasValue ?
+            new ObjectParameter("VehicleID", vehicleID) :
+            new ObjectParameter("VehicleID", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_VehicleMasterGetByID_Result>("usp_VehicleMasterGetByID", companyIDParameter, branchIDParameter, vehicleIDParameter);
     }
 
 }

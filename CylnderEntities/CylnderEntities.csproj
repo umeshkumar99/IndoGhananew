@@ -156,6 +156,9 @@
     <Compile Include="usp_CustomrSiteListGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_CylinderAgeAnalysisReport_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_CylinderCountGasInUse_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>

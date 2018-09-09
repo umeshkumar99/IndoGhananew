@@ -119,6 +119,12 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="Remarks" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_CustomrSiteListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_CylinderAgeAnalysisReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startdate" Type="datetime" Mode="In" />
+          <Parameter Name="enddate" Type="datetime" Mode="In" />
+          <Parameter Name="branchid" Type="int" Mode="In" />
+          <Parameter Name="companyid" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_CylinderCount" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="branchid" Type="int" Mode="In" />
           <Parameter Name="companyid" Type="int" Mode="In" />
@@ -357,6 +363,17 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="BranchID" Type="int" Mode="In" />
           <Parameter Name="VehicleID" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_VehicleMasterInsertUpate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleID" Type="int" Mode="In" />
+          <Parameter Name="VehicleNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="CreationDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="UpdateBy" Type="int" Mode="In" />
+          <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
+          <Parameter Name="status" Type="bit" Mode="In" />
+        </Function>
         <Function Name="usp_VehicleMasterListGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CompanyID" Type="int" Mode="In" />
           <Parameter Name="BranchID" Type="int" Mode="In" />
@@ -524,15 +541,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
             <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
             <Parameter Name="status" Mode="In" Type="Boolean" />
-          </FunctionImport>
-          <FunctionImport Name="usp_VehicleMasterGet" ReturnType="Collection(IndoGhanaModel.usp_VehicleMasterGet_Result)">
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="BranchID" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="usp_VehicleMasterGetByID" ReturnType="Collection(IndoGhanaModel.usp_VehicleMasterGetByID_Result)">
-            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
-            <Parameter Name="BranchID" Mode="In" Type="Int32" />
-            <Parameter Name="VehicleID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CustomerListGet" ReturnType="Collection(IndoGhanaModel.usp_CustomerListGet_Result)" />
           <FunctionImport Name="usp_CustomerSiteListGet" ReturnType="Collection(IndoGhanaModel.usp_CustomerSiteListGet_Result)">
@@ -792,10 +800,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="CompanyID" Mode="In" Type="Int32" />
             <Parameter Name="BranchID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="usp_VehicleUserMappingDetails" ReturnType="Collection(IndoGhanaModel.usp_VehicleUserMappingDetails_Result)">
-            <Parameter Name="companyid" Mode="In" Type="Int32" />
-            <Parameter Name="branchid" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="usp_VehicleUserMappingGet" ReturnType="Collection(IndoGhanaModel.usp_VehicleUserMappingGet_Result)">
           <Parameter Name="UserID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -837,6 +841,36 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="enddate" Mode="In" Type="DateTime" />
             <Parameter Name="branchid" Mode="In" Type="Int32" />
             <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleUserMappingDetails" ReturnType="Collection(IndoGhanaModel.usp_VehicleUserMappingDetails_Result)">
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleMasterInsertUpate" ReturnType="Collection(String)">
+            <Parameter Name="VehicleID" Mode="In" Type="Int32" />
+            <Parameter Name="VehicleNumber" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CreationDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdateBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="status" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CylinderAgeAnalysisReport" ReturnType="Collection(IndoGhanaModel.usp_CylinderAgeAnalysisReport_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="enddate" Mode="In" Type="DateTime" />
+            <Parameter Name="branchid" Mode="In" Type="Int32" />
+            <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleMasterGet" ReturnType="Collection(IndoGhanaModel.usp_VehicleMasterGet_Result)">
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_VehicleMasterGetByID" ReturnType="Collection(IndoGhanaModel.usp_VehicleMasterGetByID_Result)">
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="VehicleID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -883,32 +917,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="100" />
           <Property Type="Int32" Name="UpdatedbyID" Nullable="true" />
           <Property Type="String" Name="Updatedby" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_VehicleMasterGet_Result">
-          <Property Type="Int32" Name="VehicleID" Nullable="false" />
-          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="Int32" Name="BranchID" Nullable="true" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="100" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
-          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
-          <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="usp_VehicleMasterGetByID_Result">
-          <Property Type="Int32" Name="VehicleID" Nullable="false" />
-          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="CompanyID" Nullable="true" />
-          <Property Type="Int32" Name="BranchID" Nullable="true" />
-          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
-          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
-          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="100" />
-          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
-          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
           <Property Type="Boolean" Name="status" Nullable="true" />
         </ComplexType>
@@ -1347,13 +1355,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="Int32" Name="VehicleID" Nullable="false" />
           <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="usp_VehicleUserMappingDetails_Result">
-          <Property Type="Int32" Name="VehicleAssignID" Nullable="false" />
-          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
-          <Property Type="DateTime" Name="AssignDate" Nullable="true" Precision="23" />
-          <Property Type="String" Name="VehicleStatus" Nullable="true" MaxLength="10" />
-        </ComplexType>
         <ComplexType Name="usp_VehicleUserMappingGet_Result">
           <Property Type="Int32" Name="VehicleID" Nullable="false" />
           <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
@@ -1465,6 +1466,46 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="String" Name="CustomerRemarks" Nullable="true" MaxLength="500" />
           <Property Type="Boolean" Name="IsSatisfied" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="usp_VehicleUserMappingDetails_Result">
+          <Property Type="Int32" Name="VehicleAssignID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="AssignDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="VehicleStatus" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="TripEndDateTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_CylinderAgeAnalysisReport_Result">
+          <Property Type="String" Name="CylindeNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="404" />
+          <Property Type="String" Name="CustomerSiteName" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="CurrentDeliveryDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CurrentLocation" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="RecieveDateTime" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="usp_VehicleMasterGet_Result">
+          <Property Type="Int32" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="UpdateByID" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_VehicleMasterGetByID_Result">
+          <Property Type="Int32" Name="VehicleID" Nullable="false" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CompanyID" Nullable="true" />
+          <Property Type="Int32" Name="BranchID" Nullable="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="CreatedByID" Nullable="true" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="UpdatedByID" Nullable="true" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+          <Property Type="Boolean" Name="status" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1537,40 +1578,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_ManufacturerMasterInsertUpdate" FunctionName="IndoGhanaModel.Store.usp_ManufacturerMasterInsertUpdate" />
           <FunctionImportMapping FunctionImportName="usp_VehicleMasterAddUpdate" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterAddUpdate" />
-          <FunctionImportMapping FunctionImportName="usp_VehicleMasterGet" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterGet">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleMasterGet_Result">
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_VehicleMasterGetByID" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterGetByID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleMasterGetByID_Result">
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
-                <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_CustomerListGet" FunctionName="IndoGhanaModel.Store.usp_CustomerListGet">
             <ResultMapping>
               <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CustomerListGet_Result">
@@ -2123,17 +2130,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingDetails" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingDetails">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleUserMappingDetails_Result">
-                <ScalarProperty Name="VehicleAssignID" ColumnName="VehicleAssignID" />
-                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
-                <ScalarProperty Name="VehicleStatus" ColumnName="VehicleStatus" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingGet" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingGet">
             <ResultMapping>
               <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleUserMappingGet_Result">
@@ -2265,6 +2261,63 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
                 <ScalarProperty Name="TargetSize" ColumnName="TargetSize" />
                 <ScalarProperty Name="CustomerRemarks" ColumnName="CustomerRemarks" />
                 <ScalarProperty Name="IsSatisfied" ColumnName="IsSatisfied" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleUserMappingDetails" FunctionName="IndoGhanaModel.Store.usp_VehicleUserMappingDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleUserMappingDetails_Result">
+                <ScalarProperty Name="VehicleAssignID" ColumnName="VehicleAssignID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="VehicleStatus" ColumnName="VehicleStatus" />
+                <ScalarProperty Name="TripEndDateTime" ColumnName="TripEndDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleMasterInsertUpate" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterInsertUpate" />
+          <FunctionImportMapping FunctionImportName="usp_CylinderAgeAnalysisReport" FunctionName="IndoGhanaModel.Store.usp_CylinderAgeAnalysisReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_CylinderAgeAnalysisReport_Result">
+                <ScalarProperty Name="CylindeNumber" ColumnName="CylindeNumber" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerSiteName" ColumnName="CustomerSiteName" />
+                <ScalarProperty Name="CurrentDeliveryDate" ColumnName="CurrentDeliveryDate" />
+                <ScalarProperty Name="CurrentLocation" ColumnName="CurrentLocation" />
+                <ScalarProperty Name="RecieveDateTime" ColumnName="RecieveDateTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleMasterGet" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleMasterGet_Result">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdateByID" ColumnName="UpdateByID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_VehicleMasterGetByID" FunctionName="IndoGhanaModel.Store.usp_VehicleMasterGetByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_VehicleMasterGetByID_Result">
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatedByID" ColumnName="CreatedByID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+                <ScalarProperty Name="status" ColumnName="status" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

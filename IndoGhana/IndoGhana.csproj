@@ -205,6 +205,7 @@
     <Compile Include="Areas\Login\Controllers\UserLoginController.cs" />
     <Compile Include="Areas\Login\LoginAreaRegistration.cs" />
     <Compile Include="Areas\Masters\Controllers\CustomerController.cs" />
+    <Compile Include="Areas\Masters\Controllers\VehicleController.cs" />
     <Compile Include="Areas\Masters\Controllers\VendorController.cs" />
     <Compile Include="Areas\Masters\MastersAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -293,6 +294,9 @@
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderDetails.cshtml" />
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderRecieveDeliver.cshtml" />
     <Content Include="Areas\CylinderDetails\Views\CylinderDetails\ReportCylinderRefill.cshtml" />
+    <Content Include="Areas\Masters\Views\Vehicle\Index.cshtml" />
+    <Content Include="Areas\Masters\Views\Vehicle\CreateVehicle.cshtml" />
+    <Content Include="Areas\Masters\Views\Vehicle\EditVehicle.cshtml" />
     <None Include="IndoGhanaDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>IndoGhanaDataSet.Designer.cs</LastGenOutput>

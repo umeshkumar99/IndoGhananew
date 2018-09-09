@@ -43,10 +43,12 @@ namespace CylnderEntities
         [MaxLength(50, ErrorMessage = "Password cannot be greater than 50 characters")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [Required]
         [MaxLength(20, ErrorMessage = "IMIE1 cannot be greater than 20 characters")]
         public string IMIE1 { get; set; }
 
         [MaxLength(20, ErrorMessage = "IMIE2 cannot be greater than 20 characters")]
+        
         public string IMIE2 { get; set; }
         [Required(AllowEmptyStrings = false, ErrorMessage = "Please select the Group")]
         public int Group_Id { get; set; }
