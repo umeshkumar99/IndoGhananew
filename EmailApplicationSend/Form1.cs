@@ -109,7 +109,7 @@ namespace EmailApplicationSend
                                 string[] strTo = dr["EmailTo"].ToString().Split(semiSeparator);
                                 foreach (string result in strTo)
                                 {
-                                    mail.To.Add(result);
+                                    mail.To.Add(result.Trim());
                                 }
                             }
 
@@ -122,7 +122,7 @@ namespace EmailApplicationSend
                                 string[] strCC = dr["EmailCC"].ToString().Split(semiSeparator);
                                 foreach (string result in strCC)
                                 {
-                                    mail.CC.Add(result);
+                                    mail.CC.Add(result.Trim());
                                 }
                             }
                             if (dr["EmailBCC"].ToString() != null && dr["EmailBCC"].ToString().Trim() != "")
@@ -132,7 +132,7 @@ namespace EmailApplicationSend
                                 string[] strCC = dr["EmailBCC"].ToString().Split(semiSeparator);
                                 foreach (string result in strCC)
                                 {
-                                    mail.Bcc.Add(result);
+                                    mail.Bcc.Add(result.Trim());
 
                                 }
 
@@ -173,6 +173,7 @@ namespace EmailApplicationSend
             }
             catch (Exception ex)
             {
+                label1.Text = "Error occured while processing email:" ;
                 EmailsentError(MessageID, ex.Message.ToString());
                 flag = false;
                // continue;
