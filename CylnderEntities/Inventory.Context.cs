@@ -1802,6 +1802,23 @@ public partial class IndoGhanaEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderAgeAnalysisReport_Result>("usp_CylinderAgeAnalysisReport", startdateParameter, enddateParameter, branchidParameter, companyidParameter);
     }
 
+
+    public virtual ObjectResult<usp_CylinderExpiryReport_Result> usp_CylinderExpiryReport(Nullable<int> companyID, Nullable<int> branchid)
+    {
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("companyID", companyID) :
+            new ObjectParameter("companyID", typeof(int));
+
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderExpiryReport_Result>("usp_CylinderExpiryReport", companyIDParameter, branchidParameter);
+    }
+
 }
 
 }

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 
 namespace EmailApplicationSend
@@ -14,13 +15,17 @@ namespace EmailApplicationSend
         bool flag;
         public frmEmail()
         {
+           
             InitializeComponent();
         }
 
         private void frmEmail_Load(object sender, EventArgs e)
         {
-            
-            label1.Width = 700;
+          // string str = ConfigurationManager.AppSettings["applicationName"].ToString();
+          //  frmEmail.ActiveForm.Text = str;
+          //  SqlDataReader dr;
+
+            label1.Width = 1000;
             getemailaccountdata();
             label1.Text = "";
         }
@@ -94,7 +99,7 @@ namespace EmailApplicationSend
                         if (dr["EmailTo"].ToString() != null && dr["EmailTo"].ToString().Trim() != "")
                         {
                             MailMessage mail = new MailMessage();
-
+                          //  Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
 
                             System.Windows.Forms.Application.DoEvents();
@@ -109,7 +114,23 @@ namespace EmailApplicationSend
                                 string[] strTo = dr["EmailTo"].ToString().Split(semiSeparator);
                                 foreach (string result in strTo)
                                 {
-                                    mail.To.Add(result.Trim());
+
+
+                                    //Match match = regex.Match(result.Trim());
+                                    //if (match.Success)
+                                    //{
+                                        try
+                                        {
+
+                                            mail.To.Add(result.Trim());
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            label1.Text = "Error occured while processing email:" + dr["EmailTo"].ToString();
+                                            EmailsentError(MessageID, ex.Message.ToString());
+                                            continue;
+                                        }
+                                    //}
                                 }
                             }
 
@@ -122,7 +143,17 @@ namespace EmailApplicationSend
                                 string[] strCC = dr["EmailCC"].ToString().Split(semiSeparator);
                                 foreach (string result in strCC)
                                 {
-                                    mail.CC.Add(result.Trim());
+                                    try
+                                    {
+                                        mail.CC.Add(result.Trim());
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        label1.Text = "Error occured while processing email:" + dr["EmailTo"].ToString();
+                                        EmailsentError(MessageID, ex.Message.ToString());
+                                        continue;
+                                    }
+
                                 }
                             }
                             if (dr["EmailBCC"].ToString() != null && dr["EmailBCC"].ToString().Trim() != "")
@@ -132,7 +163,17 @@ namespace EmailApplicationSend
                                 string[] strCC = dr["EmailBCC"].ToString().Split(semiSeparator);
                                 foreach (string result in strCC)
                                 {
-                                    mail.Bcc.Add(result.Trim());
+                                    try
+                                    {
+                                        mail.Bcc.Add(result.Trim());
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        label1.Text = "Error occured while processing email:" + dr["EmailTo"].ToString();
+                                        EmailsentError(MessageID, ex.Message.ToString());
+                                        continue;
+                                    }
+
 
                                 }
 
@@ -176,6 +217,7 @@ namespace EmailApplicationSend
                 label1.Text = "Error occured while processing email:" ;
                 EmailsentError(MessageID, ex.Message.ToString());
                 flag = false;
+                btnStart.Enabled = true;
                // continue;
                 //throw ex;
             }
@@ -262,7 +304,7 @@ namespace EmailApplicationSend
         {
             label1.Text = "Starting process";
             btnStart.Enabled = false;
-            getemailaccountdata();
+           // getemailaccountdata();
             getEmailMessageData();
            
 
@@ -270,6 +312,12 @@ namespace EmailApplicationSend
 
         private void label1_Resize(object sender, EventArgs e)
         {
+
+        }
+
+        private void frmEmail_Activated(object sender, EventArgs e)
+        {
+           frmEmail.ActiveForm.Text= ConfigurationManager.AppSettings["applicationName"].ToString();
 
         }
     }

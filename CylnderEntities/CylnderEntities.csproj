@@ -171,6 +171,9 @@
     <Compile Include="usp_CylinderCount_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_CylinderExpiryReport_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_CylinderMasterGetBarcodeImage_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>

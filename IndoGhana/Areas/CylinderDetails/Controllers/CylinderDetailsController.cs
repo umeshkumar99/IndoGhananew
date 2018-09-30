@@ -507,7 +507,50 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult ReportCylinderExpiry()
+        {
+            try
+            {
 
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+               
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+               
+ 
+
+
+                List<usp_CylinderExpiryReport_Result> CylinderList = new List<usp_CylinderExpiryReport_Result>();
+
+                CylinderList = InventoryEntities.usp_CylinderExpiryReport(logindetails.Company_Id, logindetails.Branch_Id ).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderExpiryReport.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+        
 
         public void Drillthrough(object sender)
         {

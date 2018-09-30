@@ -1,0 +1,20 @@
+﻿
+@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "ReportCylinderExpiry";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ReportCylinderExpiry</h2>
+
+
+<div class="row">
+    @if (ViewBag.CylinderDetails != null)
+            {
+        <div class="col-md-12 col-lg-12 col-xs-12">
+            @Html.ReportViewer(ViewBag.CylinderDetails as Microsoft.Reporting.WebForms.ReportViewer)
+        </div>
+    }
+
+
+</div>

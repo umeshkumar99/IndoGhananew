@@ -69,7 +69,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmEmail";
-            this.Text = "Email";
+            this.Text = "Email Application";
+            this.Activated += new System.EventHandler(this.frmEmail_Activated);
             this.Load += new System.EventHandler(this.frmEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

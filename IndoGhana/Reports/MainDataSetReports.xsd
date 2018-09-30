@@ -14,7 +14,7 @@
   <xs:element name="MainDataSetReports" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MainDataSetReports" msprop:Generator_UserDSName="MainDataSetReports">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="usp_CylinderCount" msprop:Generator_TableClassName="usp_CylinderCountDataTable" msprop:Generator_TableVarName="tableusp_CylinderCount" msprop:Generator_RowChangedName="usp_CylinderCountRowChanged" msprop:Generator_TablePropName="usp_CylinderCount" msprop:Generator_RowDeletingName="usp_CylinderCountRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountRowDeleted" msprop:Generator_RowClassName="usp_CylinderCountRow" msprop:Generator_UserTableName="usp_CylinderCount" msprop:Generator_RowEvArgName="usp_CylinderCountRowChangeEvent">
+        <xs:element name="usp_CylinderCount" msprop:Generator_TableClassName="usp_CylinderCountDataTable" msprop:Generator_TableVarName="tableusp_CylinderCount" msprop:Generator_TablePropName="usp_CylinderCount" msprop:Generator_RowDeletingName="usp_CylinderCountRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountRowDeleted" msprop:Generator_UserTableName="usp_CylinderCount" msprop:Generator_RowChangedName="usp_CylinderCountRowChanged" msprop:Generator_RowEvArgName="usp_CylinderCountRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderCountRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CurrentLocation" msprop:Generator_ColumnVarNameInTable="columnCurrentLocation" msprop:Generator_ColumnPropNameInRow="CurrentLocation" msprop:Generator_ColumnPropNameInTable="CurrentLocationColumn" msprop:Generator_UserColumnName="CurrentLocation" minOccurs="0">
@@ -28,7 +28,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_CylinderMasterGet" msprop:Generator_TableClassName="usp_CylinderMasterGetDataTable" msprop:Generator_TableVarName="tableusp_CylinderMasterGet" msprop:Generator_TablePropName="usp_CylinderMasterGet" msprop:Generator_RowDeletingName="usp_CylinderMasterGetRowDeleting" msprop:Generator_RowChangingName="usp_CylinderMasterGetRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderMasterGetRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderMasterGetRowDeleted" msprop:Generator_UserTableName="usp_CylinderMasterGet" msprop:Generator_RowChangedName="usp_CylinderMasterGetRowChanged" msprop:Generator_RowEvArgName="usp_CylinderMasterGetRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderMasterGetRow">
+        <xs:element name="usp_CylinderMasterGet" msprop:Generator_TableClassName="usp_CylinderMasterGetDataTable" msprop:Generator_TableVarName="tableusp_CylinderMasterGet" msprop:Generator_RowChangedName="usp_CylinderMasterGetRowChanged" msprop:Generator_TablePropName="usp_CylinderMasterGet" msprop:Generator_RowDeletingName="usp_CylinderMasterGetRowDeleting" msprop:Generator_RowChangingName="usp_CylinderMasterGetRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderMasterGetRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderMasterGetRowDeleted" msprop:Generator_RowClassName="usp_CylinderMasterGetRow" msprop:Generator_UserTableName="usp_CylinderMasterGet" msprop:Generator_RowEvArgName="usp_CylinderMasterGetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CylinderID" msprop:Generator_ColumnVarNameInTable="columnCylinderID" msprop:Generator_ColumnPropNameInRow="CylinderID" msprop:Generator_ColumnPropNameInTable="CylinderIDColumn" msprop:Generator_UserColumnName="CylinderID" type="xs:int" />
@@ -190,7 +190,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_CylinderCountGasInUse" msprop:Generator_TableClassName="usp_CylinderCountGasInUseDataTable" msprop:Generator_TableVarName="tableusp_CylinderCountGasInUse" msprop:Generator_RowChangedName="usp_CylinderCountGasInUseRowChanged" msprop:Generator_TablePropName="usp_CylinderCountGasInUse" msprop:Generator_RowDeletingName="usp_CylinderCountGasInUseRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountGasInUseRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountGasInUseRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountGasInUseRowDeleted" msprop:Generator_RowClassName="usp_CylinderCountGasInUseRow" msprop:Generator_UserTableName="usp_CylinderCountGasInUse" msprop:Generator_RowEvArgName="usp_CylinderCountGasInUseRowChangeEvent">
+        <xs:element name="usp_CylinderCountGasInUse" msprop:Generator_TableClassName="usp_CylinderCountGasInUseDataTable" msprop:Generator_TableVarName="tableusp_CylinderCountGasInUse" msprop:Generator_TablePropName="usp_CylinderCountGasInUse" msprop:Generator_RowDeletingName="usp_CylinderCountGasInUseRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountGasInUseRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountGasInUseRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountGasInUseRowDeleted" msprop:Generator_UserTableName="usp_CylinderCountGasInUse" msprop:Generator_RowChangedName="usp_CylinderCountGasInUseRowChanged" msprop:Generator_RowEvArgName="usp_CylinderCountGasInUseRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderCountGasInUseRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="GasInUse" msprop:Generator_ColumnVarNameInTable="columnGasInUse" msprop:Generator_ColumnPropNameInRow="GasInUse" msprop:Generator_ColumnPropNameInTable="GasInUseColumn" msprop:Generator_UserColumnName="GasInUse" minOccurs="0">
@@ -204,7 +204,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_CylinderCountPState" msprop:Generator_TableClassName="usp_CylinderCountPStateDataTable" msprop:Generator_TableVarName="tableusp_CylinderCountPState" msprop:Generator_RowChangedName="usp_CylinderCountPStateRowChanged" msprop:Generator_TablePropName="usp_CylinderCountPState" msprop:Generator_RowDeletingName="usp_CylinderCountPStateRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountPStateRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountPStateRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountPStateRowDeleted" msprop:Generator_RowClassName="usp_CylinderCountPStateRow" msprop:Generator_UserTableName="usp_CylinderCountPState" msprop:Generator_RowEvArgName="usp_CylinderCountPStateRowChangeEvent">
+        <xs:element name="usp_CylinderCountPState" msprop:Generator_TableClassName="usp_CylinderCountPStateDataTable" msprop:Generator_TableVarName="tableusp_CylinderCountPState" msprop:Generator_TablePropName="usp_CylinderCountPState" msprop:Generator_RowDeletingName="usp_CylinderCountPStateRowDeleting" msprop:Generator_RowChangingName="usp_CylinderCountPStateRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderCountPStateRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderCountPStateRowDeleted" msprop:Generator_UserTableName="usp_CylinderCountPState" msprop:Generator_RowChangedName="usp_CylinderCountPStateRowChanged" msprop:Generator_RowEvArgName="usp_CylinderCountPStateRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderCountPStateRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PresentState" msprop:Generator_ColumnVarNameInTable="columnPresentState" msprop:Generator_ColumnPropNameInRow="PresentState" msprop:Generator_ColumnPropNameInTable="PresentStateColumn" msprop:Generator_UserColumnName="PresentState" minOccurs="0">
@@ -218,7 +218,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_TransactionDetails" msprop:Generator_TableClassName="usp_TransactionDetailsDataTable" msprop:Generator_TableVarName="tableusp_TransactionDetails" msprop:Generator_RowChangedName="usp_TransactionDetailsRowChanged" msprop:Generator_TablePropName="usp_TransactionDetails" msprop:Generator_RowDeletingName="usp_TransactionDetailsRowDeleting" msprop:Generator_RowChangingName="usp_TransactionDetailsRowChanging" msprop:Generator_RowEvHandlerName="usp_TransactionDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_TransactionDetailsRowDeleted" msprop:Generator_RowClassName="usp_TransactionDetailsRow" msprop:Generator_UserTableName="usp_TransactionDetails" msprop:Generator_RowEvArgName="usp_TransactionDetailsRowChangeEvent">
+        <xs:element name="usp_TransactionDetails" msprop:Generator_TableClassName="usp_TransactionDetailsDataTable" msprop:Generator_TableVarName="tableusp_TransactionDetails" msprop:Generator_TablePropName="usp_TransactionDetails" msprop:Generator_RowDeletingName="usp_TransactionDetailsRowDeleting" msprop:Generator_RowChangingName="usp_TransactionDetailsRowChanging" msprop:Generator_RowEvHandlerName="usp_TransactionDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_TransactionDetailsRowDeleted" msprop:Generator_UserTableName="usp_TransactionDetails" msprop:Generator_RowChangedName="usp_TransactionDetailsRowChanged" msprop:Generator_RowEvArgName="usp_TransactionDetailsRowChangeEvent" msprop:Generator_RowClassName="usp_TransactionDetailsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PDATransactionNo" msprop:Generator_ColumnVarNameInTable="columnPDATransactionNo" msprop:Generator_ColumnPropNameInRow="PDATransactionNo" msprop:Generator_ColumnPropNameInTable="PDATransactionNoColumn" msprop:Generator_UserColumnName="PDATransactionNo" minOccurs="0">
@@ -306,7 +306,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_TransactionDetailsRefill" msprop:Generator_TableClassName="usp_TransactionDetailsRefillDataTable" msprop:Generator_TableVarName="tableusp_TransactionDetailsRefill" msprop:Generator_RowChangedName="usp_TransactionDetailsRefillRowChanged" msprop:Generator_TablePropName="usp_TransactionDetailsRefill" msprop:Generator_RowDeletingName="usp_TransactionDetailsRefillRowDeleting" msprop:Generator_RowChangingName="usp_TransactionDetailsRefillRowChanging" msprop:Generator_RowEvHandlerName="usp_TransactionDetailsRefillRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_TransactionDetailsRefillRowDeleted" msprop:Generator_RowClassName="usp_TransactionDetailsRefillRow" msprop:Generator_UserTableName="usp_TransactionDetailsRefill" msprop:Generator_RowEvArgName="usp_TransactionDetailsRefillRowChangeEvent">
+        <xs:element name="usp_TransactionDetailsRefill" msprop:Generator_TableClassName="usp_TransactionDetailsRefillDataTable" msprop:Generator_TableVarName="tableusp_TransactionDetailsRefill" msprop:Generator_TablePropName="usp_TransactionDetailsRefill" msprop:Generator_RowDeletingName="usp_TransactionDetailsRefillRowDeleting" msprop:Generator_RowChangingName="usp_TransactionDetailsRefillRowChanging" msprop:Generator_RowEvHandlerName="usp_TransactionDetailsRefillRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_TransactionDetailsRefillRowDeleted" msprop:Generator_UserTableName="usp_TransactionDetailsRefill" msprop:Generator_RowChangedName="usp_TransactionDetailsRefillRowChanged" msprop:Generator_RowEvArgName="usp_TransactionDetailsRefillRowChangeEvent" msprop:Generator_RowClassName="usp_TransactionDetailsRefillRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PDATransactionNo" msprop:Generator_ColumnVarNameInTable="columnPDATransactionNo" msprop:Generator_ColumnPropNameInRow="PDATransactionNo" msprop:Generator_ColumnPropNameInTable="PDATransactionNoColumn" msprop:Generator_UserColumnName="PDATransactionNo" minOccurs="0">
@@ -395,7 +395,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="usp_CylinderAgeAnalysisReport" msprop:Generator_TableClassName="usp_CylinderAgeAnalysisReportDataTable" msprop:Generator_TableVarName="tableusp_CylinderAgeAnalysisReport" msprop:Generator_TablePropName="usp_CylinderAgeAnalysisReport" msprop:Generator_RowDeletingName="usp_CylinderAgeAnalysisReportRowDeleting" msprop:Generator_RowChangingName="usp_CylinderAgeAnalysisReportRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderAgeAnalysisReportRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderAgeAnalysisReportRowDeleted" msprop:Generator_UserTableName="usp_CylinderAgeAnalysisReport" msprop:Generator_RowChangedName="usp_CylinderAgeAnalysisReportRowChanged" msprop:Generator_RowEvArgName="usp_CylinderAgeAnalysisReportRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderAgeAnalysisReportRow">
+        <xs:element name="usp_CylinderAgeAnalysisReport" msprop:Generator_TableClassName="usp_CylinderAgeAnalysisReportDataTable" msprop:Generator_TableVarName="tableusp_CylinderAgeAnalysisReport" msprop:Generator_RowChangedName="usp_CylinderAgeAnalysisReportRowChanged" msprop:Generator_TablePropName="usp_CylinderAgeAnalysisReport" msprop:Generator_RowDeletingName="usp_CylinderAgeAnalysisReportRowDeleting" msprop:Generator_RowChangingName="usp_CylinderAgeAnalysisReportRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderAgeAnalysisReportRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderAgeAnalysisReportRowDeleted" msprop:Generator_RowClassName="usp_CylinderAgeAnalysisReportRow" msprop:Generator_UserTableName="usp_CylinderAgeAnalysisReport" msprop:Generator_RowEvArgName="usp_CylinderAgeAnalysisReportRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CylindeNumber" msprop:Generator_ColumnVarNameInTable="columnCylindeNumber" msprop:Generator_ColumnPropNameInRow="CylindeNumber" msprop:Generator_ColumnPropNameInTable="CylindeNumberColumn" msprop:Generator_UserColumnName="CylindeNumber" minOccurs="0">
@@ -428,6 +428,134 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="RecieveDateTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRecieveDateTime" msprop:Generator_ColumnPropNameInRow="RecieveDateTime" msprop:Generator_ColumnPropNameInTable="RecieveDateTimeColumn" msprop:Generator_UserColumnName="RecieveDateTime" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="usp_CylinderExpiryReport" msprop:Generator_TableClassName="usp_CylinderExpiryReportDataTable" msprop:Generator_TableVarName="tableusp_CylinderExpiryReport" msprop:Generator_TablePropName="usp_CylinderExpiryReport" msprop:Generator_RowDeletingName="usp_CylinderExpiryReportRowDeleting" msprop:Generator_RowChangingName="usp_CylinderExpiryReportRowChanging" msprop:Generator_RowEvHandlerName="usp_CylinderExpiryReportRowChangeEventHandler" msprop:Generator_RowDeletedName="usp_CylinderExpiryReportRowDeleted" msprop:Generator_UserTableName="usp_CylinderExpiryReport" msprop:Generator_RowChangedName="usp_CylinderExpiryReportRowChanged" msprop:Generator_RowEvArgName="usp_CylinderExpiryReportRowChangeEvent" msprop:Generator_RowClassName="usp_CylinderExpiryReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CylindeNumber" msprop:Generator_ColumnVarNameInTable="columnCylindeNumber" msprop:Generator_ColumnPropNameInRow="CylindeNumber" msprop:Generator_ColumnPropNameInTable="CylindeNumberColumn" msprop:Generator_UserColumnName="CylindeNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ManufacturerName" msprop:Generator_ColumnVarNameInTable="columnManufacturerName" msprop:Generator_ColumnPropNameInRow="ManufacturerName" msprop:Generator_ColumnPropNameInTable="ManufacturerNameColumn" msprop:Generator_UserColumnName="ManufacturerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PurchaseDate" msprop:Generator_ColumnVarNameInTable="columnPurchaseDate" msprop:Generator_ColumnPropNameInRow="PurchaseDate" msprop:Generator_ColumnPropNameInTable="PurchaseDateColumn" msprop:Generator_UserColumnName="PurchaseDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InitialGas" msprop:Generator_ColumnVarNameInTable="columnInitialGas" msprop:Generator_ColumnPropNameInRow="InitialGas" msprop:Generator_ColumnPropNameInTable="InitialGasColumn" msprop:Generator_UserColumnName="InitialGas" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WLCapacity" msprop:Generator_ColumnVarNameInTable="columnWLCapacity" msprop:Generator_ColumnPropNameInRow="WLCapacity" msprop:Generator_ColumnPropNameInTable="WLCapacityColumn" msprop:Generator_UserColumnName="WLCapacity" type="xs:int" minOccurs="0" />
+              <xs:element name="WLCapacityUOM" msprop:Generator_ColumnVarNameInTable="columnWLCapacityUOM" msprop:Generator_ColumnPropNameInRow="WLCapacityUOM" msprop:Generator_ColumnPropNameInTable="WLCapacityUOMColumn" msprop:Generator_UserColumnName="WLCapacityUOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WorkingPressure" msprop:Generator_ColumnVarNameInTable="columnWorkingPressure" msprop:Generator_ColumnPropNameInRow="WorkingPressure" msprop:Generator_ColumnPropNameInTable="WorkingPressureColumn" msprop:Generator_UserColumnName="WorkingPressure" type="xs:int" minOccurs="0" />
+              <xs:element name="WorkingPressureUOM" msprop:Generator_ColumnVarNameInTable="columnWorkingPressureUOM" msprop:Generator_ColumnPropNameInRow="WorkingPressureUOM" msprop:Generator_ColumnPropNameInTable="WorkingPressureUOMColumn" msprop:Generator_UserColumnName="WorkingPressureUOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TestDate" msprop:Generator_ColumnVarNameInTable="columnTestDate" msprop:Generator_ColumnPropNameInRow="TestDate" msprop:Generator_ColumnPropNameInTable="TestDateColumn" msprop:Generator_UserColumnName="TestDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NextTestDate" msprop:Generator_ColumnVarNameInTable="columnNextTestDate" msprop:Generator_ColumnPropNameInRow="NextTestDate" msprop:Generator_ColumnPropNameInTable="NextTestDateColumn" msprop:Generator_UserColumnName="NextTestDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ValveModel" msprop:Generator_ColumnVarNameInTable="columnValveModel" msprop:Generator_ColumnPropNameInRow="ValveModel" msprop:Generator_ColumnPropNameInTable="ValveModelColumn" msprop:Generator_UserColumnName="ValveModel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PresentState" msprop:Generator_ColumnVarNameInTable="columnPresentState" msprop:Generator_ColumnPropNameInRow="PresentState" msprop:Generator_ColumnPropNameInTable="PresentStateColumn" msprop:Generator_UserColumnName="PresentState" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GasInUse" msprop:Generator_ColumnVarNameInTable="columnGasInUse" msprop:Generator_ColumnPropNameInRow="GasInUse" msprop:Generator_ColumnPropNameInTable="GasInUseColumn" msprop:Generator_UserColumnName="GasInUse" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VendorName" msprop:Generator_ColumnVarNameInTable="columnVendorName" msprop:Generator_ColumnPropNameInRow="VendorName" msprop:Generator_ColumnPropNameInTable="VendorNameColumn" msprop:Generator_UserColumnName="VendorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VendorBranchName" msprop:Generator_ColumnVarNameInTable="columnVendorBranchName" msprop:Generator_ColumnPropNameInRow="VendorBranchName" msprop:Generator_ColumnPropNameInTable="VendorBranchNameColumn" msprop:Generator_UserColumnName="VendorBranchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Size" msprop:Generator_ColumnVarNameInTable="columnSize" msprop:Generator_ColumnPropNameInRow="Size" msprop:Generator_ColumnPropNameInTable="SizeColumn" msprop:Generator_UserColumnName="Size" type="xs:double" minOccurs="0" />
+              <xs:element name="ActualSize" msprop:Generator_ColumnVarNameInTable="columnActualSize" msprop:Generator_ColumnPropNameInRow="ActualSize" msprop:Generator_ColumnPropNameInTable="ActualSizeColumn" msprop:Generator_UserColumnName="ActualSize" type="xs:double" minOccurs="0" />
+              <xs:element name="SizeUOM" msprop:Generator_ColumnVarNameInTable="columnSizeUOM" msprop:Generator_ColumnPropNameInRow="SizeUOM" msprop:Generator_ColumnPropNameInTable="SizeUOMColumn" msprop:Generator_UserColumnName="SizeUOM" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerName" msprop:Generator_ColumnVarNameInTable="columnCustomerName" msprop:Generator_ColumnPropNameInRow="CustomerName" msprop:Generator_ColumnPropNameInTable="CustomerNameColumn" msprop:Generator_UserColumnName="CustomerName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CustomerSiteName" msprop:Generator_ColumnVarNameInTable="columnCustomerSiteName" msprop:Generator_ColumnPropNameInRow="CustomerSiteName" msprop:Generator_ColumnPropNameInTable="CustomerSiteNameColumn" msprop:Generator_UserColumnName="CustomerSiteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CurrentDeliveryDate" msprop:Generator_ColumnVarNameInTable="columnCurrentDeliveryDate" msprop:Generator_ColumnPropNameInRow="CurrentDeliveryDate" msprop:Generator_ColumnPropNameInTable="CurrentDeliveryDateColumn" msprop:Generator_UserColumnName="CurrentDeliveryDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CurrentRecieveDate" msprop:Generator_ColumnVarNameInTable="columnCurrentRecieveDate" msprop:Generator_ColumnPropNameInRow="CurrentRecieveDate" msprop:Generator_ColumnPropNameInTable="CurrentRecieveDateColumn" msprop:Generator_UserColumnName="CurrentRecieveDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CurrentLocation" msprop:Generator_ColumnVarNameInTable="columnCurrentLocation" msprop:Generator_ColumnPropNameInRow="CurrentLocation" msprop:Generator_ColumnPropNameInTable="CurrentLocationColumn" msprop:Generator_UserColumnName="CurrentLocation" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BranchName" msprop:Generator_ColumnVarNameInTable="columnBranchName" msprop:Generator_ColumnPropNameInRow="BranchName" msprop:Generator_ColumnPropNameInTable="BranchNameColumn" msprop:Generator_UserColumnName="BranchName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
