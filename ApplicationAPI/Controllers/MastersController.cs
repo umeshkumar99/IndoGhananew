@@ -22,11 +22,11 @@ namespace ApplicationAPI.Controllers
         CreateLogFiles Err = new CreateLogFiles();
 
         [HttpGet]
-        public List<usp_CylinderMasterGet_Result> GetCylinderMasterList()
+        public List<usp_CylinderMasterGet_Result> GetCylinderMasterList(int branchid, int companyid)
         {
             
             List<usp_CylinderMasterGet_Result> cylinderlist = new List<usp_CylinderMasterGet_Result>();
-            cylinderlist = InventoryEntities.usp_CylinderMasterGet().ToList();
+            cylinderlist = InventoryEntities.usp_CylinderMasterGet(branchid,companyid).ToList();
             return cylinderlist;
         }
         [HttpGet]
@@ -39,13 +39,13 @@ namespace ApplicationAPI.Controllers
 
 
         [HttpGet]
-        public List<usp_CylinderMasterMobileGet_Result> GetCylinderMasterMobileList()
+        public List<usp_CylinderMasterMobileGet_Result> GetCylinderMasterMobileList(int branchid, int companyid)
         {
             List<usp_CylinderMasterMobileGet_Result> cylinderlist = new List<usp_CylinderMasterMobileGet_Result>();
             try
             {
                 Err.ErrorLog("GetCylinderMasterMobileList called");
-                cylinderlist = InventoryEntities.usp_CylinderMasterMobileGet().ToList();
+                cylinderlist = InventoryEntities.usp_CylinderMasterMobileGet(branchid,companyid).ToList();
                 Err.ErrorLog("GetCylinderMasterMobileList called end");
                 return cylinderlist;
             }

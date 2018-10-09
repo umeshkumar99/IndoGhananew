@@ -200,7 +200,7 @@ namespace EmailApplicationSend
                             }
                             EmailSuccess(MessageID);
 
-
+                            System.Threading.Thread.Sleep(3000);
 
                         }
                     }

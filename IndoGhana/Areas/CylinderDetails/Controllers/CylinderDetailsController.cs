@@ -20,6 +20,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
         
         // GET: CylinderDetails/CylinderDetails
         IndoGhanaEntities InventoryEntities = new IndoGhanaEntities();
+        USP_GetUserDetails_Result logindetails;
         public ActionResult Index()
         {
             if (Session["logindetails"] == null)
@@ -40,10 +41,11 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                 return RedirectToAction("Index", "UserLogin", new { area = "Login" });
             }
             List<usp_CylinderMasterGet_Result> cylinderlist = new List<usp_CylinderMasterGet_Result>();
+            logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
             try
             {
 
-                cylinderlist = InventoryEntities.usp_CylinderMasterGet().ToList();
+                cylinderlist = InventoryEntities.usp_CylinderMasterGet(logindetails.Branch_Id, logindetails.Company_Id).ToList();
                 return Json(cylinderlist, JsonRequestBehavior.AllowGet);
             }
 
@@ -88,7 +90,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             {
                 usp_CylinderMasterGetByID_Result cylinder = new usp_CylinderMasterGetByID_Result();
                 TryUpdateModel(cylinder);
-                USP_GetUserDetails_Result logindetails;
+               // USP_GetUserDetails_Result logindetails;
               
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                 //bool b= int.TryParse(frm["WLCapacityUOMID"], out re);
@@ -139,7 +141,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                 TryUpdateModel(cylinder);
                 //bool b= int.TryParse(frm["WLCapacityUOMID"], out re);
                 string barcode = cylinder.CylindeNumber.ToString() + cylinder.VendorID.ToString() + cylinder.VendorBranchID.ToString();
-                USP_GetUserDetails_Result logindetails;
+                
 
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                 object result = InventoryEntities.usp_CylinderMasterInsertUpdate(cylinder.CylindeNumber, barcode, cylinder.ManufacturerID,
@@ -243,7 +245,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                     Session.Abandon();
                     return RedirectToAction("Index", "UserLogin", new { area = "Login" });
                 }
-                USP_GetUserDetails_Result logindetails;
+              //  USP_GetUserDetails_Result logindetails;
                  logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
 
                 //for cylinder count location wise
@@ -295,7 +297,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
 
 
 
-                CylinderList = InventoryEntities.usp_CylinderMasterGet().ToList();
+                CylinderList = InventoryEntities.usp_CylinderMasterGet(logindetails.Branch_Id, logindetails.Company_Id).ToList();
                 reportview1.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderDetailLocation.rdlc";
                 //locationname
                 List<ReportParameter> parameters = new List<ReportParameter>();
@@ -336,7 +338,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
 
                 List<usp_CylinderMasterGet_Result> CylinderList= new List<usp_CylinderMasterGet_Result>();
 
-                CylinderList = InventoryEntities.usp_CylinderMasterGet().ToList();
+                CylinderList = InventoryEntities.usp_CylinderMasterGet(logindetails.Branch_Id, logindetails.Company_Id).ToList();
                 reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\CylinderDetails.rdlc";
                 reportview.ShowToolBar = true;
                 reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
@@ -372,7 +374,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                     Session.Abandon();
                     return RedirectToAction("Index", "UserLogin", new { area = "Login" });
                 }
-                USP_GetUserDetails_Result logindetails;
+               // USP_GetUserDetails_Result logindetails;
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                 CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
                 TryUpdateModel(cylinderRecieveDeliver);
@@ -423,7 +425,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                     Session.Abandon();
                     return RedirectToAction("Index", "UserLogin", new { area = "Login" });
                 }
-                USP_GetUserDetails_Result logindetails;
+              //  USP_GetUserDetails_Result logindetails;
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                 CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
                 TryUpdateModel(cylinderRecieveDeliver);
@@ -475,7 +477,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                     Session.Abandon();
                     return RedirectToAction("Index", "UserLogin", new { area = "Login" });
                 }
-                USP_GetUserDetails_Result logindetails;
+          //      USP_GetUserDetails_Result logindetails;
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                 CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
                 TryUpdateModel(cylinderRecieveDeliver);
@@ -518,7 +520,7 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
                     Session.Abandon();
                     return RedirectToAction("Index", "UserLogin", new { area = "Login" });
                 }
-                USP_GetUserDetails_Result logindetails;
+             //   USP_GetUserDetails_Result logindetails;
                 logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
                
                 ReportViewer reportview = new ReportViewer();

@@ -1043,13 +1043,6 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual ObjectResult<usp_CylinderMasterGet_Result> usp_CylinderMasterGet()
-    {
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderMasterGet_Result>("usp_CylinderMasterGet");
-    }
-
-
     public virtual ObjectResult<usp_CylinderMasterGetbyBarCode_Result> usp_CylinderMasterGetbyBarCode(string barcode)
     {
 
@@ -1422,13 +1415,6 @@ public partial class IndoGhanaEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_CylinderMasterInsertUpdateMobile", cylindeNumberParameter, barcodeParameter, presentStateParameter, gasInUseParameter, ownerParameter, sizeParameter, sizeUOMIDParameter, currentLocationParameter, currentCustomerBranchIDParameter, branchidParameter, companyIDParameter, createdByParameter, updateByParameter, statusParameter, isPrintDoneParameter);
-    }
-
-
-    public virtual ObjectResult<usp_CylinderMasterMobileGet_Result> usp_CylinderMasterMobileGet()
-    {
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderMasterMobileGet_Result>("usp_CylinderMasterMobileGet");
     }
 
 
@@ -1817,6 +1803,40 @@ public partial class IndoGhanaEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderExpiryReport_Result>("usp_CylinderExpiryReport", companyIDParameter, branchidParameter);
+    }
+
+
+    public virtual ObjectResult<usp_CylinderMasterGet_Result> usp_CylinderMasterGet(Nullable<int> branchid, Nullable<int> companyid)
+    {
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderMasterGet_Result>("usp_CylinderMasterGet", branchidParameter, companyidParameter);
+    }
+
+
+    public virtual ObjectResult<usp_CylinderMasterMobileGet_Result> usp_CylinderMasterMobileGet(Nullable<int> branchid, Nullable<int> companyid)
+    {
+
+        var branchidParameter = branchid.HasValue ?
+            new ObjectParameter("branchid", branchid) :
+            new ObjectParameter("branchid", typeof(int));
+
+
+        var companyidParameter = companyid.HasValue ?
+            new ObjectParameter("companyid", companyid) :
+            new ObjectParameter("companyid", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderMasterMobileGet_Result>("usp_CylinderMasterMobileGet", branchidParameter, companyidParameter);
     }
 
 }
