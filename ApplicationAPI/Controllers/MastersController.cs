@@ -358,7 +358,7 @@ namespace ApplicationAPI.Controllers
                         }
 
                         String[] lines = { "sucess sb string" };
-                        File.WriteAllLines(@"D:\IndoGhana\API\log.txt", lines);
+                  //      File.WriteAllLines(@"D:\IndoGhana\API\log.txt", lines);
 
                 Err.ErrorLog("PostFileSignature called end");
                 return "1";

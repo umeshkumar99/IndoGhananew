@@ -51,7 +51,7 @@ namespace EmailApplicationSend
             {
                 while (dr.Read())
                 {
-
+                    
                     emailaccount.EAccountID = Convert.ToInt32(dr["EAccountID"].ToString());
                     emailaccount.emailid = dr["emailid"].ToString();
                     emailaccount.password = dr["password"].ToString();
@@ -101,7 +101,7 @@ namespace EmailApplicationSend
                             MailMessage mail = new MailMessage();
                           //  Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
 
-
+                            
                             System.Windows.Forms.Application.DoEvents();
 
                             label1.Text = "Processing Email Id:" + dr["EmailTo"].ToString();
@@ -200,7 +200,7 @@ namespace EmailApplicationSend
                             }
                             EmailSuccess(MessageID);
 
-                            System.Threading.Thread.Sleep(3000);
+                            System.Threading.Thread.Sleep(61000);
 
                         }
                     }
