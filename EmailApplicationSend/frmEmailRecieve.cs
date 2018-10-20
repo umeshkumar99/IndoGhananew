@@ -66,26 +66,30 @@ namespace EmailApplicationSend
         }
 
 
-        private void InsertEmailMessages(string Subject, DateTime DateSent, string MessageFrom, string EmailBody)
+        private void InsertEmailMessages(string MessageNum,string Subject, DateTime DateSent, string MessageFrom, string EmailBody)
         {
 
 
-
-
-            string connStr = ConfigurationManager.ConnectionStrings["IndoGhanaConnectionString"].ToString();
+            try {
+                if (MessageNum == null) MessageNum = "NA";
+                if (Subject == null) Subject = "No Subject ";
+                if (EmailBody == null) EmailBody = "No Content";
+                string connStr = ConfigurationManager.ConnectionStrings["IndoGhanaConnectionString"].ToString();
             SqlConnection conn = new SqlConnection(connStr);
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
             SqlCommand cmd = new SqlCommand("usp_EmailIncomingMessagesInsert", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandTimeout = 0;
-            SqlParameter para1 = new SqlParameter("Subject", Subject);
-            SqlParameter para2 = new SqlParameter("DateSent", DateSent);
-            SqlParameter para3 = new SqlParameter("MessageFrom", MessageFrom);
-            SqlParameter para4 = new SqlParameter("EmailBody", EmailBody);
-            SqlParameter para5 = new SqlParameter("CreatedBy", 1);
-            SqlParameter para6 = new SqlParameter("BranchID", 1);
-            SqlParameter para7 = new SqlParameter("CompanyID", 1);
+                
+                    SqlParameter para1 = new SqlParameter("MessageNum", MessageNum);
+                SqlParameter para2 = new SqlParameter("Subject", Subject);
+            SqlParameter para3 = new SqlParameter("DateSent", DateSent);
+            SqlParameter para4 = new SqlParameter("MessageFrom", MessageFrom);
+            SqlParameter para5 = new SqlParameter("EmailBody", EmailBody);
+            SqlParameter para6 = new SqlParameter("CreatedBy", 1);
+            SqlParameter para7 = new SqlParameter("BranchID", 1);
+            SqlParameter para8 = new SqlParameter("CompanyID", 1);
             cmd.Parameters.Add(para1);
             cmd.Parameters.Add(para2);
             cmd.Parameters.Add(para3);
@@ -93,12 +97,14 @@ namespace EmailApplicationSend
             cmd.Parameters.Add(para5);
             cmd.Parameters.Add(para6);
             cmd.Parameters.Add(para7);
-            int iRowCount = cmd.ExecuteNonQuery();
+                cmd.Parameters.Add(para8);
+                int iRowCount = cmd.ExecuteNonQuery();
             //if (iRowCount > 0)
             //    MessageBox("");
             if (conn.State == ConnectionState.Open)
                 conn.Close();
-
+            }
+            catch (Exception ex) { throw ex; }
         }
         private void frmEmailRecieve_Load(object sender, EventArgs e)
         {
@@ -109,65 +115,75 @@ namespace EmailApplicationSend
         public void ReadMail()
         {
 
-            Pop3Client pop3Client;
 
-                pop3Client = new Pop3Client();
-                pop3Client.Connect(emailaccount.POP3, Convert.ToInt32(emailaccount.POP3port), emailaccount.IsSecured);
-                pop3Client.Authenticate(emailaccount.emailid, emailaccount.password);
+        try {
 
+                Pop3Client pop3Client;
 
-                int count = pop3Client.GetMessageCount();
-                var Emails = new List<POPEmail>();
-                int counter = 0;
-                for (int i = count; i >= 1; i--)
-                {
-                    OpenPop.Mime.Message message = pop3Client.GetMessage(i);
-                    POPEmail email = new POPEmail()
-                    {
-                        MessageNumber = i,
-                       
-                        Subject = message.Headers.Subject,
-                        DateSent = message.Headers.DateSent,
-                        From = string.Format("<a href = 'mailto:{1}'>{0}</a>", message.Headers.From.DisplayName, message.Headers.From.Address),
-                    };
-                    MessagePart body = message.FindFirstHtmlVersion();
-                    if (body != null)
-                    {
-                        email.Body = body.GetBodyAsText();
-                    }
-                    else
-                    {
-                        body = message.FindFirstPlainTextVersion();
-                        if (body != null)
-                        {
-                            email.Body = body.GetBodyAsText();
-                        }
-                    }
-                    List<MessagePart> attachments = message.FindAllAttachments();
+                            pop3Client = new Pop3Client();
+                            pop3Client.Connect(emailaccount.POP3, Convert.ToInt32(emailaccount.POP3port), emailaccount.IsSecured);
+                            pop3Client.Authenticate(emailaccount.emailid, emailaccount.password);
 
-                    foreach (MessagePart attachment in attachments)
-                    {
-                        email.Attachments.Add(new Attachment
-                        {
-                            FileName = attachment.FileName,
-                            ContentType = attachment.ContentType.MediaType,
-                            Content = attachment.Body
-                        });
-                    }
-                    InsertEmailMessages(email.Subject, email.DateSent, email.From, email.Body);
-                    Emails.Add(email);
-                    counter++;
-                    //if (counter > 2)
-                    //{
-                    //    break;
-                    //}
-                }
-                var emails = Emails;
+               // int MessageNum;
+                            int count = pop3Client.GetMessageCount();
+                            var Emails = new List<POPEmail>();
+                            int counter = 0;
+                            for (int i = count; i >= 1; i--)
+                            {
+                                OpenPop.Mime.Message message = pop3Client.GetMessage(i);
+                                POPEmail email = new POPEmail()
+                                {
+                                   // MessageNumber = i,
+                                    MessageNumber=  message.Headers.MessageId,
+                                    //MessageNum=MessageNumber,
+                                    Subject = message.Headers.Subject,
+                                    DateSent = message.Headers.DateSent,
+                                    From= message.Headers.From.Address,
+                                    //From = string.Format("<a href = 'mailto:{1}'>{0}</a>", message.Headers.From.DisplayName, message.Headers.From.Address),
+                                };
+                                MessagePart body = message.FindFirstHtmlVersion();
+                                if (body != null)
+                                {
+                                    email.Body = body.GetBodyAsText();
+                                }
+                                else
+                                {
+                                    body = message.FindFirstPlainTextVersion();
+                                    if (body != null)
+                                    {
+                                        email.Body = body.GetBodyAsText();
+                                    }
+                                }
+                                List<MessagePart> attachments = message.FindAllAttachments();
 
+                                foreach (MessagePart attachment in attachments)
+                                {
+                                    email.Attachments.Add(new Attachment
+                                    {
+                                        FileName = attachment.FileName,
+                                        ContentType = attachment.ContentType.MediaType,
+                                        Content = attachment.Body
+                                    });
+                                }
+                                InsertEmailMessages(email.MessageNumber, email.Subject, email.DateSent, email.From, email.Body);
+                                Emails.Add(email);
+                                counter++;
+                                //if (counter > 2)
+                                //{
+                                //    break;
+                                //}
+                            }
+                            var emails = Emails;
             }
+            catch (Exception ex) { throw ex; }
+        }
             
             }
-    }
+
+
+
+
+}
 
     public class EmailPopUpaccount
     {
@@ -187,7 +203,7 @@ namespace EmailApplicationSend
         {
             this.Attachments = new List<Attachment>();
         }
-        public int MessageNumber { get; set; }
+        public string MessageNumber { get; set; }
         //[AllowHtml]
         public string From { get; set; }
         //[AllowHtml]
@@ -205,4 +221,4 @@ namespace EmailApplicationSend
         public string ContentType { get; set; }
         public byte[] Content { get; set; }
     }
-}
+
