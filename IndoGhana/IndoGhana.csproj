@@ -387,6 +387,8 @@
     <Folder Include="Areas\Masters\Views\Shared\" />
     <Folder Include="Images\Barcode\" />
     <Folder Include="Images\ClientSignature\" />
+    <Folder Include="Images\VanLoad\" />
+    <Folder Include="Images\VanOffload\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -410,6 +412,7 @@
     <EmbeddedResource Include="Reports\CylinderDetailReport.rdlc" />
     <EmbeddedResource Include="Reports\CylinderDetails.rdlc" />
     <EmbeddedResource Include="Reports\CylinderExpiryReport.rdlc" />
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\TransactionDetails.rdlc" />
     <EmbeddedResource Include="Reports\TransactionDetailsRefill.rdlc" />
   </ItemGroup>

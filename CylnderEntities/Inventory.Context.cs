@@ -773,28 +773,6 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual ObjectResult<USP_GetUserDetails_Result> USP_GetUserDetails(string loginId, string password, string phone)
-    {
-
-        var loginIdParameter = loginId != null ?
-            new ObjectParameter("LoginId", loginId) :
-            new ObjectParameter("LoginId", typeof(string));
-
-
-        var passwordParameter = password != null ?
-            new ObjectParameter("Password", password) :
-            new ObjectParameter("Password", typeof(string));
-
-
-        var phoneParameter = phone != null ?
-            new ObjectParameter("Phone", phone) :
-            new ObjectParameter("Phone", typeof(string));
-
-
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetUserDetails_Result>("USP_GetUserDetails", loginIdParameter, passwordParameter, phoneParameter);
-    }
-
-
     public virtual int usp_UpdateLogoutTime(Nullable<long> logId, string machineIP)
     {
 
@@ -1837,6 +1815,35 @@ public partial class IndoGhanaEntities : DbContext
 
 
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_CylinderMasterMobileGet_Result>("usp_CylinderMasterMobileGet", branchidParameter, companyidParameter);
+    }
+
+
+    public virtual ObjectResult<usp_ManufacturerList_Result> usp_ManufacturerList()
+    {
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ManufacturerList_Result>("usp_ManufacturerList");
+    }
+
+
+    public virtual ObjectResult<USP_GetUserDetails_Result> USP_GetUserDetails(string loginId, string password, string phone)
+    {
+
+        var loginIdParameter = loginId != null ?
+            new ObjectParameter("LoginId", loginId) :
+            new ObjectParameter("LoginId", typeof(string));
+
+
+        var passwordParameter = password != null ?
+            new ObjectParameter("Password", password) :
+            new ObjectParameter("Password", typeof(string));
+
+
+        var phoneParameter = phone != null ?
+            new ObjectParameter("Phone", phone) :
+            new ObjectParameter("Phone", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetUserDetails_Result>("USP_GetUserDetails", loginIdParameter, passwordParameter, phoneParameter);
     }
 
 }

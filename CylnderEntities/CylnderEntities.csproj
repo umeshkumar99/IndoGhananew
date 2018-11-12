@@ -195,6 +195,9 @@
     <Compile Include="USP_GetUserDetails_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_ManufacturerList_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_ManufacturerMasterGetByID_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>

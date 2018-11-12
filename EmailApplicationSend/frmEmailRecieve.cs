@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
@@ -135,6 +130,7 @@ namespace EmailApplicationSend
                                 {
                                    // MessageNumber = i,
                                     MessageNumber=  message.Headers.MessageId,
+                                   // message.Headers.Received.
                                     //MessageNum=MessageNumber,
                                     Subject = message.Headers.Subject,
                                     DateSent = message.Headers.DateSent,
@@ -175,7 +171,9 @@ namespace EmailApplicationSend
                             }
                             var emails = Emails;
             }
-            catch (Exception ex) { throw ex; }
+            catch (Exception ex) {
+             //   continue;
+                throw ex; }
         }
             
             }

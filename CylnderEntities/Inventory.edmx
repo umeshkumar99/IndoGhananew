@@ -220,6 +220,7 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="Password" Type="varchar" Mode="In" />
           <Parameter Name="Phone" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_ManufacturerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ManufacturerMasterGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ManufacturerMasterGetByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ManufacturerID" Type="int" Mode="In" />
@@ -659,11 +660,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <FunctionImport Name="usp_VendorBranchMasterGet" ReturnType="Collection(IndoGhanaModel.usp_VendorBranchMasterGet_Result)">
           <Parameter Name="VendorID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="USP_GetUserDetails" ReturnType="Collection(IndoGhanaModel.USP_GetUserDetails_Result)">
-            <Parameter Name="LoginId" Mode="In" Type="String" />
-            <Parameter Name="Password" Mode="In" Type="String" />
-            <Parameter Name="Phone" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="usp_UpdateLogoutTime">
             <Parameter Name="LogId" Mode="In" Type="Int64" />
             <Parameter Name="machineIP" Mode="In" Type="String" />
@@ -891,6 +887,12 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <FunctionImport Name="usp_CylinderMasterMobileGet" ReturnType="Collection(IndoGhanaModel.usp_CylinderMasterMobileGet_Result)">
             <Parameter Name="branchid" Mode="In" Type="Int32" />
             <Parameter Name="companyid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ManufacturerList" ReturnType="Collection(IndoGhanaModel.usp_ManufacturerList_Result)" />
+          <FunctionImport Name="USP_GetUserDetails" ReturnType="Collection(IndoGhanaModel.USP_GetUserDetails_Result)">
+            <Parameter Name="LoginId" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -1121,27 +1123,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="String" Name="Updatedby" Nullable="true" MaxLength="100" />
           <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
           <Property Type="Boolean" Name="status" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="USP_GetUserDetails_Result">
-          <Property Type="Int32" Name="USer_Id" Nullable="false" />
-          <Property Type="String" Name="USer_Name" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="Contact_Number" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="IMIE1" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="IMIE2" Nullable="true" MaxLength="20" />
-          <Property Type="String" Name="Login_Id" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
-          <Property Type="Int32" Name="Company_Id" Nullable="true" />
-          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="100" />
-          <Property Type="Int32" Name="Branch_Id" Nullable="true" />
-          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="VersionID" Nullable="false" />
-          <Property Type="String" Name="VersionNo" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="LoggedIn" Nullable="false" />
-          <Property Type="Int32" Name="VehicleID" Nullable="true" />
-          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="ForDate" Nullable="true" MaxLength="8000" />
-          <Property Type="Int64" Name="logid" Nullable="true" />
         </ComplexType>
         <ComplexType Name="usp_CylinderMasterGetbyBarCode_Result">
           <Property Type="Int32" Name="CylinderID" Nullable="false" />
@@ -1554,6 +1535,31 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="String" Name="BarcodeImage" Nullable="true" MaxLength="554" />
           <Property Type="Int32" Name="IsPrintDone" Nullable="true" />
         </ComplexType>
+        <ComplexType Name="usp_ManufacturerList_Result">
+          <Property Type="Int32" Name="ManufacturerID" Nullable="false" />
+          <Property Type="String" Name="ManufacturerName" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="USP_GetUserDetails_Result">
+          <Property Type="Int32" Name="USer_Id" Nullable="false" />
+          <Property Type="String" Name="USer_Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Email" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Contact_Number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IMIE1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="IMIE2" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Login_Id" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ApplicationID" Nullable="false" />
+          <Property Type="Int32" Name="Company_Id" Nullable="true" />
+          <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Branch_Id" Nullable="true" />
+          <Property Type="String" Name="BranchName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="VersionID" Nullable="false" />
+          <Property Type="String" Name="VersionNo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="LoggedIn" Nullable="false" />
+          <Property Type="Int32" Name="VehicleID" Nullable="true" />
+          <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ForDate" Nullable="true" MaxLength="8000" />
+          <Property Type="Int64" Name="logid" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1879,31 +1885,6 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
                 <ScalarProperty Name="Updatedby" ColumnName="Updatedby" />
                 <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
                 <ScalarProperty Name="status" ColumnName="status" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="USP_GetUserDetails" FunctionName="IndoGhanaModel.Store.USP_GetUserDetails">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="IndoGhanaModel.USP_GetUserDetails_Result">
-                <ScalarProperty Name="USer_Id" ColumnName="USer_Id" />
-                <ScalarProperty Name="USer_Name" ColumnName="USer_Name" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
-                <ScalarProperty Name="IMIE1" ColumnName="IMIE1" />
-                <ScalarProperty Name="IMIE2" ColumnName="IMIE2" />
-                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
-                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
-                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="Branch_Id" ColumnName="Branch_Id" />
-                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
-                <ScalarProperty Name="VersionID" ColumnName="VersionID" />
-                <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
-                <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
-                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
-                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
-                <ScalarProperty Name="ForDate" ColumnName="ForDate" />
-                <ScalarProperty Name="logid" ColumnName="logid" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2398,6 +2379,39 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
                 <ScalarProperty Name="UpdatedByID" ColumnName="UpdatedByID" />
                 <ScalarProperty Name="BarcodeImage" ColumnName="BarcodeImage" />
                 <ScalarProperty Name="IsPrintDone" ColumnName="IsPrintDone" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ManufacturerList" FunctionName="IndoGhanaModel.Store.usp_ManufacturerList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_ManufacturerList_Result">
+                <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+                <ScalarProperty Name="ManufacturerName" ColumnName="ManufacturerName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_GetUserDetails" FunctionName="IndoGhanaModel.Store.USP_GetUserDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.USP_GetUserDetails_Result">
+                <ScalarProperty Name="USer_Id" ColumnName="USer_Id" />
+                <ScalarProperty Name="USer_Name" ColumnName="USer_Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Contact_Number" ColumnName="Contact_Number" />
+                <ScalarProperty Name="IMIE1" ColumnName="IMIE1" />
+                <ScalarProperty Name="IMIE2" ColumnName="IMIE2" />
+                <ScalarProperty Name="Login_Id" ColumnName="Login_Id" />
+                <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+                <ScalarProperty Name="Company_Id" ColumnName="Company_Id" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Branch_Id" ColumnName="Branch_Id" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="VersionID" ColumnName="VersionID" />
+                <ScalarProperty Name="VersionNo" ColumnName="VersionNo" />
+                <ScalarProperty Name="LoggedIn" ColumnName="LoggedIn" />
+                <ScalarProperty Name="VehicleID" ColumnName="VehicleID" />
+                <ScalarProperty Name="VehicleNumber" ColumnName="VehicleNumber" />
+                <ScalarProperty Name="ForDate" ColumnName="ForDate" />
+                <ScalarProperty Name="logid" ColumnName="logid" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
