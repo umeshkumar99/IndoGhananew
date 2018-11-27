@@ -120,6 +120,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Inventory.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AlertMessageTrackModel.cs" />
     <Compile Include="Models\BatchStartEnd.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerSiteMaster.cs" />

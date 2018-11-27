@@ -33,6 +33,27 @@ namespace ApplicationAPI.Controllers
             }
 
         }
+
+        public int MobileWarningMsgInsert(AlertMessageTrackModel alertMessageTrackModel)
+        {
+
+            try
+            {
+                InventoryEntities.usp_MobileWarningMsgInsert(              alertMessageTrackModel.TransactionMode,       alertMessageTrackModel.CylinderNumber,
+   alertMessageTrackModel.DateTime,       alertMessageTrackModel.CompanyID,
+       alertMessageTrackModel.BranchID,        alertMessageTrackModel.UserID,
+           alertMessageTrackModel.CurrentCustomerBranchID,         alertMessageTrackModel.CustomerName,
+           alertMessageTrackModel.MessageDescription,      alertMessageTrackModel.MessageLocation
+
+
+                    );
+                return 1;
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+        }
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };

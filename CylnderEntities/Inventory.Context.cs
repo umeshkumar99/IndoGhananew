@@ -1846,6 +1846,63 @@ public partial class IndoGhanaEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetUserDetails_Result>("USP_GetUserDetails", loginIdParameter, passwordParameter, phoneParameter);
     }
 
+
+    public virtual int usp_MobileWarningMsgInsert(Nullable<int> transactionMode, string cylinderNumber, string dateTimes, Nullable<int> companyID, Nullable<int> branchID, Nullable<int> userID, Nullable<int> currentCustomerBranchID, string customerName, string messageDescription, string messageLocation)
+    {
+
+        var transactionModeParameter = transactionMode.HasValue ?
+            new ObjectParameter("TransactionMode", transactionMode) :
+            new ObjectParameter("TransactionMode", typeof(int));
+
+
+        var cylinderNumberParameter = cylinderNumber != null ?
+            new ObjectParameter("CylinderNumber", cylinderNumber) :
+            new ObjectParameter("CylinderNumber", typeof(string));
+
+
+        var dateTimesParameter = dateTimes != null ?
+            new ObjectParameter("DateTimes", dateTimes) :
+            new ObjectParameter("DateTimes", typeof(string));
+
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var userIDParameter = userID.HasValue ?
+            new ObjectParameter("UserID", userID) :
+            new ObjectParameter("UserID", typeof(int));
+
+
+        var currentCustomerBranchIDParameter = currentCustomerBranchID.HasValue ?
+            new ObjectParameter("CurrentCustomerBranchID", currentCustomerBranchID) :
+            new ObjectParameter("CurrentCustomerBranchID", typeof(int));
+
+
+        var customerNameParameter = customerName != null ?
+            new ObjectParameter("CustomerName", customerName) :
+            new ObjectParameter("CustomerName", typeof(string));
+
+
+        var messageDescriptionParameter = messageDescription != null ?
+            new ObjectParameter("MessageDescription", messageDescription) :
+            new ObjectParameter("MessageDescription", typeof(string));
+
+
+        var messageLocationParameter = messageLocation != null ?
+            new ObjectParameter("MessageLocation", messageLocation) :
+            new ObjectParameter("MessageLocation", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_MobileWarningMsgInsert", transactionModeParameter, cylinderNumberParameter, dateTimesParameter, companyIDParameter, branchIDParameter, userIDParameter, currentCustomerBranchIDParameter, customerNameParameter, messageDescriptionParameter, messageLocationParameter);
+    }
+
 }
 
 }

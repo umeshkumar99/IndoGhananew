@@ -237,6 +237,18 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="UpdateBy" Type="int" Mode="In" />
           <Parameter Name="status" Type="bit" Mode="In" />
         </Function>
+        <Function Name="usp_MobileWarningMsgInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionMode" Type="int" Mode="In" />
+          <Parameter Name="CylinderNumber" Type="varchar" Mode="In" />
+          <Parameter Name="DateTimes" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="CurrentCustomerBranchID" Type="int" Mode="In" />
+          <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+          <Parameter Name="MessageDescription" Type="varchar" Mode="In" />
+          <Parameter Name="MessageLocation" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_tblBatchStartEndInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VanBatchNumber" Type="varchar" Mode="In" />
           <Parameter Name="BatchStartDateTime" Type="varchar" Mode="In" />
@@ -893,6 +905,18 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="LoginId" Mode="In" Type="String" />
             <Parameter Name="Password" Mode="In" Type="String" />
             <Parameter Name="Phone" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_MobileWarningMsgInsert">
+            <Parameter Name="TransactionMode" Mode="In" Type="Int32" />
+            <Parameter Name="CylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="DateTimes" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="MessageDescription" Mode="In" Type="String" />
+            <Parameter Name="MessageLocation" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -2415,6 +2439,7 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_MobileWarningMsgInsert" FunctionName="IndoGhanaModel.Store.usp_MobileWarningMsgInsert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
