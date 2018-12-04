@@ -40,6 +40,8 @@ namespace IndoGhana.Reports {
         
         private usp_CylinderExpiryReportDataTable tableusp_CylinderExpiryReport;
         
+        private usp_MobileWarningMsgreportGetDataTable tableusp_MobileWarningMsgreportGet;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -91,6 +93,9 @@ namespace IndoGhana.Reports {
                 }
                 if ((ds.Tables["usp_CylinderExpiryReport"] != null)) {
                     base.Tables.Add(new usp_CylinderExpiryReportDataTable(ds.Tables["usp_CylinderExpiryReport"]));
+                }
+                if ((ds.Tables["usp_MobileWarningMsgreportGet"] != null)) {
+                    base.Tables.Add(new usp_MobileWarningMsgreportGetDataTable(ds.Tables["usp_MobileWarningMsgreportGet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -192,6 +197,16 @@ namespace IndoGhana.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public usp_MobileWarningMsgreportGetDataTable usp_MobileWarningMsgreportGet {
+            get {
+                return this.tableusp_MobileWarningMsgreportGet;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -281,6 +296,9 @@ namespace IndoGhana.Reports {
                 if ((ds.Tables["usp_CylinderExpiryReport"] != null)) {
                     base.Tables.Add(new usp_CylinderExpiryReportDataTable(ds.Tables["usp_CylinderExpiryReport"]));
                 }
+                if ((ds.Tables["usp_MobileWarningMsgreportGet"] != null)) {
+                    base.Tables.Add(new usp_MobileWarningMsgreportGetDataTable(ds.Tables["usp_MobileWarningMsgreportGet"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -362,6 +380,12 @@ namespace IndoGhana.Reports {
                     this.tableusp_CylinderExpiryReport.InitVars();
                 }
             }
+            this.tableusp_MobileWarningMsgreportGet = ((usp_MobileWarningMsgreportGetDataTable)(base.Tables["usp_MobileWarningMsgreportGet"]));
+            if ((initTable == true)) {
+                if ((this.tableusp_MobileWarningMsgreportGet != null)) {
+                    this.tableusp_MobileWarningMsgreportGet.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -388,6 +412,8 @@ namespace IndoGhana.Reports {
             base.Tables.Add(this.tableusp_CylinderAgeAnalysisReport);
             this.tableusp_CylinderExpiryReport = new usp_CylinderExpiryReportDataTable();
             base.Tables.Add(this.tableusp_CylinderExpiryReport);
+            this.tableusp_MobileWarningMsgreportGet = new usp_MobileWarningMsgreportGetDataTable();
+            base.Tables.Add(this.tableusp_MobileWarningMsgreportGet);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +461,12 @@ namespace IndoGhana.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeusp_CylinderExpiryReport() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeusp_MobileWarningMsgreportGet() {
             return false;
         }
         
@@ -516,6 +548,9 @@ namespace IndoGhana.Reports {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void usp_CylinderExpiryReportRowChangeEventHandler(object sender, usp_CylinderExpiryReportRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void usp_MobileWarningMsgreportGetRowChangeEventHandler(object sender, usp_MobileWarningMsgreportGetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -4251,6 +4286,343 @@ namespace IndoGhana.Reports {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class usp_MobileWarningMsgreportGetDataTable : global::System.Data.TypedTableBase<usp_MobileWarningMsgreportGetRow> {
+            
+            private global::System.Data.DataColumn columnTransactionMode;
+            
+            private global::System.Data.DataColumn columnCylinderNumber;
+            
+            private global::System.Data.DataColumn columnDateTimes;
+            
+            private global::System.Data.DataColumn columnCustomerName;
+            
+            private global::System.Data.DataColumn columnMessageDescription;
+            
+            private global::System.Data.DataColumn columnMessageLocation;
+            
+            private global::System.Data.DataColumn columnCreatedOn;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetDataTable() {
+                this.TableName = "usp_MobileWarningMsgreportGet";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_MobileWarningMsgreportGetDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected usp_MobileWarningMsgreportGetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TransactionModeColumn {
+                get {
+                    return this.columnTransactionMode;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CylinderNumberColumn {
+                get {
+                    return this.columnCylinderNumber;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateTimesColumn {
+                get {
+                    return this.columnDateTimes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CustomerNameColumn {
+                get {
+                    return this.columnCustomerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MessageDescriptionColumn {
+                get {
+                    return this.columnMessageDescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MessageLocationColumn {
+                get {
+                    return this.columnMessageLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CreatedOnColumn {
+                get {
+                    return this.columnCreatedOn;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetRow this[int index] {
+                get {
+                    return ((usp_MobileWarningMsgreportGetRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_MobileWarningMsgreportGetRowChangeEventHandler usp_MobileWarningMsgreportGetRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_MobileWarningMsgreportGetRowChangeEventHandler usp_MobileWarningMsgreportGetRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_MobileWarningMsgreportGetRowChangeEventHandler usp_MobileWarningMsgreportGetRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event usp_MobileWarningMsgreportGetRowChangeEventHandler usp_MobileWarningMsgreportGetRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Addusp_MobileWarningMsgreportGetRow(usp_MobileWarningMsgreportGetRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetRow Addusp_MobileWarningMsgreportGetRow(int TransactionMode, string CylinderNumber, string DateTimes, string CustomerName, string MessageDescription, string MessageLocation, System.DateTime CreatedOn) {
+                usp_MobileWarningMsgreportGetRow rowusp_MobileWarningMsgreportGetRow = ((usp_MobileWarningMsgreportGetRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        TransactionMode,
+                        CylinderNumber,
+                        DateTimes,
+                        CustomerName,
+                        MessageDescription,
+                        MessageLocation,
+                        CreatedOn};
+                rowusp_MobileWarningMsgreportGetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowusp_MobileWarningMsgreportGetRow);
+                return rowusp_MobileWarningMsgreportGetRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                usp_MobileWarningMsgreportGetDataTable cln = ((usp_MobileWarningMsgreportGetDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new usp_MobileWarningMsgreportGetDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnTransactionMode = base.Columns["TransactionMode"];
+                this.columnCylinderNumber = base.Columns["CylinderNumber"];
+                this.columnDateTimes = base.Columns["DateTimes"];
+                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnMessageDescription = base.Columns["MessageDescription"];
+                this.columnMessageLocation = base.Columns["MessageLocation"];
+                this.columnCreatedOn = base.Columns["CreatedOn"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnTransactionMode = new global::System.Data.DataColumn("TransactionMode", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransactionMode);
+                this.columnCylinderNumber = new global::System.Data.DataColumn("CylinderNumber", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCylinderNumber);
+                this.columnDateTimes = new global::System.Data.DataColumn("DateTimes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTimes);
+                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerName);
+                this.columnMessageDescription = new global::System.Data.DataColumn("MessageDescription", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMessageDescription);
+                this.columnMessageLocation = new global::System.Data.DataColumn("MessageLocation", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMessageLocation);
+                this.columnCreatedOn = new global::System.Data.DataColumn("CreatedOn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedOn);
+                this.columnCylinderNumber.MaxLength = 50;
+                this.columnDateTimes.MaxLength = 50;
+                this.columnCustomerName.ReadOnly = true;
+                this.columnCustomerName.MaxLength = 402;
+                this.columnMessageDescription.MaxLength = 500;
+                this.columnMessageLocation.MaxLength = 100;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetRow Newusp_MobileWarningMsgreportGetRow() {
+                return ((usp_MobileWarningMsgreportGetRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new usp_MobileWarningMsgreportGetRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(usp_MobileWarningMsgreportGetRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.usp_MobileWarningMsgreportGetRowChanged != null)) {
+                    this.usp_MobileWarningMsgreportGetRowChanged(this, new usp_MobileWarningMsgreportGetRowChangeEvent(((usp_MobileWarningMsgreportGetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.usp_MobileWarningMsgreportGetRowChanging != null)) {
+                    this.usp_MobileWarningMsgreportGetRowChanging(this, new usp_MobileWarningMsgreportGetRowChangeEvent(((usp_MobileWarningMsgreportGetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.usp_MobileWarningMsgreportGetRowDeleted != null)) {
+                    this.usp_MobileWarningMsgreportGetRowDeleted(this, new usp_MobileWarningMsgreportGetRowChangeEvent(((usp_MobileWarningMsgreportGetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.usp_MobileWarningMsgreportGetRowDeleting != null)) {
+                    this.usp_MobileWarningMsgreportGetRowDeleting(this, new usp_MobileWarningMsgreportGetRowChangeEvent(((usp_MobileWarningMsgreportGetRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Removeusp_MobileWarningMsgreportGetRow(usp_MobileWarningMsgreportGetRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                MainDataSetReports ds = new MainDataSetReports();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "usp_MobileWarningMsgreportGetDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class usp_CylinderCountRow : global::System.Data.DataRow {
@@ -7716,6 +8088,224 @@ namespace IndoGhana.Reports {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class usp_MobileWarningMsgreportGetRow : global::System.Data.DataRow {
+            
+            private usp_MobileWarningMsgreportGetDataTable tableusp_MobileWarningMsgreportGet;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal usp_MobileWarningMsgreportGetRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableusp_MobileWarningMsgreportGet = ((usp_MobileWarningMsgreportGetDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TransactionMode {
+                get {
+                    try {
+                        return ((int)(this[this.tableusp_MobileWarningMsgreportGet.TransactionModeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionMode\' in table \'usp_MobileWarningMsgreportGet\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.TransactionModeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CylinderNumber {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_MobileWarningMsgreportGet.CylinderNumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CylinderNumber\' in table \'usp_MobileWarningMsgreportGet\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.CylinderNumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DateTimes {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_MobileWarningMsgreportGet.DateTimesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateTimes\' in table \'usp_MobileWarningMsgreportGet\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.DateTimesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CustomerName {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_MobileWarningMsgreportGet.CustomerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'usp_MobileWarningMsgreportGet\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.CustomerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MessageDescription {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_MobileWarningMsgreportGet.MessageDescriptionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MessageDescription\' in table \'usp_MobileWarningMsgreportGet" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.MessageDescriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MessageLocation {
+                get {
+                    try {
+                        return ((string)(this[this.tableusp_MobileWarningMsgreportGet.MessageLocationColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MessageLocation\' in table \'usp_MobileWarningMsgreportGet\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.MessageLocationColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CreatedOn {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableusp_MobileWarningMsgreportGet.CreatedOnColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedOn\' in table \'usp_MobileWarningMsgreportGet\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableusp_MobileWarningMsgreportGet.CreatedOnColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTransactionModeNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.TransactionModeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransactionModeNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.TransactionModeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCylinderNumberNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.CylinderNumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCylinderNumberNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.CylinderNumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateTimesNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.DateTimesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateTimesNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.DateTimesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomerNameNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.CustomerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomerNameNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.CustomerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMessageDescriptionNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.MessageDescriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMessageDescriptionNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.MessageDescriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMessageLocationNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.MessageLocationColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMessageLocationNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.MessageLocationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreatedOnNull() {
+                return this.IsNull(this.tableusp_MobileWarningMsgreportGet.CreatedOnColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreatedOnNull() {
+                this[this.tableusp_MobileWarningMsgreportGet.CreatedOnColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -7973,6 +8563,40 @@ namespace IndoGhana.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public usp_CylinderExpiryReportRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class usp_MobileWarningMsgreportGetRowChangeEvent : global::System.EventArgs {
+            
+            private usp_MobileWarningMsgreportGetRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetRowChangeEvent(usp_MobileWarningMsgreportGetRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public usp_MobileWarningMsgreportGetRow Row {
                 get {
                     return this.eventRow;
                 }

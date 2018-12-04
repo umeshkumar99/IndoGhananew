@@ -34,23 +34,28 @@ namespace ApplicationAPI.Controllers
 
         }
 
-        public int MobileWarningMsgInsert(AlertMessageTrackModel alertMessageTrackModel)
+        public int MobileWarningMsgInsert(List<AlertMessageTrackModel> alertMessageTrackModel)
         {
 
             try
             {
-                InventoryEntities.usp_MobileWarningMsgInsert(              alertMessageTrackModel.TransactionMode,       alertMessageTrackModel.CylinderNumber,
-   alertMessageTrackModel.DateTime,       alertMessageTrackModel.CompanyID,
-       alertMessageTrackModel.BranchID,        alertMessageTrackModel.UserID,
-           alertMessageTrackModel.CurrentCustomerBranchID,         alertMessageTrackModel.CustomerName,
-           alertMessageTrackModel.MessageDescription,      alertMessageTrackModel.MessageLocation
-
-
+                int? result = 0;
+                Err.ErrorLog("MobileWarningMsgInsert called");
+                foreach (AlertMessageTrackModel alertMessageTrackModel1 in alertMessageTrackModel)
+                {
+                     InventoryEntities.usp_MobileWarningMsgInsert(alertMessageTrackModel1.TransactionMode, alertMessageTrackModel1.CylinderNumber,
+             alertMessageTrackModel1.DateTime, alertMessageTrackModel1.CompanyID,      alertMessageTrackModel1.BranchID, alertMessageTrackModel1.UserID,
+           alertMessageTrackModel1.CurrentCustomerBranchID, alertMessageTrackModel1.CustomerName,
+           alertMessageTrackModel1.MessageDescription, alertMessageTrackModel1.MessageLocation
                     );
+                }
+
+                Err.ErrorLog("MobileWarningMsgInsert call end");
                 return 1;
             }
             catch(Exception ex)
             {
+                Err.ErrorLog("MobileWarningMsgInsert error");
                 return 0;
             }
         }

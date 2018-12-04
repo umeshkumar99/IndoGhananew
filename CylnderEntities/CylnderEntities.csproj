@@ -205,6 +205,9 @@
     <Compile Include="usp_ManufacturerMasterGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_MobileWarningMsgreportGet_Result.cs">
+      <DependentUpon>Inventory.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_tblCompanyBranchMasterListGet_Result.cs">
       <DependentUpon>Inventory.tt</DependentUpon>
     </Compile>

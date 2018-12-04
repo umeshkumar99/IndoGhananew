@@ -249,6 +249,12 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="MessageDescription" Type="varchar" Mode="In" />
           <Parameter Name="MessageLocation" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="usp_MobileWarningMsgreportGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="startdate" Type="date" Mode="In" />
+          <Parameter Name="enddate" Type="date" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+        </Function>
         <Function Name="usp_tblBatchStartEndInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VanBatchNumber" Type="varchar" Mode="In" />
           <Parameter Name="BatchStartDateTime" Type="varchar" Mode="In" />
@@ -906,7 +912,7 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="Password" Mode="In" Type="String" />
             <Parameter Name="Phone" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_MobileWarningMsgInsert">
+          <FunctionImport Name="usp_MobileWarningMsgInsert" ReturnType="Collection(Int32)">
             <Parameter Name="TransactionMode" Mode="In" Type="Int32" />
             <Parameter Name="CylinderNumber" Mode="In" Type="String" />
             <Parameter Name="DateTimes" Mode="In" Type="String" />
@@ -917,6 +923,12 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="CustomerName" Mode="In" Type="String" />
             <Parameter Name="MessageDescription" Mode="In" Type="String" />
             <Parameter Name="MessageLocation" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_MobileWarningMsgreportGet" ReturnType="Collection(IndoGhanaModel.usp_MobileWarningMsgreportGet_Result)">
+            <Parameter Name="startdate" Mode="In" Type="DateTime" />
+            <Parameter Name="enddate" Mode="In" Type="DateTime" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -1583,6 +1595,15 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Property Type="String" Name="VehicleNumber" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="ForDate" Nullable="true" MaxLength="8000" />
           <Property Type="Int64" Name="logid" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_MobileWarningMsgreportGet_Result">
+          <Property Type="Int32" Name="TransactionMode" Nullable="true" />
+          <Property Type="String" Name="CylinderNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DateTimes" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="402" />
+          <Property Type="String" Name="MessageDescription" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="MessageLocation" Nullable="true" MaxLength="100" />
+          <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2440,6 +2461,19 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_MobileWarningMsgInsert" FunctionName="IndoGhanaModel.Store.usp_MobileWarningMsgInsert" />
+          <FunctionImportMapping FunctionImportName="usp_MobileWarningMsgreportGet" FunctionName="IndoGhanaModel.Store.usp_MobileWarningMsgreportGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IndoGhanaModel.usp_MobileWarningMsgreportGet_Result">
+                <ScalarProperty Name="TransactionMode" ColumnName="TransactionMode" />
+                <ScalarProperty Name="CylinderNumber" ColumnName="CylinderNumber" />
+                <ScalarProperty Name="DateTimes" ColumnName="DateTimes" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="MessageDescription" ColumnName="MessageDescription" />
+                <ScalarProperty Name="MessageLocation" ColumnName="MessageLocation" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

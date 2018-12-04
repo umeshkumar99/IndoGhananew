@@ -1847,7 +1847,7 @@ public partial class IndoGhanaEntities : DbContext
     }
 
 
-    public virtual int usp_MobileWarningMsgInsert(Nullable<int> transactionMode, string cylinderNumber, string dateTimes, Nullable<int> companyID, Nullable<int> branchID, Nullable<int> userID, Nullable<int> currentCustomerBranchID, string customerName, string messageDescription, string messageLocation)
+    public virtual ObjectResult<Nullable<int>> usp_MobileWarningMsgInsert(Nullable<int> transactionMode, string cylinderNumber, string dateTimes, Nullable<int> companyID, Nullable<int> branchID, Nullable<int> userID, Nullable<int> currentCustomerBranchID, string customerName, string messageDescription, string messageLocation)
     {
 
         var transactionModeParameter = transactionMode.HasValue ?
@@ -1900,7 +1900,34 @@ public partial class IndoGhanaEntities : DbContext
             new ObjectParameter("MessageLocation", typeof(string));
 
 
-        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_MobileWarningMsgInsert", transactionModeParameter, cylinderNumberParameter, dateTimesParameter, companyIDParameter, branchIDParameter, userIDParameter, currentCustomerBranchIDParameter, customerNameParameter, messageDescriptionParameter, messageLocationParameter);
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_MobileWarningMsgInsert", transactionModeParameter, cylinderNumberParameter, dateTimesParameter, companyIDParameter, branchIDParameter, userIDParameter, currentCustomerBranchIDParameter, customerNameParameter, messageDescriptionParameter, messageLocationParameter);
+    }
+
+
+    public virtual ObjectResult<usp_MobileWarningMsgreportGet_Result> usp_MobileWarningMsgreportGet(Nullable<System.DateTime> startdate, Nullable<System.DateTime> enddate, Nullable<int> branchID, Nullable<int> companyID)
+    {
+
+        var startdateParameter = startdate.HasValue ?
+            new ObjectParameter("startdate", startdate) :
+            new ObjectParameter("startdate", typeof(System.DateTime));
+
+
+        var enddateParameter = enddate.HasValue ?
+            new ObjectParameter("enddate", enddate) :
+            new ObjectParameter("enddate", typeof(System.DateTime));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_MobileWarningMsgreportGet_Result>("usp_MobileWarningMsgreportGet", startdateParameter, enddateParameter, branchIDParameter, companyIDParameter);
     }
 
 }

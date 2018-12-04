@@ -552,8 +552,93 @@ namespace IndoGhana.Areas.CylinderDetails.Controllers
             }
         }
 
-        
+        [HttpGet]
+        public ActionResult ReportMobileWarningMessages()
+        {
+            try
+            {
 
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                //   USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+
+
+                
+
+                List<usp_MobileWarningMsgreportGet_Result> CylinderList = new List<usp_MobileWarningMsgreportGet_Result>();
+
+                CylinderList = InventoryEntities.usp_MobileWarningMsgreportGet(DateTime.Now.AddDays(-7), DateTime.Now,logindetails.Branch_Id,logindetails.Company_Id).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\MobileWarningMessages.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult ReportMobileWarningMessages(FormCollection frm)
+        {
+            try
+            {
+
+                if (Session["logindetails"] == null)
+                {
+                    Session.Abandon();
+                    return RedirectToAction("Index", "UserLogin", new { area = "Login" });
+                }
+                //   USP_GetUserDetails_Result logindetails;
+                logindetails = (USP_GetUserDetails_Result)Session["logindetails"];
+                CylinderRecieveDeliver cylinderRecieveDeliver = new CylinderRecieveDeliver();
+                TryUpdateModel(cylinderRecieveDeliver);
+                ReportViewer reportview = new ReportViewer();
+                reportview.ProcessingMode = ProcessingMode.Local;
+                reportview.SizeToReportContent = true;
+
+
+
+
+
+                List<usp_MobileWarningMsgreportGet_Result> CylinderList = new List<usp_MobileWarningMsgreportGet_Result>();
+
+                CylinderList = InventoryEntities.usp_MobileWarningMsgreportGet(cylinderRecieveDeliver.StartDate, cylinderRecieveDeliver.EndDate, logindetails.Branch_Id, logindetails.Company_Id).ToList();
+                reportview.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"\Reports\MobileWarningMessages.rdlc";
+                reportview.ShowToolBar = true;
+                reportview.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", CylinderList));
+
+
+                ViewBag.CylinderDetails = reportview;
+
+
+
+                return View();
+
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
         public void Drillthrough(object sender)
         {
 
