@@ -1930,6 +1930,205 @@ public partial class IndoGhanaEntities : DbContext
         return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_MobileWarningMsgreportGet_Result>("usp_MobileWarningMsgreportGet", startdateParameter, enddateParameter, branchIDParameter, companyIDParameter);
     }
 
+
+    public virtual ObjectResult<Nullable<int>> usp_ReceivedCylinderSign(string transactionNumber, string customerSignature, Nullable<int> logid, string forDate, string currentDateTime, Nullable<int> companyID, Nullable<int> branchID, Nullable<int> userID, string sstat, string remarks)
+    {
+
+        var transactionNumberParameter = transactionNumber != null ?
+            new ObjectParameter("TransactionNumber", transactionNumber) :
+            new ObjectParameter("TransactionNumber", typeof(string));
+
+
+        var customerSignatureParameter = customerSignature != null ?
+            new ObjectParameter("CustomerSignature", customerSignature) :
+            new ObjectParameter("CustomerSignature", typeof(string));
+
+
+        var logidParameter = logid.HasValue ?
+            new ObjectParameter("logid", logid) :
+            new ObjectParameter("logid", typeof(int));
+
+
+        var forDateParameter = forDate != null ?
+            new ObjectParameter("ForDate", forDate) :
+            new ObjectParameter("ForDate", typeof(string));
+
+
+        var currentDateTimeParameter = currentDateTime != null ?
+            new ObjectParameter("CurrentDateTime", currentDateTime) :
+            new ObjectParameter("CurrentDateTime", typeof(string));
+
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var userIDParameter = userID.HasValue ?
+            new ObjectParameter("UserID", userID) :
+            new ObjectParameter("UserID", typeof(int));
+
+
+        var sstatParameter = sstat != null ?
+            new ObjectParameter("Sstat", sstat) :
+            new ObjectParameter("Sstat", typeof(string));
+
+
+        var remarksParameter = remarks != null ?
+            new ObjectParameter("Remarks", remarks) :
+            new ObjectParameter("Remarks", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_ReceivedCylinderSign", transactionNumberParameter, customerSignatureParameter, logidParameter, forDateParameter, currentDateTimeParameter, companyIDParameter, branchIDParameter, userIDParameter, sstatParameter, remarksParameter);
+    }
+
+
+    public virtual ObjectResult<Nullable<int>> usp_tblReceivedAllTransactionDetailsInsert(string transactionNumber, Nullable<int> transactionMode, Nullable<int> sourceCylinderID, Nullable<byte> flgSourceBarCodeExists, string sourceBarCodeNumber, string sourceCylinderNumber, Nullable<double> sourceCylinderSize, Nullable<int> targetCylinderID, Nullable<byte> flgTargetBarCodeExists, string targetBarCodeNumber, string targetCylinderNumber, Nullable<double> targetCylinderSize, Nullable<byte> sstat, Nullable<int> customerID, Nullable<int> currentCustomerBranchID, string customerName, string vendorName, string sizeUOM, string presentState, Nullable<int> presentStateID, Nullable<int> locationID, string vanBatchNumber, string transactionDateTime, Nullable<int> companyID, Nullable<int> branchID, Nullable<int> userID, string gasInUse)
+    {
+
+        var transactionNumberParameter = transactionNumber != null ?
+            new ObjectParameter("TransactionNumber", transactionNumber) :
+            new ObjectParameter("TransactionNumber", typeof(string));
+
+
+        var transactionModeParameter = transactionMode.HasValue ?
+            new ObjectParameter("TransactionMode", transactionMode) :
+            new ObjectParameter("TransactionMode", typeof(int));
+
+
+        var sourceCylinderIDParameter = sourceCylinderID.HasValue ?
+            new ObjectParameter("SourceCylinderID", sourceCylinderID) :
+            new ObjectParameter("SourceCylinderID", typeof(int));
+
+
+        var flgSourceBarCodeExistsParameter = flgSourceBarCodeExists.HasValue ?
+            new ObjectParameter("flgSourceBarCodeExists", flgSourceBarCodeExists) :
+            new ObjectParameter("flgSourceBarCodeExists", typeof(byte));
+
+
+        var sourceBarCodeNumberParameter = sourceBarCodeNumber != null ?
+            new ObjectParameter("SourceBarCodeNumber", sourceBarCodeNumber) :
+            new ObjectParameter("SourceBarCodeNumber", typeof(string));
+
+
+        var sourceCylinderNumberParameter = sourceCylinderNumber != null ?
+            new ObjectParameter("SourceCylinderNumber", sourceCylinderNumber) :
+            new ObjectParameter("SourceCylinderNumber", typeof(string));
+
+
+        var sourceCylinderSizeParameter = sourceCylinderSize.HasValue ?
+            new ObjectParameter("SourceCylinderSize", sourceCylinderSize) :
+            new ObjectParameter("SourceCylinderSize", typeof(double));
+
+
+        var targetCylinderIDParameter = targetCylinderID.HasValue ?
+            new ObjectParameter("TargetCylinderID", targetCylinderID) :
+            new ObjectParameter("TargetCylinderID", typeof(int));
+
+
+        var flgTargetBarCodeExistsParameter = flgTargetBarCodeExists.HasValue ?
+            new ObjectParameter("flgTargetBarCodeExists", flgTargetBarCodeExists) :
+            new ObjectParameter("flgTargetBarCodeExists", typeof(byte));
+
+
+        var targetBarCodeNumberParameter = targetBarCodeNumber != null ?
+            new ObjectParameter("TargetBarCodeNumber", targetBarCodeNumber) :
+            new ObjectParameter("TargetBarCodeNumber", typeof(string));
+
+
+        var targetCylinderNumberParameter = targetCylinderNumber != null ?
+            new ObjectParameter("TargetCylinderNumber", targetCylinderNumber) :
+            new ObjectParameter("TargetCylinderNumber", typeof(string));
+
+
+        var targetCylinderSizeParameter = targetCylinderSize.HasValue ?
+            new ObjectParameter("TargetCylinderSize", targetCylinderSize) :
+            new ObjectParameter("TargetCylinderSize", typeof(double));
+
+
+        var sstatParameter = sstat.HasValue ?
+            new ObjectParameter("Sstat", sstat) :
+            new ObjectParameter("Sstat", typeof(byte));
+
+
+        var customerIDParameter = customerID.HasValue ?
+            new ObjectParameter("CustomerID", customerID) :
+            new ObjectParameter("CustomerID", typeof(int));
+
+
+        var currentCustomerBranchIDParameter = currentCustomerBranchID.HasValue ?
+            new ObjectParameter("CurrentCustomerBranchID", currentCustomerBranchID) :
+            new ObjectParameter("CurrentCustomerBranchID", typeof(int));
+
+
+        var customerNameParameter = customerName != null ?
+            new ObjectParameter("CustomerName", customerName) :
+            new ObjectParameter("CustomerName", typeof(string));
+
+
+        var vendorNameParameter = vendorName != null ?
+            new ObjectParameter("VendorName", vendorName) :
+            new ObjectParameter("VendorName", typeof(string));
+
+
+        var sizeUOMParameter = sizeUOM != null ?
+            new ObjectParameter("SizeUOM", sizeUOM) :
+            new ObjectParameter("SizeUOM", typeof(string));
+
+
+        var presentStateParameter = presentState != null ?
+            new ObjectParameter("PresentState", presentState) :
+            new ObjectParameter("PresentState", typeof(string));
+
+
+        var presentStateIDParameter = presentStateID.HasValue ?
+            new ObjectParameter("PresentStateID", presentStateID) :
+            new ObjectParameter("PresentStateID", typeof(int));
+
+
+        var locationIDParameter = locationID.HasValue ?
+            new ObjectParameter("LocationID", locationID) :
+            new ObjectParameter("LocationID", typeof(int));
+
+
+        var vanBatchNumberParameter = vanBatchNumber != null ?
+            new ObjectParameter("VanBatchNumber", vanBatchNumber) :
+            new ObjectParameter("VanBatchNumber", typeof(string));
+
+
+        var transactionDateTimeParameter = transactionDateTime != null ?
+            new ObjectParameter("TransactionDateTime", transactionDateTime) :
+            new ObjectParameter("TransactionDateTime", typeof(string));
+
+
+        var companyIDParameter = companyID.HasValue ?
+            new ObjectParameter("CompanyID", companyID) :
+            new ObjectParameter("CompanyID", typeof(int));
+
+
+        var branchIDParameter = branchID.HasValue ?
+            new ObjectParameter("BranchID", branchID) :
+            new ObjectParameter("BranchID", typeof(int));
+
+
+        var userIDParameter = userID.HasValue ?
+            new ObjectParameter("UserID", userID) :
+            new ObjectParameter("UserID", typeof(int));
+
+
+        var gasInUseParameter = gasInUse != null ?
+            new ObjectParameter("GasInUse", gasInUse) :
+            new ObjectParameter("GasInUse", typeof(string));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_tblReceivedAllTransactionDetailsInsert", transactionNumberParameter, transactionModeParameter, sourceCylinderIDParameter, flgSourceBarCodeExistsParameter, sourceBarCodeNumberParameter, sourceCylinderNumberParameter, sourceCylinderSizeParameter, targetCylinderIDParameter, flgTargetBarCodeExistsParameter, targetBarCodeNumberParameter, targetCylinderNumberParameter, targetCylinderSizeParameter, sstatParameter, customerIDParameter, currentCustomerBranchIDParameter, customerNameParameter, vendorNameParameter, sizeUOMParameter, presentStateParameter, presentStateIDParameter, locationIDParameter, vanBatchNumberParameter, transactionDateTimeParameter, companyIDParameter, branchIDParameter, userIDParameter, gasInUseParameter);
+    }
+
 }
 
 }

@@ -255,6 +255,18 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="BranchID" Type="int" Mode="In" />
           <Parameter Name="CompanyID" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_ReceivedCylinderSign" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionNumber" Type="varchar" Mode="In" />
+          <Parameter Name="CustomerSignature" Type="varchar" Mode="In" />
+          <Parameter Name="logid" Type="int" Mode="In" />
+          <Parameter Name="ForDate" Type="varchar" Mode="In" />
+          <Parameter Name="CurrentDateTime" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="Sstat" Type="varchar" Mode="In" />
+          <Parameter Name="Remarks" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_tblBatchStartEndInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="VanBatchNumber" Type="varchar" Mode="In" />
           <Parameter Name="BatchStartDateTime" Type="varchar" Mode="In" />
@@ -295,6 +307,35 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
           <Parameter Name="UserID" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_tblGroupGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_tblReceivedAllTransactionDetailsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TransactionNumber" Type="varchar" Mode="In" />
+          <Parameter Name="TransactionMode" Type="int" Mode="In" />
+          <Parameter Name="SourceCylinderID" Type="int" Mode="In" />
+          <Parameter Name="flgSourceBarCodeExists" Type="tinyint" Mode="In" />
+          <Parameter Name="SourceBarCodeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="SourceCylinderNumber" Type="varchar" Mode="In" />
+          <Parameter Name="SourceCylinderSize" Type="float" Mode="In" />
+          <Parameter Name="TargetCylinderID" Type="int" Mode="In" />
+          <Parameter Name="flgTargetBarCodeExists" Type="tinyint" Mode="In" />
+          <Parameter Name="TargetBarCodeNumber" Type="varchar" Mode="In" />
+          <Parameter Name="TargetCylinderNumber" Type="varchar" Mode="In" />
+          <Parameter Name="TargetCylinderSize" Type="float" Mode="In" />
+          <Parameter Name="Sstat" Type="tinyint" Mode="In" />
+          <Parameter Name="CustomerID" Type="int" Mode="In" />
+          <Parameter Name="CurrentCustomerBranchID" Type="int" Mode="In" />
+          <Parameter Name="CustomerName" Type="varchar" Mode="In" />
+          <Parameter Name="VendorName" Type="varchar" Mode="In" />
+          <Parameter Name="SizeUOM" Type="varchar" Mode="In" />
+          <Parameter Name="PresentState" Type="varchar" Mode="In" />
+          <Parameter Name="PresentStateID" Type="int" Mode="In" />
+          <Parameter Name="LocationID" Type="int" Mode="In" />
+          <Parameter Name="VanBatchNumber" Type="varchar" Mode="In" />
+          <Parameter Name="TransactionDateTime" Type="varchar" Mode="In" />
+          <Parameter Name="CompanyID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="GasInUse" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="usp_tblStatusMasterGetByType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StatusTypeID" Type="int" Mode="In" />
         </Function>
@@ -929,6 +970,47 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
             <Parameter Name="enddate" Mode="In" Type="DateTime" />
             <Parameter Name="BranchID" Mode="In" Type="Int32" />
             <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ReceivedCylinderSign" ReturnType="Collection(Int32)">
+            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+            <Parameter Name="CustomerSignature" Mode="In" Type="String" />
+            <Parameter Name="logid" Mode="In" Type="Int32" />
+            <Parameter Name="ForDate" Mode="In" Type="String" />
+            <Parameter Name="CurrentDateTime" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="Sstat" Mode="In" Type="String" />
+            <Parameter Name="Remarks" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_tblReceivedAllTransactionDetailsInsert" ReturnType="Collection(Int32)">
+            <Parameter Name="TransactionNumber" Mode="In" Type="String" />
+            <Parameter Name="TransactionMode" Mode="In" Type="Int32" />
+            <Parameter Name="SourceCylinderID" Mode="In" Type="Int32" />
+            <Parameter Name="flgSourceBarCodeExists" Mode="In" Type="Byte" />
+            <Parameter Name="SourceBarCodeNumber" Mode="In" Type="String" />
+            <Parameter Name="SourceCylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="SourceCylinderSize" Mode="In" Type="Double" />
+            <Parameter Name="TargetCylinderID" Mode="In" Type="Int32" />
+            <Parameter Name="flgTargetBarCodeExists" Mode="In" Type="Byte" />
+            <Parameter Name="TargetBarCodeNumber" Mode="In" Type="String" />
+            <Parameter Name="TargetCylinderNumber" Mode="In" Type="String" />
+            <Parameter Name="TargetCylinderSize" Mode="In" Type="Double" />
+            <Parameter Name="Sstat" Mode="In" Type="Byte" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int32" />
+            <Parameter Name="CurrentCustomerBranchID" Mode="In" Type="Int32" />
+            <Parameter Name="CustomerName" Mode="In" Type="String" />
+            <Parameter Name="VendorName" Mode="In" Type="String" />
+            <Parameter Name="SizeUOM" Mode="In" Type="String" />
+            <Parameter Name="PresentState" Mode="In" Type="String" />
+            <Parameter Name="PresentStateID" Mode="In" Type="Int32" />
+            <Parameter Name="LocationID" Mode="In" Type="Int32" />
+            <Parameter Name="VanBatchNumber" Mode="In" Type="String" />
+            <Parameter Name="TransactionDateTime" Mode="In" Type="String" />
+            <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="GasInUse" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_tblStatusMasterGetByType_Result">
@@ -2474,6 +2556,8 @@ warning 6002: The table/view 'IndoGhana.dbo.vwCylinderMaster' does not have a pr
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ReceivedCylinderSign" FunctionName="IndoGhanaModel.Store.usp_ReceivedCylinderSign" />
+          <FunctionImportMapping FunctionImportName="usp_tblReceivedAllTransactionDetailsInsert" FunctionName="IndoGhanaModel.Store.usp_tblReceivedAllTransactionDetailsInsert" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
